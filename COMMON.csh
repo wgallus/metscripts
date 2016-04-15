@@ -24,3 +24,4 @@ set DATE=`date -u +%Y%m%d`
 set DATE2 = `date -u +%Y/%m/%d`
 set hh=`date -u +%H`
 set ddir2 = ${ddir}${DATE2}
+setenv TIMESTAMP ${yy}${mm}${dd}${hh}

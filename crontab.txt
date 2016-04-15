@@ -1,3 +1,5 @@
+PATH=$PATH:~/projects/metscripts/scripts
+
 PROJDIR="projects/metscripts"
 1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh
 6 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh save
@@ -10,39 +12,39 @@ PROJDIR="projects/metscripts"
 00 8 * * * cd $PROJDIR/webscripts ; csh gem_scripts.csh 1
 10 8 * * * cd $PROJDIR/webscripts ; csh get_text.csh 1
 
-40 13 * * * csh $PROJDIR/newdifax2/get_difax.csh 12
-40 1  * * * csh $PROJDIR/newdifax2/get_difax.csh 00
-30 0-23/3 * * * csh $PROJDIR/newdifax2/get_difax.csh 03
+40 13 * * * cd $PROJDIR/newdifax2; csh get_difax.csh 12
+40 1  * * * cd $PROJDIR/newdifax2; csh get_difax.csh 00
+30 0-23/3 * * * cd $PROJDIR/newdifax2; csh get_difax.csh 03
 
-05 00 * * * csh $PROJDIR/webscripts2/makedirs.csh 1
+05 00 * * * cd $PROJDIR/webscripts2; csh makedirs.csh 1
 
-01 04 * * * csh $PROJDIR/webscripts2/wlapse_script.csh 00
-01 15 * * * csh $PROJDIR/webscripts2/wlapse_script.csh 12
+01 04 * * * cd $PROJDIR/webscripts2; csh wlapse_script.csh 00
+01 15 * * * cd $PROJDIR/webscripts2; csh wlapse_script.csh 12
 
-55 04 * * * csh $PROJDIR/webscripts2/wmos_avn00_script.csh 00
-55 16 * * * csh $PROJDIR/webscripts2/wmos_avn12_script.csh 12
+55 04 * * * cd $PROJDIR/webscripts2; csh wmos_avn00_script.csh 00
+55 16 * * * cd $PROJDIR/webscripts2; csh wmos_avn12_script.csh 12
 
-50  2 * * * csh $PROJDIR/webscripts2/wskew_script.csh 00
-50 14 * * * csh $PROJDIR/webscripts2/wskew_script.csh 12
+50  2 * * * cd $PROJDIR/webscripts2; csh wskew_script.csh 00
+50 14 * * * cd $PROJDIR/webscripts2; csh wskew_script.csh 12
 
-12  * * * * csh $PROJDIR/webscripts2/wltg_script.csh
-14  * * * * csh $PROJDIR/webscripts2/wltg1_script.csh
+12  * * * * cd $PROJDIR/webscripts2; csh wltg_script.csh
+14  * * * * cd $PROJDIR/webscripts2; csh wltg1_script.csh
 
 20  * * * * cd $PROJDIR/webscripts2; sh do_sfc.sh
  0 15 * * * cd $PROJDIR/webscripts2; sh do_upa.sh 12
 30  4 * * * cd $PROJDIR/webscripts2; sh do_upa.sh 00
-35  * * * * csh $PROJDIR/webscripts2/wpro_script.csh
-44 16 * * * sh $PROJDIR/webscripts2/do_eta.sh 12
-45  4 * * * sh $PROJDIR/webscripts2; sh do_eta.sh 00
+35  * * * * cd $PROJDIR/webscripts2; csh wpro_script.csh
+44 16 * * * cd $PROJDIR/webscripts2; sh do_eta.sh 12
+45  4 * * * cd $PROJDIR/webscripts2; sh do_eta.sh 00
 
-54 16 * * * csh $PROJDIR/webscripts2/web_etaqvec_script.csh 12
-54 17 * * * csh $PROJDIR/webscripts2/web_gfsqvec_script.csh 12
-54  4 * * * csh $PROJDIR/webscripts2/web_etaqvec_script.csh 00
-54  5 * * * csh $PROJDIR/webscripts2/web_gfsqvec_script.csh 00
+54 16 * * * cd $PROJDIR/webscripts2; csh web_etaqvec_script.csh 12
+54 17 * * * cd $PROJDIR/webscripts2; csh web_gfsqvec_script.csh 12
+54  4 * * * cd $PROJDIR/webscripts2; csh web_etaqvec_script.csh 00
+54  5 * * * cd $PROJDIR/webscripts2; csh web_gfsqvec_script.csh 00
 
-12 13 * * * csh $PROJDIR/webscripts2/web_mrf_script.csh 00
- 0 18 * * * csh $PROJDIR/webscripts2/web_theta_script.csh 12
-30  6 * * * csh $PROJDIR/webscripts2/web_theta_script.csh 00
+12 13 * * * cd $PROJDIR/webscripts2; csh web_mrf_script.csh 00
+ 0 18 * * * cd $PROJDIR/webscripts2; csh web_theta_script.csh 12
+30  6 * * * cd $PROJDIR/webscripts2; csh web_theta_script.csh 00
 50  1 * * * cd $PROJDIR/webscripts2; sh do_rucs.sh 00
 50  4 * * * cd $PROJDIR/webscripts2; sh do_rucs.sh 03
 50  7 * * * cd $PROJDIR/webscripts2; sh do_rucs.sh 06
@@ -68,20 +70,48 @@ PROJDIR="projects/metscripts"
 54 23 * * * cd $PROJDIR/webscripts2; sh do_ruc1.sh 22
 54  0 * * * cd $PROJDIR/webscripts2; sh do_ruc1.sh 23
 
-45  6 * * * csh $PROJDIR/webscripts2/web_avn_script.csh 00
-45 18 * * * csh $PROJDIR/webscripts2/web_avn_script.csh 12
-47  7 * * * csh $PROJDIR/webscripts2/web_avn2_script.csh 00
-47 19 * * * csh $PROJDIR/webscripts2/web_avn2_script.csh 12
-51 08 * * * csh $PROJDIR/webscripts2/web_avn3_script.csh 00
-51 18 * * * csh $PROJDIR/webscripts2/web_avn3_script.csh 12
+45  6 * * * cd $PROJDIR/webscripts2; csh web_avn_script.csh 00
+45 18 * * * cd $PROJDIR/webscripts2; csh web_avn_script.csh 12
+47  7 * * * cd $PROJDIR/webscripts2; csh web_avn2_script.csh 00
+47 19 * * * cd $PROJDIR/webscripts2; csh web_avn2_script.csh 12
+51 08 * * * cd $PROJDIR/webscripts2; csh web_avn3_script.csh 00
+51 18 * * * cd $PROJDIR/webscripts2; csh web_avn3_script.csh 12
 
-20 18 * * * csh $PROJDIR/skews2/skew_many.csh 12
-20  4 * * * csh $PROJDIR/skews2/skew_many.csh 00
+20 18 * * * cd $PROJDIR/skews2; csh skew_many.csh 12
+20  4 * * * cd $PROJDIR/skews2; csh skew_many.csh 00
 
-20  3 * * * csh $PROJDIR/webscripts2/web_ecmwf_script.csh 12
-28  0 * * * csh $PROJDIR/webscripts2/wradpr00_script.csh
-28  6 * * * csh $PROJDIR/webscripts2/wradpr06_script.csh
-28 13 * * * csh $PROJDIR/webscripts2/wradpr12_script.csh
-28 19 * * * csh $PROJDIR/webscripts2/wradpr18_script.csh
-30 14 * * * csh $PROJDIR/webscripts2/wtmp_script.csh
-30 19 * * * csh $PROJDIR/webscripts2/wtmp2_script.csh
+20  3 * * * cd $PROJDIR/webscripts2; csh web_ecmwf_script.csh 12
+28  0 * * * cd $PROJDIR/webscripts2; csh wradpr00_script.csh
+28  6 * * * cd $PROJDIR/webscripts2; csh wradpr06_script.csh
+28 13 * * * cd $PROJDIR/webscripts2; csh wradpr12_script.csh
+28 19 * * * cd $PROJDIR/webscripts2; csh wradpr18_script.csh
+30 14 * * * cd $PROJDIR/webscripts2; csh wtmp_script.csh
+30 19 * * * cd $PROJDIR/webscripts2; csh wtmp2_script.csh
+
+24  * * * * cd $PROJDIR/webscripts; csh surface.csh 
+19  * * * * cd $PROJDIR/webscripts; csh surfacePlot.csh 
+35  * * * * cd $PROJDIR/webscripts; csh slater.csh
+ 4 16,17 * * * cd $PROJDIR/webscripts; csh eta.csh 12 
+48 3,4 * * * cd $PROJDIR/webscripts; csh eta.csh 00 
+4 18 * * * cd $PROJDIR/webscripts; csh avn.csh 12
+48 5 * * * cd $PROJDIR/webscripts; csh avn.csh 00
+29 16 * * * cd $PROJDIR/webscripts; csh advL.csh 12
+03 06 * * * cd $PROJDIR/webscripts; csh advL.csh 00
+50 1 * * * cd $PROJDIR/webscripts; csh ruc.csh 00
+50 4 * * * cd $PROJDIR/webscripts; csh ruc.csh 03
+50  7 * * * cd $PROJDIR/webscripts; csh ruc.csh 06
+50 12 * * * cd $PROJDIR/webscripts; csh ruc.csh 09
+50 13 * * * cd $PROJDIR/webscripts; csh ruc.csh 12
+50 16 * * * cd $PROJDIR/webscripts; csh ruc.csh 15
+50 19 * * * cd $PROJDIR/webscripts; csh ruc.csh 18
+50 23 * * * cd $PROJDIR/webscripts; csh ruc.csh 21
+50 13 * * * sh webscripts; sh skewAll.sh 12
+50 1 * * * sh webscripts; sh skewAll.sh 00
+15 5 * * * cd $PROJDIR/webscripts; csh upperAir.csh 00 
+15 17 * * * cd $PROJDIR/webscripts; csh upperAir.csh 12 
+15 08 * * * cd $PROJDIR/webscripts; csh hemis.csh 00 
+16 08 * * * cd $PROJDIR/webscripts; csh zonalWind.csh 00 
+01,16,31,46 * * * * cd $PROJDIR/webscripts; csh natRADAR.csh
+
+10 * * * * cd $PROJDIR/alert; csh MASTER.csh
+50 * * * * cd $PROJDIR/scripts; csh hourly_down.csh
