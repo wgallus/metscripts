@@ -1,4 +1,4 @@
-PATH=$PATH:~/projects/metscripts/scripts
+PATH=/usr/bin:/bin:~/bin:/usr/sbin:/sbin:~/projects/metscripts/scripts
 
 PROJDIR="projects/metscripts"
 1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh
@@ -111,6 +111,5 @@ PROJDIR="projects/metscripts"
 15 17 * * * cd $PROJDIR/webscripts; csh upperAir.csh 12 
 15 08 * * * cd $PROJDIR/webscripts; csh hemis.csh 00 
 16 08 * * * cd $PROJDIR/webscripts; csh zonalWind.csh 00 
-01,16,31,46 * * * * cd $PROJDIR/webscripts; csh natRADAR.csh
 
 50 * * * * cd $PROJDIR/scripts; csh hourly_down.csh
