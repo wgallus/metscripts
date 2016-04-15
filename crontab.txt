@@ -1,0 +1,3 @@
+PROJDIR="projects/metscripts"
+1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.sh
+6 * * * * cd $PROJDIR/dmx; csh dmxRAD.sh save
