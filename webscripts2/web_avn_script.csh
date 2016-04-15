@@ -1,6 +1,6 @@
 
 source ../COMMON.csh
-setenv LOGFILE 	www_avn
+setenv LOGFILE 	logs/www_avn.log
 
 set device="GF|avn.gif"
 set grid=/data/gempak/model/gfs/${DATE}${1}_gfs212.gem

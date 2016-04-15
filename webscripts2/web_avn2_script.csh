@@ -1,8 +1,5 @@
-#! /bin/csh 
-# 4 May 2004	Change all references to GFS
-
-source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE  www_avn2
+source ../COMMON.csh
+setenv LOGFILE  logs/www_avn2.log
 rm -f avn2.gif* >& /dev/null
 
 #
@@ -577,7 +574,6 @@ run
 exit
 EOF
 
-if (-e avn2.gif) then
 cp avn2.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f84.gif
 cp avn2.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f96.gif
 cp avn2.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f108.gif
@@ -589,5 +585,3 @@ mv avn2.gif.002 avn2_50c.gif
 mv avn2.gif.003 avn2_50d.gif
 keep avn2_50[a-d].gif 
 mv  avn2_50[a-d].gif $WEBPIX/
-endif
-

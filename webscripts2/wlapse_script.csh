@@ -1,12 +1,6 @@
-#! /bin/csh 
-# This program will generate a countour plot of lapse rates and 700mb Winds
-# Daryl Herzmann 28 June 2000
-# 13 Mar 2003	Cleanup
-# 16 Mar 2003	Check for files before copying
+source ../COMMON.csh
 
-source ~/projects/metscripts/COMMON.csh
-
-setenv LOGFILE  www_lap
+setenv LOGFILE  logs/www_lap.log
 rm -f www_lap lap.gif
 
 set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
