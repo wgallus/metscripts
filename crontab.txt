@@ -1,3 +1,8 @@
 PROJDIR="projects/metscripts"
-1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.sh
-6 * * * * cd $PROJDIR/dmx; csh dmxRAD.sh save
+1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh
+6 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh save
+
+50 * * * * python $PROJDIR/archivewx/Every3.py
+15 18 * * * python $PROJDIR/archivewx/getRadar.py
+10 5 * * * python $PROJDIR/archivewx/mk_dir.py
+10 11 * * * python $PROJDIR/archivewx/severe.py
