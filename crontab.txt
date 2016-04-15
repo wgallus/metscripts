@@ -1,5 +1,7 @@
 PATH=/usr/bin:/bin:~/bin:/usr/sbin:/sbin:~/projects/metscripts/scripts
 
+CRON_TZ="UTC"
+TZ="UTC"
 PROJDIR="projects/metscripts"
 1,11-60/5 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh
 6 * * * * cd $PROJDIR/dmx; csh dmxRAD.csh save

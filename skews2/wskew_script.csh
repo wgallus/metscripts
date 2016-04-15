@@ -1,32 +1,7 @@
-#! /bin/csh 
-########################################################
-# generate multiple skew-T plots
-#
-# Can be run from cron.
-# 
-########################################################
-#
-# The first argument is the observation hour to be used
-# The second is the station's three-letter identifier
-# The third is the station name that should appear in the title
-#
-# source the 5.2 environment variables 
-#
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 setenv TARGET $WEBPIX/skew
 setenv IMAGE ${TARGET}/skew_${2}_${1}.gif
 setenv DEVICE GF\|${IMAGE}\|720\;540
-#
-# Set the root Ntrans directory
-#
-# setenv NTRANSHOME  ${NAWIPS}/nprogs/ntrans2.1
-#
-# cd to temporary directory. This is where the Nmeta file 
-# will be kept while the script is running.
-#
-cd ~/skews
-#
-# Define current date
 #
 set yy=`date -u +%Y`
 set mm=`date -u +%m`
@@ -39,13 +14,7 @@ set date=${yy}${mm}${dd}
 # LOGFILE=file to catch GEMPAK program output
 #
 setenv DATA_DIR	/data/gempak/upperair
-setenv LOGFILE 	www_skew
-#
-# Remove previous error output and image
-#
-rm -f www_skew ${IMAGE}
-#
-# Set some variables for GDPLOT run
+setenv LOGFILE 	logs/www_skew.log
 #
 set grid=${DATA_DIR}/${date}_upa.gem
 #
@@ -53,7 +22,7 @@ set grid=${DATA_DIR}/${date}_upa.gem
 #
 # changed 2001.04.13 geff@iastate.edu
 #$GEMEXE/snprof << EOF >> $LOGFILE
-$GEMEXE/snprof_gf << EOF >> $LOGFILE
+$GEMEXE/snprof_gf << EOF > $LOGFILE
 SNFILE   = $grid
 DEVICE   = ${DEVICE}
 DATTIM   = ${date}/${1}

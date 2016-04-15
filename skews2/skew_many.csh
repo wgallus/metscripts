@@ -1,10 +1,6 @@
 #!/bin/csh
 
-source ~/projects/metscripts/COMMON.csh
-
-
-
-cd ~/projects/metscripts/skews2
+source ../COMMON.csh
 
 foreach name (`cut -f1 full.list`)
 csh wskew_script.csh $1 ${name} `grep ^${name} full.list | cut -f2`
