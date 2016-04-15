@@ -1,11 +1,7 @@
-#! /bin/csh 
-# 03 Mar 2003:	Delete all instances of eta6.gif, use localhost Xvfb
 
-source ~/projects/metscripts/COMMON.csh
-rm -f www_eta6 
-setenv LOGFILE 	www_eta6
+source ../COMMON.csh
+setenv LOGFILE 	logs/www_eta6.log
 #
-rm -f eta6.gif* >& /dev/null
 
 #
 # Set some variables for GDPLOT run

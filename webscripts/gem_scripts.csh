@@ -1,7 +1,5 @@
-#! /bin/csh
 
-
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
 cp /data/gempak/mos/${date2}00_gmos.gem ${ddir}/${date1}/gempak/mos/${date2}00_gmos.gem
 cp /data/gempak/mos/${date2}12_gmos.gem ${ddir}/${date1}/gempak/mos/${date2}12_gmos.gem

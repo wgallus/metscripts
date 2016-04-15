@@ -1,18 +1,10 @@
-#! /bin/csh 
-# 26 Nov 2003	[Daryl] Fix a keep line, so the image is actually archived
-# 04 May 2004	Change all AVN references to GFS
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 setenv LOGFILE 	www_avn
-rm -f avn*.gif* >& /dev/null
 
-#
 set device="GF|avn.gif"
 set grid=/data/gempak/model/gfs/${DATE}${1}_gfs212.gem
-#echo $grid
-#
-# Run GDPLOT and generate GFS model gfs
-#
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
@@ -77,6 +69,7 @@ mv avn.gif.006 avn_07.gif
 mv avn.gif.007 avn_08.gif
 keep avn_0[1-8].gif 
 mv avn_0[1-8].gif $WEBPIX/
+
 #
 # Run GDPLOT and generate GFS model gfs
 #

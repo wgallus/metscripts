@@ -113,5 +113,4 @@ PROJDIR="projects/metscripts"
 16 08 * * * cd $PROJDIR/webscripts; csh zonalWind.csh 00 
 01,16,31,46 * * * * cd $PROJDIR/webscripts; csh natRADAR.csh
 
-10 * * * * cd $PROJDIR/alert; csh MASTER.csh
 50 * * * * cd $PROJDIR/scripts; csh hourly_down.csh

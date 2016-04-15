@@ -1,12 +1,8 @@
-#! /bin/csh 
-# 25 Feb 2003:  Error checking
-# 31 Mar 2003	Don't use mesonet
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
-setenv DATA_DIR	${MODEL}
-setenv LOGFILE 	www_eta4
-rm -f www_eta4 eta_4.gif
+setenv DATA_DIR	/data/gempak/model
+setenv LOGFILE 	logs/www_eta4.log
 
 set device="GF|eta4.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem

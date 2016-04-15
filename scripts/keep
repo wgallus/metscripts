@@ -1,12 +1,13 @@
 #!/bin/csh
+# This is local archiving!
 set tdir=~/archive
 set month=`date -u +%Y%b`
 set time=`date -u +%d%H%M`
 foreach file ($*)
-        mkdir -p ${tdir}/${month} >& /dev/null
+        mkdir -p ${tdir}/${month}
         set target=${file:r}
         set target=${target:t}
-        mkdir -p ${tdir}/${month}/${target} >& /dev/null
+        mkdir -p ${tdir}/${month}/${target}
   if (-e ${file}) then
     cp ${file} ${tdir}/${month}/${target}/${time}.gif
   endif

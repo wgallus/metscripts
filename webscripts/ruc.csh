@@ -68,11 +68,11 @@ if (-e ruc1.gif) then
   cp ruc1.gif.003 $CURRENT/rucTHKF09.gif
   cp ruc1.gif.004 $CURRENT/rucTHKF12.gif
 
-  mv ruc1.gif ${ARCHIVE}/rucTHK${date}${1}F00.gif
-  mv ruc1.gif.001 ${ARCHIVE}/rucTHK${date}${1}F03.gif
-  mv ruc1.gif.002 ${ARCHIVE}/rucTHK${date}${1}F06.gif
-  mv ruc1.gif.003 ${ARCHIVE}/rucTHK${date}${1}F09.gif
-  mv ruc1.gif.004 ${ARCHIVE}/rucTHK${date}${1}F12.gif
+  mv ruc1.gif ${ARCHIVE2}/rucTHK${date}${1}F00.gif
+  mv ruc1.gif.001 ${ARCHIVE2}/rucTHK${date}${1}F03.gif
+  mv ruc1.gif.002 ${ARCHIVE2}/rucTHK${date}${1}F06.gif
+  mv ruc1.gif.003 ${ARCHIVE2}/rucTHK${date}${1}F09.gif
+  mv ruc1.gif.004 ${ARCHIVE2}/rucTHK${date}${1}F12.gif
 endif
 
 #
@@ -108,11 +108,11 @@ EOF
 #
 
 if (-e ruc1.gif) then
-  cp ruc1.gif ${ARCHIVE}/rucVORT${date}${1}F00.gif
-  cp ruc1.gif.001 ${ARCHIVE}/rucVORT${date}${1}F03.gif
-  cp ruc1.gif.002 ${ARCHIVE}/rucVORT${date}${1}F06.gif
-  cp ruc1.gif.003 ${ARCHIVE}/rucVORT${date}${1}F09.gif
-  cp ruc1.gif.004 ${ARCHIVE}/rucVORT${date}${1}F12.gif
+  cp ruc1.gif ${ARCHIVE2}/rucVORT${date}${1}F00.gif
+  cp ruc1.gif.001 ${ARCHIVE2}/rucVORT${date}${1}F03.gif
+  cp ruc1.gif.002 ${ARCHIVE2}/rucVORT${date}${1}F06.gif
+  cp ruc1.gif.003 ${ARCHIVE2}/rucVORT${date}${1}F09.gif
+  cp ruc1.gif.004 ${ARCHIVE2}/rucVORT${date}${1}F12.gif
 
   mv ruc1.gif $CURRENT/rucVORTF00.gif
   mv ruc1.gif.001 $CURRENT/rucVORTF03.gif
@@ -159,10 +159,10 @@ if (-e ruc1.gif) then
   cp ruc1.gif.002 $CURRENT/rucPRECF09.gif
   cp ruc1.gif.003 $CURRENT/rucPRECF12.gif
 
-  mv ruc1.gif ${ARCHIVE}/rucPREC${date}${1}F03.gif
-  mv ruc1.gif.001 ${ARCHIVE}/rucPREC${date}${1}F06.gif
-  mv ruc1.gif.002 ${ARCHIVE}/rucPREC${date}${1}F09.gif
-  mv ruc1.gif.003 ${ARCHIVE}/rucPREC${date}${1}F12.gif
+  mv ruc1.gif ${ARCHIVE2}/rucPREC${date}${1}F03.gif
+  mv ruc1.gif.001 ${ARCHIVE2}/rucPREC${date}${1}F06.gif
+  mv ruc1.gif.002 ${ARCHIVE2}/rucPREC${date}${1}F09.gif
+  mv ruc1.gif.003 ${ARCHIVE2}/rucPREC${date}${1}F12.gif
 endif
 
 ##############################################################
@@ -220,11 +220,11 @@ if (-e ruc2.gif) then
   cp ruc2.gif.003 $CURRENT/ruc85PF09.gif
   cp ruc2.gif.004 $CURRENT/ruc85PF12.gif
 
-  mv ruc2.gif ${ARCHIVE}/ruc85P${date}${1}F00.gif
-  mv ruc2.gif.001 ${ARCHIVE}/ruc85P${date}${1}F03.gif
-  mv ruc2.gif.002 ${ARCHIVE}/ruc85P${date}${1}F06.gif
-  mv ruc2.gif.003 ${ARCHIVE}/ruc85P${date}${1}F09.gif
-  mv ruc2.gif.004 ${ARCHIVE}/ruc85P${date}${1}F12.gif
+  mv ruc2.gif ${ARCHIVE2}/ruc85P${date}${1}F00.gif
+  mv ruc2.gif.001 ${ARCHIVE2}/ruc85P${date}${1}F03.gif
+  mv ruc2.gif.002 ${ARCHIVE2}/ruc85P${date}${1}F06.gif
+  mv ruc2.gif.003 ${ARCHIVE2}/ruc85P${date}${1}F09.gif
+  mv ruc2.gif.004 ${ARCHIVE2}/ruc85P${date}${1}F12.gif
 endif
 
 
@@ -262,11 +262,11 @@ EOF
 # Run GPEND to clean up
 #
 if (-e ruc2.gif) then
-  cp ruc2.gif ${ARCHIVE}/ruc70P${date}${1}F00.gif
-  cp ruc2.gif.001 ${ARCHIVE}/ruc70P${date}${1}F03.gif
-  cp ruc2.gif.002 ${ARCHIVE}/ruc70P${date}${1}F06.gif
-  cp ruc2.gif.003 ${ARCHIVE}/ruc70P${date}${1}F09.gif
-  cp ruc2.gif.004 ${ARCHIVE}/ruc70P${date}${1}F12.gif
+  cp ruc2.gif ${ARCHIVE2}/ruc70P${date}${1}F00.gif
+  cp ruc2.gif.001 ${ARCHIVE2}/ruc70P${date}${1}F03.gif
+  cp ruc2.gif.002 ${ARCHIVE2}/ruc70P${date}${1}F06.gif
+  cp ruc2.gif.003 ${ARCHIVE2}/ruc70P${date}${1}F09.gif
+  cp ruc2.gif.004 ${ARCHIVE2}/ruc70P${date}${1}F12.gif
 
   mv ruc2.gif $CURRENT/ruc70PF00.gif
   mv ruc2.gif.001 $CURRENT/ruc70PF03.gif
@@ -314,11 +314,11 @@ if (-e ruc2.gif) then
   cp ruc2.gif.003 $CURRENT/ruc25PF09.gif
   cp ruc2.gif.004 $CURRENT/ruc25PF12.gif
 
-  mv ruc2.gif ${ARCHIVE}/ruc25P${date}${1}F00.gif
-  mv ruc2.gif.001 ${ARCHIVE}/ruc25P${date}${1}F03.gif
-  mv ruc2.gif.002 ${ARCHIVE}/ruc25P${date}${1}F06.gif
-  mv ruc2.gif.003 ${ARCHIVE}/ruc25P${date}${1}F09.gif
-  mv ruc2.gif.004 ${ARCHIVE}/ruc25P${date}${1}F12.gif
+  mv ruc2.gif ${ARCHIVE2}/ruc25P${date}${1}F00.gif
+  mv ruc2.gif.001 ${ARCHIVE2}/ruc25P${date}${1}F03.gif
+  mv ruc2.gif.002 ${ARCHIVE2}/ruc25P${date}${1}F06.gif
+  mv ruc2.gif.003 ${ARCHIVE2}/ruc25P${date}${1}F09.gif
+  mv ruc2.gif.004 ${ARCHIVE2}/ruc25P${date}${1}F12.gif
 endif
 ####################################################################################
 set device="GF|ruc3.gif"
@@ -380,9 +380,9 @@ if (-e ruc3.gif) then
   cp ruc3.gif.003 $CURRENT/rucTEMPF09.gif
   cp ruc3.gif.004 $CURRENT/rucTEMPF12.gif
 
-  mv ruc3.gif ${ARCHIVE}/rucTEMP${date}${1}F00.gif
-  mv ruc3.gif.001 ${ARCHIVE}/rucTEMP${date}${1}F03.gif
-  mv ruc3.gif.002 ${ARCHIVE}/rucTEMP${date}${1}F06.gif
-  mv ruc3.gif.003 ${ARCHIVE}/rucTEMP${date}${1}F09.gif
-  mv ruc3.gif.004 ${ARCHIVE}/rucTEMP${date}${1}F12.gif
+  mv ruc3.gif ${ARCHIVE2}/rucTEMP${date}${1}F00.gif
+  mv ruc3.gif.001 ${ARCHIVE2}/rucTEMP${date}${1}F03.gif
+  mv ruc3.gif.002 ${ARCHIVE2}/rucTEMP${date}${1}F06.gif
+  mv ruc3.gif.003 ${ARCHIVE2}/rucTEMP${date}${1}F09.gif
+  mv ruc3.gif.004 ${ARCHIVE2}/rucTEMP${date}${1}F12.gif
 endif

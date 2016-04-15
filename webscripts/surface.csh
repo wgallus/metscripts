@@ -1,13 +1,8 @@
-#! /bin/csh 
-#
-# 12 Jun 2002:	cleanup
-#  7 Nov 2002:	Don't rotate if files don't exist!!
-#############################################
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
 setenv DATA_DIR	/data/gempak/surface
-setenv LOGFILE 	www_sfc1
+setenv LOGFILE 	logs/www_sfc1.log
 setenv OUTPUT0 surfaceTemp.gif
 setenv OUTPUT05 MWsurfaceTemp.gif
 setenv OUTPUT1 surfaceDewp.gif
@@ -16,12 +11,6 @@ setenv OUTPUT2 surfaceMois.gif
 setenv OUTPUT25 MWsurfaceMois.gif
 setenv OUTPUT3 surfaceThek.gif
 setenv OUTPUT35 MWsurfaceThek.gif
-#
-# Remove last hour's sfc grid file, and ps file
-#
-rm -f file1.grd 
-
-rm -f ${OUTPUT0}* ${OUTPUT1}* ${OUTPUT2}* ${OUTPUT3}* ${OUTPUT05}* ${OUTPUT15}* ${OUTPUT25}* ${OUTPUT35}* >& /dev/null
 
 set device="GF|${OUTPUT0}|720;540"
 
@@ -122,7 +111,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 EOF
 
 
-cp ${OUTPUT0} ${ARCHIVE}/temp${TIMESTAMP}.gif
+cp ${OUTPUT0} ${ARCHIVE2}/temp${TIMESTAMP}.gif
 
 
 # Surface Temps and Winds for MidWest
@@ -205,7 +194,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 EOF
 
 
-cp ${OUTPUT1} ${ARCHIVE}/dew${TIMESTAMP}.gif
+cp ${OUTPUT1} ${ARCHIVE2}/dew${TIMESTAMP}.gif
 
 
 # Mid West Dew Points
@@ -282,7 +271,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 EOF
 
 
-cp ${OUTPUT2} ${ARCHIVE}/moist${TIMESTAMP}.gif
+cp ${OUTPUT2} ${ARCHIVE2}/moist${TIMESTAMP}.gif
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
@@ -393,7 +382,6 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	exit
 EOF
 
-if (-e ${OUTPUT0}) then
 
 cd $CURRENT
 
@@ -419,12 +407,14 @@ cd $CURRENT
 
 cd ~/projects/metscripts/webscripts
 
-  mv ${OUTPUT0} $CURRENT/${OUTPUT0}
-  mv ${OUTPUT05} $CURRENT/${OUTPUT05}
-  mv ${OUTPUT1} $CURRENT/${OUTPUT1}
-  mv ${OUTPUT15} $CURRENT/${OUTPUT15}
-  mv ${OUTPUT2} $CURRENT/${OUTPUT2}
-  mv ${OUTPUT25} $CURRENT/${OUTPUT25}
-  mv ${OUTPUT3} $CURRENT/${OUTPUT3}
-  mv ${OUTPUT35} $CURRENT/${OUTPUT35}
-endif
+  mv ${OUTPUT0} $CURRENT/
+  mv ${OUTPUT05} $CURRENT/
+  mv ${OUTPUT1} $CURRENT
+  mv ${OUTPUT15} $CURRENT/
+  mv ${OUTPUT2} $CURRENT/
+  mv ${OUTPUT25} $CURRENT/
+  mv ${OUTPUT3} $CURRENT/
+  mv ${OUTPUT35} $CURRENT/
+
+rm -f file1.grd
+

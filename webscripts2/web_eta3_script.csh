@@ -1,19 +1,12 @@
-# /bin/csh 
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
-setenv LOGFILE 	www_eta3
-rm -f eta3.gif* >& /dev/null
+setenv LOGFILE 	logs/www_eta3.log
 
 set device="GF|eta3.gif"
 set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
 set grid1=/data/gempak/model/nam/${DATE}${1}_nam211.gem
 
-echo $grid
-echo $grid1
-#
-# Run GDPLOT and generate ETA model gfs
-#
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid1

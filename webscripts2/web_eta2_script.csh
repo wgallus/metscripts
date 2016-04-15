@@ -1,18 +1,12 @@
-#! /bin/csh 
-# 31 Mar 2003	My first visit
-#
-source ~/projects/metscripts/COMMON.csh
-setenv DATA_DIR	${MODEL}
-setenv LOGFILE 	www_eta2
-rm -f www_eta2 eta2.gif
+source ../COMMON.csh
+setenv DATA_DIR	/data/gempak/model
+setenv LOGFILE 	logs/www_eta2.log
 
 #
 set device="GF|eta2.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
 set grid1=${DATA_DIR}/nam/${DATE}${1}_nam211.gem
-#
-# Run GDPLOT and generate ETA model gfs
-#
+
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid1
@@ -58,8 +52,6 @@ cp eta2.gif.001 ${ddir2}/pix/eta/${1}z/eta_${DATE}${1}_CAPE_CIN_0to6km_shear_f24
 cp eta2.gif.002 ${ddir2}/pix/eta/${1}z/eta_${DATE}${1}_CAPE_CIN_0to6km_shear_f36.gif
 cp eta2.gif.003 ${ddir2}/pix/eta/${1}z/eta_${DATE}${1}_CAPE_CIN_0to6km_shear_f48.gif
 cp eta2.gif.004 ${ddir2}/pix/eta/${1}z/eta_${DATE}${1}_CAPE_CIN_0to6km_shear_f60.gif
-
-
 
 mv eta2.gif eta2_01.gif
 mv eta2.gif.001 eta2_02.gif

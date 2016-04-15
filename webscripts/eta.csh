@@ -2,7 +2,7 @@
 source ../COMMON.csh
 
 setenv DATA_DIR	/data/gempak/model
-setenv LOGFILE 	www_eta
+setenv LOGFILE 	logs/www_eta.log
 
 set device="GF|eta1.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
@@ -430,5 +430,3 @@ EOF
 if (-e eta1.gif) then
   ../scripts/saveEta.csh eta1 etaEHI${date}${1} etaEHI
 endif
-
-#echo "Completetion of ETA script at `date` " 

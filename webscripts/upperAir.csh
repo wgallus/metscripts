@@ -2,7 +2,7 @@ source ../COMMON.csh
 
 setenv DATA_DIR   /data/gempak/model
 setenv SDATA_DIR  /data/gempak/upperair
-setenv LOGFILE    www_upa
+setenv LOGFILE    logs/www_upa.log
 
 
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
@@ -426,20 +426,20 @@ EOF
 
 $GEMEXE/gpend
 
-cp up850.gif ${ARCHIVE}/850mb${date}${1}.gif
+cp up850.gif ${ARCHIVE2}/850mb${date}${1}.gif
 mv up850.gif $CURRENT/
 
-cp up700.gif ${ARCHIVE}/700mb${date}${1}.gif
+cp up700.gif ${ARCHIVE2}/700mb${date}${1}.gif
 mv up700.gif $CURRENT/
 
-cp up500.gif ${ARCHIVE}/500mb${date}${1}.gif
+cp up500.gif ${ARCHIVE2}/500mb${date}${1}.gif
 mv up500.gif $CURRENT/
 
-cp up500v.gif ${ARCHIVE}/500VORT${date}${1}.gif
+cp up500v.gif ${ARCHIVE2}/500VORT${date}${1}.gif
 mv up500v.gif $CURRENT/
 
-cp up300.gif ${ARCHIVE}/300mb${date}${1}.gif
+cp up300.gif ${ARCHIVE2}/300mb${date}${1}.gif
 mv up300.gif $CURRENT/
 
-cp up200.gif ${ARCHIVE}/200mb${date}${1}.gif
+cp up200.gif ${ARCHIVE2}/200mb${date}${1}.gif
 mv up200.gif $CURRENT/

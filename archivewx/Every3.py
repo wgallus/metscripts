@@ -1,6 +1,5 @@
 import time
 import os
-import shutil
 import urllib
 
 now = time.time()
@@ -20,9 +19,10 @@ def copyF(Bfile, Efile):
 # 	if not cmp.cmp(Bfile, Efile):
 
 def main():
-    # PIXDIR = "/wxdata/pix/"	
+    # PIXDIR = "/wxdata/pix/"
     PIXDIR = "http://www.meteor.iastate.edu/pix/"
-    data_dir = time.strftime("/home/www/pals/html/webpix/archive/%Y_%m_%d/", gmtLasthour_tuple)
+    data_dir = time.strftime("/mnt/archivewx/data/%Y_%m_%d/",
+                             gmtLasthour_tuple)
 
     timestamp = time.strftime("%y%m%d%H", gmtLasthour_tuple)
     thisHour = gmtLasthour_tuple[3]

@@ -8,15 +8,10 @@ setenv WEBPIX /home/www/meteor/html/pix
 
 setenv DISPLAY :1
 
-set ddir = "/mnt/thumper/data/"
-set date1 = `date --date "${1} days ago" '+%Y/%m/%d'`
-set date2 = `date --date "${1} days ago" '+%Y%m%d'`
-set date3 = `date --date "${1} days ago" '+%y%m%d'`
-set date4 = `date --date "${1} days ago" '+%d'`
-
-
+set ddir = "/mnt/mtarchive/data/"
 
 set yy=`date -u +%y`
+set yyyy=`date -u +%Y`
 set mm=`date -u +%m`
 set dd=`date -u +%d`
 set date=${yy}${mm}${dd}
@@ -25,3 +20,6 @@ set DATE2 = `date -u +%Y/%m/%d`
 set hh=`date -u +%H`
 set ddir2 = ${ddir}${DATE2}
 setenv TIMESTAMP ${yy}${mm}${dd}${hh}
+
+
+setenv ARCHIVE2 /mnt/archivewx/data/${yyyy}_${mm}_${dd}/

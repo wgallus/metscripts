@@ -1,16 +1,10 @@
-#! /bin/csh 
-# 27 Feb 2003:	Catch script copy errors
-# 31 Mar 2003	Dont use mesonet
+source ../COMMON.csh
+setenv DATA_DIR	/data/gempak/model
+setenv LOGFILE 	logs/www_eta5.log
 
-source ~/projects/metscripts/COMMON.csh
-setenv DATA_DIR	${MODEL}
-setenv LOGFILE 	www_eta5
-rm -f www_eta5 eta_5.gif
 set device="GF|eta5.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
-#
-# Run GDPLOT and generate ETA model gfs
-#
+
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid

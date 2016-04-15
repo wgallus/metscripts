@@ -1,17 +1,7 @@
-#! /bin/csh 
-#		slater.sh
-# Plots a Slater Timeseries
-# Daryl Herzmann 8 June 2001
-# 12 Jun 2002:	Trap rm statements
-#
-###############################################################
-
-
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
 setenv DATA_DIR	/data/gempak/profiler
 setenv LOGFILE 	www_pro
-rm -f www_pro slater.gif* >& /dev/null
 
 set device="GF|slater.gif"
 set grid=${DATA_DIR}/${DATE}_pro.gem

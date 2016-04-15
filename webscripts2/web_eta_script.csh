@@ -1,17 +1,11 @@
-#! /bin/csh 
-# 31 Mar 2003	My first visit
-#
-source ~/projects/metscripts/COMMON.csh
-setenv DATA_DIR	${MODEL}
-setenv LOGFILE 	www_eta
-rm -f www_eta eta.gif
+source ../COMMON.csh
+setenv DATA_DIR	/data/gempak/model
+setenv LOGFILE 	logs/www_eta.log
 
+mkdir -p ${ddir2}/pix/eta/${1}z
 set device="GF|eta.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
-echo $grid
-#
-# Run GDPLOT and generate ETA model gfs
-#
+
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid

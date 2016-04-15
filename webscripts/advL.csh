@@ -49,6 +49,6 @@ EOF
 
 
 if (-e advL.gif) then
-  cp advL.gif ${ARCHIVE}/advL${date}${1}.gif
+  cp advL.gif ${ARCHIVE2}/advL${date}${1}.gif
 mv advL.gif $CURRENT
 endif

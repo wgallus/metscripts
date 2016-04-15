@@ -1,18 +1,11 @@
-#! /bin/csh 
 source ../COMMON.csh
 
 setenv OUTPUT0 surfacePlot.gif
 setenv OUTPUT05 MWsurfacePlot.gif
 
-#
-# Remove old GIF files
-#
-rm -f ${OUTPUT0}
-
 setenv DATA_DIR	/data/gempak/surface/
-setenv LOGFILE 	www_sfc2
+setenv LOGFILE 	logs/www_sfc2
 
-rm -f www_sfc2
 set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 #
 # Run SFMAP to generate surface plot
@@ -50,7 +43,7 @@ EOF
 # Run GPEND to clean up
 #
 
-cp ${OUTPUT0} ${ARCHIVE}/sfcPLOT${TIMESTAMP}.gif
+cp ${OUTPUT0} ${ARCHIVE2}/sfcPLOT${TIMESTAMP}.gif
 
 $GEMEXE/sfmap_gf << EOF >> $LOGFILE
 	DEVICE	= GF|${OUTPUT05}|720;540
@@ -92,5 +85,5 @@ mv ${OUTPUT05} 1${OUTPUT05}
 
 cd ~/projects/metscripts/webscripts/
 
-mv ${OUTPUT0} $CURRENT/${OUTPUT0}
-mv ${OUTPUT05} $CURRENT/${OUTPUT05}
+mv ${OUTPUT0} $CURRENT/
+mv ${OUTPUT05} $CURRENT/

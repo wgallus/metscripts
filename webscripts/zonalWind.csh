@@ -1,7 +1,7 @@
 source ../COMMON.csh
 
 setenv FILE_DIR	/data/gempak/model
-setenv LOGFILE	www_zw
+setenv LOGFILE	logs/www_zw.log
 
 
 set device="GF|zonalWind.gif|700;500"
@@ -45,7 +45,7 @@ end
 
 cd ~/projects/metscripts/webscripts
 
-cp zonalWind.gif ${ARCHIVE}/zonalWind${date}${1}.gif
+cp zonalWind.gif ${ARCHIVE2}/zonalWind${date}${1}.gif
 mv zonalWind.gif $CURRENT/zonalWind_0.gif
 
 

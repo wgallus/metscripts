@@ -135,8 +135,8 @@ end
 
 cd ~/projects/metscripts/webscripts/
 
-cp hemis500n.gif ${ARCHIVE}/hemis500n${date}${1}.gif
-cp hemis500s.gif ${ARCHIVE}/hemis500s${date}${1}.gif
+cp hemis500n.gif ${ARCHIVE2}/hemis500n${date}${1}.gif
+cp hemis500s.gif ${ARCHIVE2}/hemis500s${date}${1}.gif
 
 
 mv hemis500n.gif $CURRENT/hemis500n_0.gif
