@@ -4,7 +4,7 @@ setenv OUTPUT0 surfacePlot.gif
 setenv OUTPUT05 MWsurfacePlot.gif
 
 setenv DATA_DIR	/data/gempak/surface/
-setenv LOGFILE 	logs/www_sfc2
+setenv LOGFILE 	logs/www_sfc2.log
 
 set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 #

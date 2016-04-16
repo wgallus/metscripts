@@ -1,11 +1,9 @@
 source ../COMMON.csh
 
-setenv DATA_DIR   /data/gempak/model
 setenv SDATA_DIR  /data/gempak/upperair
 setenv LOGFILE    logs/www_upa.log
 
-
-set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
 set sgrid=${SDATA_DIR}/${DATE}_upa.gem
 
 # set AREA="19;-129;53;-53"

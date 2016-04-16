@@ -1,12 +1,9 @@
 source ../COMMON.csh
 
-setenv FILE_DIR	/data/gempak/model
 setenv LOGFILE	logs/www_zw.log
 
-
 set device="GF|zonalWind.gif|700;500"
-set grid=${FILE_DIR}/gfs/${DATE}${1}_thin.gem
-
+set grid=${MODEL}/gfs/${DATE}${1}_thin.gem
 
 $GEMEXE/gdcross_gf << EOF > $LOGFILE
 	DEVICE	= $device
@@ -47,5 +44,3 @@ cd ~/projects/metscripts/webscripts
 
 cp zonalWind.gif ${ARCHIVE2}/zonalWind${date}${1}.gif
 mv zonalWind.gif $CURRENT/zonalWind_0.gif
-
-

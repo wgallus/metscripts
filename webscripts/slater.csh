@@ -1,7 +1,7 @@
 source ../COMMON.csh
 
 setenv DATA_DIR	/data/gempak/profiler
-setenv LOGFILE 	www_pro
+setenv LOGFILE 	logs/www_pro.log
 
 set device="GF|slater.gif"
 set grid=${DATA_DIR}/${DATE}_pro.gem

@@ -1,10 +1,9 @@
 
 source ../COMMON.csh
 
-setenv DATA_DIR /data/gempak/model
-setenv LOGFILE  www_advl
+setenv LOGFILE  logs/www_advl.log
 
-set grid=${DATA_DIR}/${DATE}${1}_eta212.gem
+set grid=${MODEL}/nam/${DATE}${1}_eta212.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 	GDFILE  = $grid
@@ -47,8 +46,5 @@ $GEMEXE/gdplot_gf << EOF > $LOGFILE
 	exit
 EOF
 
-
-if (-e advL.gif) then
-  cp advL.gif ${ARCHIVE2}/advL${date}${1}.gif
+cp advL.gif ${ARCHIVE2}/advL${date}${1}.gif
 mv advL.gif $CURRENT
-endif
