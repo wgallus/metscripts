@@ -1,11 +1,6 @@
-#! /bin/csh 
-# 31 Mar 2003	First time here
-
-source ~/projects/metscripts/COMMON.csh
-setenv DATA_DIR	$MODEL
-setenv LOGFILE 	www_theta
-rm -f tht1.grd
-rm -f www_theta theta.gif
+source ../COMMON.csh
+setenv DATA_DIR	/data/gempak/model
+setenv LOGFILE 	logs/www_theta.log
 
 set device="GF|theta.gif"
 set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
@@ -256,3 +251,5 @@ mv theta.gif.001 $WEBPIX//theta_10.gif
 mv theta.gif.002 $WEBPIX//theta_11.gif
 mv theta.gif.003 $WEBPIX//theta_12.gif
 #keep $WEBPIX//theta_09.gif $WEBPIX//theta_1[0-2].gif
+
+rm $grid1
