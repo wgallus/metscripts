@@ -11,4 +11,4 @@ end
 
 rm *.TIF
 keep *.gif
-mv *.gif /mtarchive2/data/misc/difax/
+mv *.gif /mnt/mtarchive/data/misc/difax/
