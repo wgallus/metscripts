@@ -1,10 +1,9 @@
 source ../COMMON.csh
 setenv LOGFILE  logs/www_avn2.log
-rm -f avn2.gif* >& /dev/null
 
 #
 set device="GF|avn2.gif"
-set grid=/data/gempak/model/gfs/${DATE}${1}_gfs213.gem
+set grid=${MODEL}/gfs/${DATE}${1}_gfs213.gem
 
 #
 $GEMEXE/gdplot_gf << EOF > $LOGFILE

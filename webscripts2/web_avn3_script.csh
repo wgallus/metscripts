@@ -1,11 +1,6 @@
-#! /bin/csh 
-# 31 Mar 2003	My first visit
-# 04 May 2004	Change all AVN references to GFS
-
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 setenv DATA_DIR	${MODEL}
-setenv LOGFILE 	www_avn3
-rm -f www_avn3 avn3.gif
+setenv LOGFILE 	logs/www_avn3.log
 
 #
 set device="GF|avn3.gif"

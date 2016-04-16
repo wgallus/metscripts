@@ -2,6 +2,9 @@
 
 source /home/gempak/NAWIPS/Gemenviron
 
+# Reset the MODEL variable
+setenv MODEL /data/gempak/model
+
 setenv ARCHIVE /mnt/archivewx/data
 setenv CURRENT /home/www/meteor/html/wx/data/current/
 setenv WEBPIX /home/www/meteor/html/pix

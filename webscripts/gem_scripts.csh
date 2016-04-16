@@ -1,5 +1,8 @@
 
 source ../COMMON.csh
+set date2=`date -u --date "${1} days ago" +'%Y%m%d'`
+set date1=`date -u --date "${1} days ago" +'%Y/%m/%d'`
+echo $date2
 
 cp /data/gempak/mos/${date2}00_gmos.gem ${ddir}/${date1}/gempak/mos/${date2}00_gmos.gem
 cp /data/gempak/mos/${date2}12_gmos.gem ${ddir}/${date1}/gempak/mos/${date2}12_gmos.gem
