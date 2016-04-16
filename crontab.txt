@@ -107,8 +107,8 @@ PROJDIR="projects/metscripts"
 50 16 * * * cd $PROJDIR/webscripts; csh ruc.csh 15
 50 19 * * * cd $PROJDIR/webscripts; csh ruc.csh 18
 50 23 * * * cd $PROJDIR/webscripts; csh ruc.csh 21
-50 13 * * * sh webscripts; sh skewAll.sh 12
-50 1 * * * sh webscripts; sh skewAll.sh 00
+50 13 * * * cd $PROJDIR/webscripts; sh skewAll.sh 12
+50 1 * * * cd $PROJDIR/webscripts; sh skewAll.sh 00
 15 5 * * * cd $PROJDIR/webscripts; csh upperAir.csh 00 
 15 17 * * * cd $PROJDIR/webscripts; csh upperAir.csh 12 
 15 08 * * * cd $PROJDIR/webscripts; csh hemis.csh 00 
