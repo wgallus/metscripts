@@ -1,17 +1,13 @@
-#! /bin/csh 
-# 25 Feb 2003:	Trap errors
-# 31 Mar 2003	Dont use mesonet
-
-source ~/webscripts/COMMON
+source ../COMMON.csh
 setenv DATA_DIR	$SAO
-setenv LOGFILE 	www_tmp
-rm -f www_tmp tmp_01.gif tmp_02.gif
+setenv LOGFILE 	logs/www_tmp.log
+
 set device="gf"
 set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 #
 # Run SFMAP to generate plot of 6 am temps
 #
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= GF|tmp_01.gif|720;540
 AREA     = 20;-128;53;-54

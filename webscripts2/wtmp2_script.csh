@@ -1,9 +1,3 @@
-#! /bin/csh 
-#  27 Feb 2003:	Check to make sure gif exists
-
-#source /home/nawips/Gemenviron
-
-#setenv DISPLAY :1
 
 #
 set yy=`date -u +%y`
@@ -11,21 +5,10 @@ set mm=`date -u +%m`
 set dd=`date -u +%d`
 set date=${yy}${mm}${dd}
 # set hh=`date -u +%H`
-source ~/webscripts/COMMON
-# Set up local variables
-#
-# DATA_DIR=GEMPAK surface data directory;
-# META_DIR=Directory to store Meta files in
-# LOGFILE=file to catch GEMPAK program output
-#
+source ../COMMON.csh
+
 setenv DATA_DIR	$SAO
-setenv LOGFILE 	www_tmp2
-#
-# Remove last hour's sfc grid file, and ps file
-#
-rm -f www_tmp2 tmp2_01.gif
-#
-# Set some variables for GDPLOT run
+setenv LOGFILE 	logs/www_tmp2.log
 #
 set device="gf"
 # set grid=${DATA_DIR}/${date}${1}.gbm
@@ -35,7 +18,7 @@ set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 #
 # modified 24 Jun 1997 geff@iastate.edu; "sfmap1 not found"
 #$GEMEXE/sfmap1 << EOF >> $LOGFILE
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= GF|tmp2_01.gif|720;540
 AREA     = 20;-128;53;-54
