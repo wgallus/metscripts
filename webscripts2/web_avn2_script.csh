@@ -470,8 +470,6 @@ if (-e avn2.gif) then
   mv avn2_39.gif avn2_40.gif avn2_40[a-d].gif $WEBPIX/
 endif
 
-set grid=/data/gempak/model/gfs/${DATE}${1}_thin.gem
-
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid
@@ -541,7 +539,7 @@ GDFILE  = $grid
 GDATTIM = f84-f120-12
 DEVICE  = $device
 PANEL   = 0
-TE+XT    = 1.2/21//hw
+TEXT    = 1.2/21//hw
 CONTUR  = 1
 MAP     = 31/1/1
 CLEAR   = yes
