@@ -469,9 +469,9 @@ if (-e avn2.gif) then
   keep avn2_39.gif avn2_40.gif avn2_40[a-d].gif 
   mv avn2_39.gif avn2_40.gif avn2_40[a-d].gif $WEBPIX/
 endif
-#
-#endif
+
 set grid=/data/gempak/model/gfs/${DATE}${1}_thin.gem
+
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid
@@ -505,11 +505,11 @@ STNPLT  =0 !
 \$mapfil=hipowo.gsf
 list
 run
-                                                                                                 
+
+
 exit
 EOF
 
-if (-e avn2.gif) then
 cp avn2.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f06.gif
 cp avn2.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f12.gif
 cp avn2.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f18.gif
@@ -533,7 +533,7 @@ mv avn2.gif.008 avn2_49.gif
 mv avn2.gif.009 avn2_50.gif
 keep avn2_4[1-9].gif avn2_50.gif
 mv avn2_4[1-9].gif avn2_50.gif $WEBPIX/
-endif
+
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -568,7 +568,8 @@ STNPLT  =0 !
 \$mapfil=hipowo.gsf
 list
 run
-                                                                                                 
+
+
 exit
 EOF
 
