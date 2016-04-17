@@ -535,7 +535,6 @@ keep avn2_4[1-9].gif avn2_50.gif
 mv avn2_4[1-9].gif avn2_50.gif $WEBPIX/
 endif
 
-set grid=/data/gempak/model/gfs/${DATE}${1}_gfs213.gem
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid
