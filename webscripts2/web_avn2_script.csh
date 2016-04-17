@@ -3,7 +3,7 @@ setenv LOGFILE  logs/www_avn2.log
 
 #
 set device="GF|avn2.gif"
-set grid=${MODEL}/gfs/${DATE}${1}_gfs213.gem
+set grid=${MODEL}/gfs/${DATE}${1}_gfs212.gem
 
 #
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
