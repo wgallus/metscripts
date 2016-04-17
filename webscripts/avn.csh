@@ -1,13 +1,12 @@
 
 source ../COMMON.csh
 
-setenv DATA_DIR	/data/gempak/model
-setenv LOGFILE 	www_avn
+setenv LOGFILE 	logs/www_avn.log
 
 set gdattim="f00-f72-6"
 set garea="17;-122;53;-60"
 set device="GF|avn1.gif"
-set grid=${DATA_DIR}/gfs/${DATE}${1}_gfs212.gem
+set grid=${MODEL}/gfs/${DATE}${1}_gfs212.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 

@@ -1,21 +1,9 @@
-#! /bin/csh 
-# 16 Mar 2003	Make sure files exist
-
-source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE 	www_ruc3
-rm -f ruc2.gif* >& /dev/null
+source ../COMMON.csh
+setenv LOGFILE 	logs/www_ruc3.log
 
 set device="GF|ruc2.gif"
 set grid=/data/gempak/model/ruc/${DATE}${1}_ruc236.gem
-##set param1="mul(quo(cape@0%none,1000.),quo(hlcy@0:3000%hagl,150.))"
-##set param1="MUL(WSHR(OBS),SQRT(CAPE%NONE@0))"
-#
-# Run GDPLOT and generate ETA model gfs
-##GFUNC=quo(mul(cape,hlcy@3000:0%hagl),160000.)!dwpf!tmpf
-##GFUNC=quo(mul(cape,hlcy@3000:0%hagl),160000.)!dwpf!MUL(WSHR(OBS),SQRT(CAPE%NONE@0))
-##CINT    = 0;0.5;1;1.5;2;3;4;5;6;7;8!45;50;55;60;65;70;75;80!60;70;75;80;85;90;95;100
-##CINT    = 0;0.5;1;1.5;2;3;4;5;6;7;8!45;50;55;60;65;70;75;80!.1;.2;.3;.4;.5;.6
-#
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid

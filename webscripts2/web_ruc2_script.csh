@@ -1,17 +1,10 @@
-#!/bin/csh 
-# 04 Mar 2003	Do some error checking
-# 		And more error checking
-# 16 Mar 2003	Make sure files exist
+source ../COMMON.csh
 
-source ~/projects/metscripts/COMMON.csh
-
-setenv LOGFILE 	www_ruc2
-rm -f ruc_2.gif* >& /dev/null
+setenv LOGFILE 	logs/www_ruc2.log
 
 set device="GF|ruc2.gif"
 set grid=/data/gempak/model/ruc/${DATE}${1}_ruc236.gem
-#
-#
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid

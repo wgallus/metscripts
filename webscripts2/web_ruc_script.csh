@@ -1,10 +1,6 @@
-#! /bin/csh 
-# 16 Mar 2003	Make sure files exist
+source ../COMMON.csh
 
-source ~/projects/metscripts/COMMON.csh
-
-setenv LOGFILE 	www_ruc
-rm -f ruc.gif* >& /dev/null
+setenv LOGFILE 	logs/www_ruc.log
 
 set device="GF|ruc.gif"
 set grid=/data/gempak/model/ruc/${DATE}${1}_ruc236.gem

@@ -3,7 +3,7 @@ source ../COMMON.csh
 
 setenv LOGFILE  logs/www_advl.log
 
-set grid=${MODEL}/nam/${DATE}${1}_eta212.gem
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 	GDFILE  = $grid

@@ -1,15 +1,9 @@
-#! /bin/csh 
-# 25 Feb 2003:	Cleanup and make sure it doesn't error badly
-# 03 Mar 2003:	Use COMMON and better handle deletes
-
-source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE 	www_ruc1c
-rm -f ruc1c.gif* >& /dev/null
+source ../COMMON.csh
+setenv LOGFILE 	logs/ww_ruc1c.log
 
 set device="GF|ruc1c.gif"
 set grid=/data/gempak/model/rap/${DATE}${1}_rap236.gem
-#
-#
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid

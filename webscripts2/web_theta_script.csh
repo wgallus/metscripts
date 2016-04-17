@@ -1,14 +1,11 @@
 source ../COMMON.csh
-setenv DATA_DIR	/data/gempak/model
 setenv LOGFILE 	logs/www_theta.log
 
 set device="GF|theta.gif"
-set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
 set grid1=tht1.grd
-#
-# Run GDVINT to create isentropic dataset
-#  
-$GEMEXE/gdvint << EOF >> $LOGFILE
+
+$GEMEXE/gdvint << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE = $grid
 GDOUTF = $grid1

@@ -1,16 +1,11 @@
-#! /bin/csh 
+source ../COMMON.csh
 
-source ~/projects/metscripts/COMMON.csh
-
-rm -f ltg.gif* >& /dev/null
 setenv DATA_DIR	/data/gempak/nldn
-setenv LOGFILE 	www_ltg
-#
+setenv LOGFILE 	logs/www_ltg.log
+
 set device="gf|ltg.gif"
 set grid=/data/gempak/nldn/${DATE}${hh}00_nldn.gem
-#
-# Run SFMAP to generate surface plot
-#
+
 $GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= $device 

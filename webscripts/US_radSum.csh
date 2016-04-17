@@ -1,12 +1,4 @@
-#!/bin/csh -f
-###################################################
-# Sample GPRCM radar coded message summary plotting 
-# script. 
-#
-# Chiz/Unidata 11/99
-###################################################
-
-source ~/webscripts/COMMON
+source ../COMMON.csh
 setenv DISPLAY localhost:1
 
 set DATTIM=`date -u '+%y%m%d/%H%M'`

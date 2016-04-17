@@ -1,14 +1,9 @@
-#! /bin/csh 
-# 25 Feb 2003:	Do some error checking
-# 03 Mar 2003:	What is going on here?
-
-source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE 	www_ruc1b
-rm -f ruc1b.gif* >& /dev/null
+source ../COMMON.csh
+setenv LOGFILE 	logs/www_ruc1b.log
 
 set device="GF|ruc1b.gif"
 set grid=/data/gempak/model/rap/${DATE}${1}_rap236.gem
-#
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
