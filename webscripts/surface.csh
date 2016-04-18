@@ -16,9 +16,7 @@ set device="GF|${OUTPUT0}|720;540"
 
 set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 set grid1=file1.grd
-#
-# Run OAGRID to set up grid of sfc data
-#
+
 $GEMEXE/oagrid << EOF > $LOGFILE
 	GDFILE = $grid1
 	DELTAN =                  1.1

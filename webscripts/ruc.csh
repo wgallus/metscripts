@@ -1,27 +1,11 @@
 
 source ../COMMON.csh
 
+setenv LOGFILE 	logs/www_ruc.log
 
-setenv DATA_DIR	/data/gempak/model
-setenv LOGFILE 	www_ruc
-
-
-#
-# Set some variables for GDPLOT run
-#
 set device="GF|ruc1.gif"
-set grid=${DATA_DIR}/ruc/${DATE}${1}_ruc236.gem
+set grid=${MODEL}/ruc/${DATE}${1}_ruc236.gem
 
-if !(-e $grid) then
-        echo "ABORT: Can not find grid file $grid"
-        echo "RUC Model -> $grid" >> RERUNS
-        exit 2
-endif
-
-
-#
-# Run GDPLOT and generate ETA model gfs
-#
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid

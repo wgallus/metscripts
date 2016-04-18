@@ -1,11 +1,9 @@
 source ../COMMON.csh
 
-setenv FILE_DIR	/data/gempak/model
-setenv LOGFILE	www_hemis
-
+setenv LOGFILE	logs/www_hemis.log
 
 set device="GIF|hemis500n.gif"
-set grid=${FILE_DIR}/gfs/${DATE}${1}_thin.gem
+set grid=${MODEL}/gfs/${DATE}${1}_thin.gem
 
 gdplot << EOF > $LOGFILE
 
