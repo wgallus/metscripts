@@ -4,8 +4,8 @@ source ../COMMON.csh
 setenv LOGFILE 	logs/www_eta3.log
 
 set device="GF|eta3.gif"
-set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
-set grid1=/data/gempak/model/nam/${DATE}${1}_nam211.gem
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
+set grid1=${MODEL}/nam/${DATE}${1}_nam211.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES

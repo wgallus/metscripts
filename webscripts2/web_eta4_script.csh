@@ -1,16 +1,12 @@
 
 source ../COMMON.csh
 
-setenv DATA_DIR	/data/gempak/model
 setenv LOGFILE 	logs/www_eta4.log
 
 set device="GF|eta4.gif"
-set grid=${DATA_DIR}/nam/${DATE}${1}_nam212.gem
-#
-# Run GDPLOT and generate ETA model gfs
-#
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
 
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
 GDATTIM	= f06-f54-12

@@ -7,19 +7,10 @@ setenv LOGFILE 	logs/www_eta6.log
 # Set some variables for GDPLOT run
 #
 set device="GF|eta6.gif"
-set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
-set grid1=/data/gempak/model/nam/${DATE}${1}_nam211.gem
+set grid=${MODEL}/nam/${DATE}${1}_nam212.gem
+set grid1=${MODEL}/nam/${DATE}${1}_nam211.gem
 
-##set param1="mul(quo(cape@0%none,1000.),quo(hlcy@0:3000%hagl,150.))"
-##set param1="MUL(WSHR(OBS),SQRT(CAPE%NONE@0))"
-#
-# Run GDPLOT and generate ETA model gfs
-##GFUNC=quo(mul(cape,hlcy@3000:0%hagl),160000.)!dwpf!tmpf
-##GFUNC=quo(mul(cape,hlcy@3000:0%hagl),160000.)!dwpf!MUL(WSHR(OBS),SQRT(CAPE%NONE@0))
-##CINT    = 0;0.5;1;1.5;2;3;4;5;6;7;8!45;50;55;60;65;70;75;80!60;70;75;80;85;90;95;100
-##CINT    = 0;0.5;1;1.5;2;3;4;5;6;7;8!45;50;55;60;65;70;75;80!.1;.2;.3;.4;.5;.6
-#
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid1
 GDATTIM	= f06-f60-06

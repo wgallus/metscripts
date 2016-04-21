@@ -1,14 +1,10 @@
 source ../COMMON.csh
-setenv DATA_DIR	${MODEL}
 setenv LOGFILE 	logs/www_avn3.log
 
-#
 set device="GF|avn3.gif"
-set grid=${DATA_DIR}/gfs/${DATE}${1}_gfs212.gem
-#
-# Run GDPLOT and generate ETA model gfs
-#
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+set grid=${MODEL}/gfs/${DATE}${1}_gfs212.gem
+
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid 
 GDATTIM	= f06-f48-06

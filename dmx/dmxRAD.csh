@@ -15,7 +15,6 @@ setenv TIMESTAMP ${yy}${mm}${dd}${hh}
 
 setenv DATA_DIR	/data/gempak/nexrad/NIDS/DMX/N0R
 setenv LOGFILE 	www_rad.log
-rm -f www_rad dmxRAD.gif* >& /dev/null
 
 set device="GF|dmxRAD.gif"
 set file=`ls -1t ${DATA_DIR}/ | head -1`
@@ -39,7 +38,7 @@ set grid=${DATA_DIR}/${file}
 #
 # Run GPMAP to generate radar plot
 #
-gpmap_gf << EOF >> $LOGFILE
+gpmap_gf << EOF > $LOGFILE
 	DEVICE   = $device
 	MAP      = 5/1/1
 	GAREA    = dsm*

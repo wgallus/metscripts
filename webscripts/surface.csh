@@ -383,36 +383,35 @@ EOF
 
 cd $CURRENT
 
-  foreach num (4 3 2 1)
-	mv ${num}${OUTPUT0} `echo ${num} + 1 | bc`${OUTPUT0}
-	mv ${num}${OUTPUT05} `echo ${num} + 1 | bc`${OUTPUT05}
-	mv ${num}${OUTPUT1} `echo ${num} + 1 | bc`${OUTPUT1}
-	mv ${num}${OUTPUT15} `echo ${num} + 1 | bc`${OUTPUT15}
-	mv ${num}${OUTPUT2} `echo ${num} + 1 | bc`${OUTPUT2}
-	mv ${num}${OUTPUT25} `echo ${num} + 1 | bc`${OUTPUT25}
-	mv ${num}${OUTPUT3} `echo ${num} + 1 | bc`${OUTPUT3}
-	mv ${num}${OUTPUT35} `echo ${num} + 1 | bc`${OUTPUT35}
-  end
+foreach num (4 3 2 1)
+ mv ${num}${OUTPUT0} `echo ${num} + 1 | bc`${OUTPUT0}
+ mv ${num}${OUTPUT05} `echo ${num} + 1 | bc`${OUTPUT05}
+ mv ${num}${OUTPUT1} `echo ${num} + 1 | bc`${OUTPUT1}
+ mv ${num}${OUTPUT15} `echo ${num} + 1 | bc`${OUTPUT15}
+ mv ${num}${OUTPUT2} `echo ${num} + 1 | bc`${OUTPUT2}
+ mv ${num}${OUTPUT25} `echo ${num} + 1 | bc`${OUTPUT25}
+ mv ${num}${OUTPUT3} `echo ${num} + 1 | bc`${OUTPUT3}
+ mv ${num}${OUTPUT35} `echo ${num} + 1 | bc`${OUTPUT35}
+end
 
-  mv ${OUTPUT0}  1${OUTPUT0}
-  mv ${OUTPUT05} 1${OUTPUT05}
-  mv ${OUTPUT1}  1${OUTPUT1}
-  mv ${OUTPUT15} 1${OUTPUT15}
-  mv ${OUTPUT2}  1${OUTPUT2}
-  mv ${OUTPUT25} 1${OUTPUT25}
-  mv ${OUTPUT3}  1${OUTPUT3}
-  mv ${OUTPUT35} 1${OUTPUT35}
+mv ${OUTPUT0}  1${OUTPUT0}
+mv ${OUTPUT05} 1${OUTPUT05}
+mv ${OUTPUT1}  1${OUTPUT1}
+mv ${OUTPUT15} 1${OUTPUT15}
+mv ${OUTPUT2}  1${OUTPUT2}
+mv ${OUTPUT25} 1${OUTPUT25}
+mv ${OUTPUT3}  1${OUTPUT3}
+mv ${OUTPUT35} 1${OUTPUT35}
 
 cd ~/projects/metscripts/webscripts
 
-  mv ${OUTPUT0} $CURRENT/
-  mv ${OUTPUT05} $CURRENT/
-  mv ${OUTPUT1} $CURRENT
-  mv ${OUTPUT15} $CURRENT/
-  mv ${OUTPUT2} $CURRENT/
-  mv ${OUTPUT25} $CURRENT/
-  mv ${OUTPUT3} $CURRENT/
-  mv ${OUTPUT35} $CURRENT/
+mv ${OUTPUT0} $CURRENT/
+mv ${OUTPUT05} $CURRENT/
+mv ${OUTPUT1} $CURRENT
+mv ${OUTPUT15} $CURRENT/
+mv ${OUTPUT2} $CURRENT/
+mv ${OUTPUT25} $CURRENT/
+mv ${OUTPUT3} $CURRENT/
+mv ${OUTPUT35} $CURRENT/
 
 rm -f file1.grd
-
