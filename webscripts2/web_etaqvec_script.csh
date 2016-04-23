@@ -1,11 +1,7 @@
-#! /bin/csh 
-# 03 Mar 2003:	Delete all instances of eta6.gif, use localhost Xvfb
 
-source ~/projects/metscripts/COMMON.csh
-rm -f www_etaq 
-setenv LOGFILE 	www_etaq
-#
-rm -f eta6.gif* >& /dev/null
+source ../COMMON.csh
+
+setenv LOGFILE 	logs/www_etaq.log
 
 #
 # Set some variables for GDPLOT run
@@ -13,7 +9,7 @@ rm -f eta6.gif* >& /dev/null
 set device="GF|etaq.gif"
 set grid=/data/gempak/model/nam/${DATE}${1}_nam211.gem
 
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid
 GDATTIM = f06-f60-06

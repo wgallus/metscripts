@@ -1,10 +1,8 @@
-#!/bin/csh 
-# 21 Mar 2003	Cleanup and use non-WSI data
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 setenv DATA_DIR	/data/gempak/nexrad/NIDS/DMX/NTP
-setenv LOGFILE 	www_raddp00
-rm -f radp.gif* >& /dev/null
+setenv LOGFILE 	logs/www_raddp00.log
+
 set device="GF|radp.gif"
 set grid=`ls ${DATA_DIR}/NTP_${DATE}_00?? | tail -1`
 

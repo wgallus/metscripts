@@ -5,14 +5,13 @@ setenv IMAGE skew_${2}_${1}.gif
 setenv DEVICE GF\|${IMAGE}\|720\;540
 
 setenv DATA_DIR	/data/gempak/upperair
-setenv LOGFILE 	logs/www_skew.log
 
 setenv OUTFILE1 $CURRENT/skew/skew${2}.gif
 setenv OUTFILE2 ${ARCHIVE2}/skew/skew${2}${TIMESTAMP}.gif
 
 set grid=${DATA_DIR}/${DATE}_upa.gem
 
-$GEMEXE/snprof_gf << EOF > ${LOGFILE}_${2}
+$GEMEXE/snprof_gf << EOF > logs/skewT_${1}_${2}.log
 	SNFILE   = $grid
 	DEVICE   = ${DEVICE}
 	DATTIM   = ${DATE}/${1}

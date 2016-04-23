@@ -1,18 +1,16 @@
-#! /bin/csh 
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
+
 setenv DATA_DIR	/data/gempak/mos
-setenv LOGFILE 	www_mosa
-rm -f www_mosa mosa.gif
+
+setenv LOGFILE 	logs/www_mosa.log
+
 set device="GF|mosa.gif"
 set date1=`date --date '24 hours' +'%Y%m%d'`
 set date2=`date --date '48 hours' +'%Y%m%d'`
 set date3=`date --date '72 hours' +'%Y%m%d'`
 set date4=`date --date '96 hours' +'%Y%m%d'`
 set grid=${DATA_DIR}/${DATE}${1}_gmos.gem
-#
-# Run SFMAP to generate plot of 12hrly temps,qpf,pp
-#
 
 $GEMEXE/sfmap_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -603,14 +601,6 @@ run
 exit
 EOF
 
-#
-# Run GPEND to clean up
-#
-#$GEMEXE/gpend
-#
-# Rename ps file to indicate sfc data
 cp mosa.gif ${ddir}${DATE2}/pix/mos/00z/avn_mos_${DATE}00_12hr_QPF_f72.gif
-##if (-e mos_01.gif) then
-  mv mosa.gif $WEBPIX/mosa_10q.gif
-  keep $WEBPIX/mosa_10q.gif
-##endif
+mv mosa.gif $WEBPIX/mosa_10q.gif
+keep $WEBPIX/mosa_10q.gif

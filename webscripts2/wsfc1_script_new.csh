@@ -1,18 +1,7 @@
-#! /bin/csh 
+source ../COMMON.csh
 
-#
-# Don't run if too many stations failed to report;
-# an old map is better than a blank one.
-#
-#if (`cat ~/webscripts/www/missing.txt` > 40) then
-#	exit
-#endif
+setenv LOGFILE 	logs/www_sfc1.log
 
-source ~/projects/metscripts/COMMON.csh
-
-rm -f sfc1_0?.gif* >& /dev/null
-setenv LOGFILE 	www_sfc1
-rm -f file1.grd >& /dev/null
 #
 set grid=/data/gempak/surface/sao/${DATE}${1}_sao.gem
 set grid1=file1.grd
@@ -246,3 +235,5 @@ if (-e sfc1_04.gif) then
   cp sfc1_04.gif ${ddir}${DATE2}/pix/sfc/theta_e/${DATE}${hh}_theta_e.gif
   mv sfc1_04.gif $WEBPIX/sfc1_04.gif
 endif
+
+rm -f file1.grd

@@ -1,18 +1,13 @@
-#! /bin/csh  
-# Script for ECMWF model
-# 12 Mar 2003	See about not using hrs
-# 16 Mar 2003	Check to make sure files exist
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
-setenv LOGFILE	www_ecm
-rm -f ecm.gif* >& /dev/null
+setenv LOGFILE	logs/www_ecm.log
 
 set yest=`date -u --date '1 day ago' +'%Y%m%d'`
 set yest1 = `date -u --date '1 day ago' +'%Y/%m/%d'`
 #
 set device="GF|ecm.gif"
-set grid=/data/gempak/model/ecmwf/${yest}${1}_ecmf1.gem
+set grid=${MODEL}/ecmwf/${yest}${1}_ecmf1.gem
 
 #
 $GEMEXE/gdplot_gf << EOF > $LOGFILE

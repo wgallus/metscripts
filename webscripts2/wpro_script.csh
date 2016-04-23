@@ -1,16 +1,14 @@
-#! /bin/csh 
-# 24 Apr 2003	Keep LogFile from balloning
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
-setenv LOGFILE 	www_pro
-rm -f pro.gif* >& /dev/null
+setenv LOGFILE 	logs/www_pro.log
 
 set device="GIF|pro.gif"
 set grid=/data/gempak/profiler/${DATE}${1}_pro.gem
 #
 # Run SNCROSS2 to generate time series of Slater profiler winds
 #
+
 sncross << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= $device 
