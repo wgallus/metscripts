@@ -6,7 +6,7 @@ setenv LOGFILE 	www_gfsq
 #
 #
 set device="GF|gfsq.gif"
-set grid=/data/gempak/model/gfs/${DATE}${1}_gfs212.gem
+set grid=/data/gempak/model/gfs/${DATE}${1}_gfs215.gem
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES

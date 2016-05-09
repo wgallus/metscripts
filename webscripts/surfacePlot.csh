@@ -9,7 +9,7 @@ setenv LOGFILE 	logs/www_sfc2.log
 set grid=${DATA_DIR}/${DATE}${1}_sao.gem
 
 
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 	\$RESPOND = YES
 	DEVICE	= GF|${OUTPUT0}|720;540
 	AREA     = 20;-128;53;-54

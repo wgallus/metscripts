@@ -1,16 +1,14 @@
 #! /bin/csh  
 # 19 Mar 2003	Make sure counties are not on maps...
 
-source ~/projects/metscripts/COMMON.csh
+source ../COMMON.csh
 
 setenv LOGFILE	www_mrf
-rm -f mrf.gif* >& /dev/null
 
 #
 set device="GF|mrf.gif"
-#set grid=/data/gempak/model/mrf/${DATE}${1}_mrf201.gem
-set grid=/data/gempak/model/gfs/${DATE}${1}_gfs212.gem
-#
+set grid=/data/gempak/model/gfs/${DATE}${1}_gfs215.gem
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid

@@ -23,8 +23,8 @@ cp /data/gempak/model/ruc/${date2}15_ruc130.gem ${ddir}/${date1}/gempak/model/${
 cp /data/gempak/model/ruc/${date2}18_ruc130.gem ${ddir}/${date1}/gempak/model/${date2}18_ruc130.gem
 cp /data/gempak/model/ruc/${date2}21_ruc130.gem ${ddir}/${date1}/gempak/model/${date2}21_ruc130.gem
 
-cp /data/gempak/model/gfs/${date2}00_gfs212.gem ${ddir}/${date1}/gempak/model/${date2}00_gfs212.gem
-cp /data/gempak/model/gfs/${date2}12_gfs212.gem ${ddir}/${date1}/gempak/model/${date2}12_gfs212.gem
+cp /data/gempak/model/gfs/${date2}00_gfs215.gem ${ddir}/${date1}/gempak/model/${date2}00_gfs215.gem
+cp /data/gempak/model/gfs/${date2}12_gfs215.gem ${ddir}/${date1}/gempak/model/${date2}12_gfs215.gem
 
 cp /data/gempak/model/gfs/${date2}00_thin.gem ${ddir}/${date1}/gempak/model/${date2}00_thin.gem
 cp /data/gempak/model/gfs/${date2}12_thin.gem ${ddir}/${date1}/gempak/model/${date2}12_thin.gem

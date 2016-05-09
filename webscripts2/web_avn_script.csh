@@ -3,7 +3,7 @@ source ../COMMON.csh
 setenv LOGFILE 	logs/www_avn.log
 
 set device="GF|avn.gif"
-set grid=${MODEL}/gfs/${DATE}${1}_gfs212.gem
+set grid=${MODEL}/gfs/${DATE}${1}_gfs215.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
