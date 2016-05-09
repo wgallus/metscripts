@@ -1,14 +1,13 @@
 #!/bin/csh 
 
-source ~/projects/metscripts/COMMON.csh
-rm -f www_gfsq 
-setenv LOGFILE 	www_gfsq
+source ../COMMON.csh
+setenv LOGFILE 	logs/www_gfsq.log
 #
 #
 set device="GF|gfsq.gif"
 set grid=/data/gempak/model/gfs/${DATE}${1}_gfs215.gem
 
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE  = $grid
 GDATTIM = f06-f60-06
