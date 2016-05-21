@@ -1,0 +1,94 @@
+#! /bin/csh 
+########################################################
+# Script for plotting 6am and noon temps for use 
+# primarily in MT206 forecast contest
+#
+# Can be run from cron.
+# 
+########################################################
+#
+# source the 5.2 environment variables 
+#
+source /nawips/Gemenviron
+setenv DISPLAY mesonet.agron.iastate.edu:3.0
+#
+# Set the root Ntrans directory
+#
+# setenv NTRANSHOME  ${NAWIPS}/nprogs/ntrans2.1
+#
+# cd to temporary directory. This is where the Nmeta file 
+# will be kept while the script is running.
+#
+cd ~/webscripts/www
+#
+# Define current date
+#
+set yy=`date -u +%y`
+set mm=`date -u +%m`
+set dd=`date -u +%d`
+set date=${yy}${mm}${dd}
+# set hh=`date -u +%H`
+#
+# Set up local variables
+#
+# DATA_DIR=GEMPAK surface data directory;
+# META_DIR=Directory to store Meta files in
+# LOGFILE=file to catch GEMPAK program output
+#
+setenv DATA_DIR	/data/gempak/upperair
+setenv LOGFILE 	www_skew
+#
+# Remove last hour's sfc grid file, and ps file
+#
+rm -f www_skew skew_01.gif skew_02.gif
+#
+# Set some variables for GDPLOT run
+#
+set device="gf"
+# set grid=${DATA_DIR}/${date}${1}.gbm
+set grid=${DATA_DIR}/${date}_upa.gem
+
+foreach station (`cut -f1 skew_stations`)
+#
+# Run SNPROF to generate skew-Ts from OAX and DVN
+#
+$GEMEXE/snprof_gf << EOF >> $LOGFILE
+SNFILE   = $grid
+DEVICE	= GF|skew_${station}.gif|720;540
+DATTIM   = ${date}/${1}
+AREA     = @${station}
+SNPARM   = tmpc;dwpc
+LINE     = 3
+PTYPE    = skewt
+VCOORD   = pres
+STNDEX   = lift;swet;kinx;totl;cape;cins;brch
+STNCOL   = 5
+WIND     = bk27/.8/1//.5
+WINPOS   = 1
+MARKER   = 0
+BORDER   = 31
+TITLE    = 5/-0/ Skew-T from `grep ${station} skew_stations | cut -f2`
+YAXIS    = 1020/100//1;1;0
+XAXIS    = -40/40/10/1;1;0
+FILTER   = no
+CLEAR    = yes
+PANEL    = 0
+TEXT     = 0.8/2//hw
+THTALN   = 4/1/1
+THTELN   = 4/2/1
+MIXRLN   = 2/2/1
+list
+run
+
+exit
+EOF
+
+#
+# Run GPEND to clean up
+#
+#$GEMEXE/gpend
+#
+# Rename ps file to indicate sfc data
+end
+#mv skew_01.gif /webpix/skew_01.gif
+#keep /webpix/skew_01.gif

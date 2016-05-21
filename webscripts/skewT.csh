@@ -2,6 +2,7 @@
 source ../COMMON.csh
 
 setenv IMAGE skew_${2}_${1}.gif
+rm -f $IMAGE
 setenv DEVICE GF\|${IMAGE}\|720\;540
 
 setenv DATA_DIR	/data/gempak/upperair

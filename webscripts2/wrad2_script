@@ -1,0 +1,62 @@
+#!/bin/csh 
+# 23 Feb 2003:	Use _gif driver
+#		Do error checking...
+# 24 Feb 2003:	Don't use a variable called 'time'
+# 03 Mar 2003:	Make sure all rad.gif files are deleted
+# 16 Mar 2003:	Make sure file exists before moving it...
+
+source ~/webscripts/COMMON
+
+#
+setenv DATA_DIR	/data/gempak/nexrad/NIDS/DMX/N0R
+if ( ! -e ${DATA_DIR} ) then
+	exit
+endif
+setenv LOGFILE 	www_rad
+#
+# Remove last hour's  www file
+rm -f rad.gif* >& /dev/null
+#
+# Set some variables for GPMAP run
+#
+set device="GF|rad.gif"
+set grid=${DATA_DIR}/`ls -1t ${DATA_DIR}/ | head -1`
+set tmp=${grid:r}
+set tm=${tmp:t}
+sleep 60
+#
+# Run GPMAP to generate radar plot
+#
+$GEMEXE/gpmap_gf << EOF > $LOGFILE
+\$RESPOND = YES
+DEVICE   = $device
+GAREA    = dset
+PROJ     = rad
+SATFIL   = 
+RADFIL   = ${grid}
+LATLON   = 0
+PANEL    = 0 
+TITLE    = 31/-2/ DES MOINES REFLECTIVITY DATA - ${tm}
+#TITLE    = 1
+TEXT     = 1/2/1/hw
+LUTFIL   = RADAR
+STNPLT   = 7|0|$GEMTBL/stns/sfmetar_sa.tbl
+\$mapfil = hipowo.cia + hicnus.nws + hiponw.cia
+MAP    = 25/1/1 + 5/1/1 +  21/1/5
+list
+run
+
+exit
+EOF
+
+#
+# Run GPEND to clean up
+#
+# Rename ps file to indicate sfc data
+if (-e rad.gif) then
+  mv rad.gif /mnt/disk3/www/httpd/html/restricted/wsi/rad0.gif
+  cd /mnt/disk3/www/httpd/html/restricted/wsi
+  foreach num (11 10 9 8 7 6 5 4 3 2 1 0)
+  	mv rad${num}.gif rad`echo ${num} + 1 | bc`.gif
+  end
+endif

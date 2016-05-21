@@ -1,0 +1,97 @@
+#! /bin/csh 
+########################################################
+# Script for plotting 6am and noon temps for use 
+# primarily in MT206 forecast contest
+#
+# Can be run from cron.
+# 
+########################################################
+#
+# source the 5.2 environment variables 
+#
+source /nawips/Gemenviron
+setenv DISPLAY mesonet.agron.iastate.edu:3
+#
+# Set the root Ntrans directory
+#
+# setenv NTRANSHOME  ${NAWIPS}/nprogs/ntrans2.1
+#
+# cd to temporary directory. This is where the Nmeta file 
+# will be kept while the script is running.
+#
+cd ~/webscripts/www
+#
+# Define current date
+#
+set yy=`date -u +%y`
+set mm=`date -u +%m`
+set dd=`date -u +%d`
+set date=${yy}${mm}${dd}
+# set hh=`date -u +%H`
+#
+# Set up local variables
+#
+# DATA_DIR=GEMPAK surface data directory;
+# META_DIR=Directory to store Meta files in
+# LOGFILE=file to catch GEMPAK program output
+#
+setenv DATA_DIR	/data/gempak/profiler
+setenv LOGFILE 	www_pro
+#
+# Remove last hour's sfc grid file, and ps file
+#
+rm -f www_pro pro_*.gif
+#
+# Set some variables for GDPLOT run
+#
+#set device="invgps|||C|P"
+set grid=${DATA_DIR}/${date}${1}_pro.gem
+
+foreach station (`cat pro_list.txt`)
+set device="GF|pro_${station}.gif"
+set full=`grep ^K${station} stationlist`
+#
+# Run SNCROSS2 to generate time series of Slater profiler winds
+#
+$GEMEXE/sncross2 << EOF >> $LOGFILE
+\$RESPOND = YES
+DEVICE	= $device 
+CXSTNS   = $station
+SNPARM   =     
+SNFILE   = $grid
+DATTIM   = all
+VCOORD   = hght
+PTYPE    = lin
+YAXIS    = 500/12000/1000
+TAXIS    = 
+LINE     = 31/1/1/1
+BORDER   = 5
+CINT     = 5
+WIND     = bk30-7
+TITLE    = 5/-4/ Today's profiler winds from $full
+PANEL    = 0
+CLEAR    = y
+FILTER   = 0.7
+TEXT     = 0.8/21/1/hw
+CURVE    = 2
+CLRBAR   = 0
+CONTUR   = 3/3
+FINT     = 
+FLINE    = 
+CTYPE    = c
+list
+run
+
+exit
+EOF
+
+#
+# Run GPEND to clean up
+#
+$GEMEXE/gpend
+
+end
+#
+# Rename ps file to indicate sfc data
+mv pro_*.gif /webpix/
+keep /webpix/pro_*.gif

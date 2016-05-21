@@ -1,0 +1,79 @@
+#! /bin/csh 
+########################################################
+# Script for plotting forecasts from current day's ETA
+# model to gif for display on web.  Also will plot
+# current hour surface data and upper air data
+#
+# Can be run from cron.
+# Invoke with 1 argument: 00 or 12 for the model run 
+# 
+########################################################
+#
+# source the 5.2 environment variables 
+#
+source /nawips/Gemenviron
+setenv DISPLAY mesonet.agron.iastate.edu:3.0
+#
+# Set the root Ntrans directory
+#
+# setenv NTRANSHOME  ${NAWIPS}/nprogs/ntrans2.1
+#
+# cd to temporary directory. This is where the Nmeta file 
+# will be kept while the script is running.
+#
+cd ~/webscripts/www
+#
+# Define current date
+#
+set yy=`date -u +%y`
+set mm=`date -u +%m`
+set dd=`date -u +%d`
+set date=${yy}${mm}${dd}
+set hh=`date -u +%H`
+#
+# Set up local variables
+#
+# DATA_DIR=GEMPAK surface data directory;
+# META_DIR=Directory to store Meta files in
+# LOGFILE=file to catch GEMPAK program output
+#
+setenv DATA_DIR	/data/gempak/surface/sao
+setenv LOGFILE 	www_t
+#
+# Remove last hour's sfc grid file, and ps file
+#
+#rm -f file1.grd
+#rm -f ps.plt_sfc
+rm -f www_t test.txt >& /dev/null
+#
+# Set some variables for SFLIST run
+#
+set grid=${DATA_DIR}/${date}${1}_sao.gem
+#
+# Run SFLIST to list sfc data
+#
+$GEMEXE/sflist << EOF >> $LOGFILE
+\$RESPOND = YES
+AREA     = ia
+GAREA    = ia
+STNPLT  =  
+SFPARM   = tmpc
+DATTIM   = ${date}/${hh}00
+SFFILE   = $grid
+OUTPUT   = f/test.txt
+IDNTYP   = STID
+list
+run
+
+exit
+EOF
+
+#
+# Run GPEND to clean up
+#
+$GEMEXE/gpend
+
+#
+# Count missing stations
+#
+grep " -9999" test.txt | wc -l > missing.txt
