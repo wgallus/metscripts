@@ -1,5 +1,7 @@
 #! /bin/csh 
 
+source ../COMMON.csh
+
 set hr = ${1}
 set ddir = "~/projects/metscripts/newdifax2"
 
@@ -11,4 +13,4 @@ end
 
 rm *.TIF
 keep *.gif
-mv *.gif /mnt/mtarchive/data/misc/difax/
+mv *.gif $WEBPIX/difax/
