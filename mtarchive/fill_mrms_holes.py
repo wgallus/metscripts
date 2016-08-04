@@ -38,7 +38,7 @@ def fetch(prod, now):
     pattern = now.strftime(("/data/realtime/outgoing/grib2/"
                             "MRMS_" + prod + "_00.00_" +
                             "%Y%m%d-%H%M%S.grib2.gz"))
-    cmd = "/home/ldm/bin/pqinsert -p '%s' %s" % (pattern, tmpfn)
+    cmd = "/home/meteor_ldm/bin/pqinsert -p '%s' %s" % (pattern, tmpfn)
     subprocess.call(cmd, shell=True)
     os.remove(tmpfn)
 
