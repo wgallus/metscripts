@@ -3,6 +3,7 @@
 # set -x
 
 ddir="/isu/las/class/meteorology/mtarchive/data/"
+date4=$(date -u --date "${1} days ago" +'%d')
 date3=$(date -u --date "${1} days ago" +'%y%m%d')
 date2=$(date -u --date "${1} days ago" +'%Y%m%d')
 date1=$(date -u --date "${1} days ago" +'%Y/%m/%d')
