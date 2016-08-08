@@ -59,6 +59,9 @@ def main(argv):
     """Do Something"""
     ets = datetime.datetime.utcnow().replace(minute=0, second=0,
                                              microsecond=0)
+    # Don't worry about files for the past hour, some of them come a bit
+    # delayed, like GaugeCorr_QPE_01H
+    ets -= datetime.timedelta(hours=1)
     sts = ets - datetime.timedelta(hours=24)
     [do(prod, sts, ets) for prod in PRODS]
 
