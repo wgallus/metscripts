@@ -2,7 +2,7 @@ source ../COMMON.csh
 
 setenv LOGFILE	logs/www_hemis.log
 
-set device="GIF|hemis500n.gif"
+set device="GIF|hemis500n.gif|1280;1024"
 set grid=${MODEL}/gfs/${DATE}${1}_thin.gem
 
 gdplot << EOF > $LOGFILE

@@ -2,7 +2,7 @@ source ../COMMON.csh
 
 setenv LOGFILE	logs/www_zw.log
 
-set device="GF|zonalWind.gif|700;500"
+set device="GF|zonalWind.gif|1024;768"
 set grid=${MODEL}/gfs/${DATE}${1}_thin.gem
 
 $GEMEXE/gdcross_gf << EOF > $LOGFILE
