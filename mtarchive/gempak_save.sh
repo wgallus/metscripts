@@ -18,7 +18,7 @@ mkdir -p ${ddir}${date1}/text/{Public,Severe,records,Climate,boy,mod,rad,sao,syn
 
 h=( 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 )
 
-for cc in $(seq 1 24);
+for cc in $(seq 0 23);
 do
 mygetter text/boy/${date3}${h[$cc]}.boy ${ddir}${date1}/text/boy/${date2}${h[$cc]}_boy.txt
 mygetter text/mod/${date3}${h[$cc]}.mod ${ddir}${date1}/text/mod/${date2}${h[$cc]}_mod.txt
