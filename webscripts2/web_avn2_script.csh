@@ -516,8 +516,10 @@ cp avn2.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f30.gif
 cp avn2.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f36.gif
 cp avn2.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f42.gif
 cp avn2.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f48.gif
-cp avn2.gif.008 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f60.gif
-cp avn2.gif.009 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f72.gif
+cp avn2.gif.008 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f54.gif
+cp avn2.gif.009 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f60.gif
+cp avn2.gif.010 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f66.gif
+cp avn2.gif.011 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_sfcT_Td_wind_f72.gif
 
 mv avn2.gif avn2_41.gif
 mv avn2.gif.001 avn2_42.gif
@@ -529,6 +531,8 @@ mv avn2.gif.006 avn2_47.gif
 mv avn2.gif.007 avn2_48.gif
 mv avn2.gif.008 avn2_49.gif
 mv avn2.gif.009 avn2_50.gif
+mv avn2.gif.010 avn2_51.gif
+mv avn2.gif.011 avn2_52.gif
 keep avn2_4[1-9].gif avn2_50.gif
 mv avn2_4[1-9].gif avn2_50.gif $WEBPIX/
 
