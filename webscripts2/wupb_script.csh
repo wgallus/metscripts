@@ -2,13 +2,12 @@
 
 source ~/projects/metscripts/COMMON.csh
 
-setenv LOGFILE 	www_uab
+setenv LOGFILE 	logs/www_uab
 #
 # Remove last upper grid file and upper ps plot
 #
 rm -f file2.grd
 rm -f ps.plt_uab
-rm -f www_uab
 rm -f uab_0?.gif >& /dev/null
 #
 # Set some variables for GDPLOT run
@@ -18,7 +17,7 @@ set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
 #
 # Run GDPLOT and generate analyzed 850,700 and 500 maps
 #
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
 GDATTIM	= f00

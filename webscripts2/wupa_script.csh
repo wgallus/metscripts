@@ -1,13 +1,12 @@
 #! /bin/csh 
 
 source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE 	www_uaa
+setenv LOGFILE 	logs/www_uaa
 #
 # Remove last upper grid file and upper ps plot
 #
 rm -f file4.grd
 rm -f ps.plt_uaa
-rm -f www_uaa
 rm -f uaa_0?.gif >& /dev/null
 #
 # Set some variables for GDPLOT run
@@ -20,7 +19,7 @@ set grid=/data/gempak/model/nam/${DATE}${1}_nam212.gem
 #
 # changed 2001.04.13 geff@iastate.edu
 #$GEMEXE/gdplot << EOF >> $LOGFILE
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
+$GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
 GDATTIM	= f00
