@@ -12,7 +12,7 @@ set date3=`date --date '72 hours' +'%Y%m%d'`
 set date4=`date --date '96 hours' +'%Y%m%d'`
 set grid=${DATA_DIR}/${DATE}${1}_gmos.gem
 
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= $device
 AREA     = 39.5;-98;45;-88

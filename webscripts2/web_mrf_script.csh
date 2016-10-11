@@ -3,7 +3,7 @@
 
 source ../COMMON.csh
 
-setenv LOGFILE	www_mrf
+setenv LOGFILE	logs/www_mrf
 
 #
 set device="GF|mrf.gif"

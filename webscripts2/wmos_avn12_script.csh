@@ -2,8 +2,8 @@
 
 source ~/projects/metscripts/COMMON.csh
 setenv DATA_DIR	/data/gempak/mos
-setenv LOGFILE 	www_mosa
-rm -f www_mosa mosa.gif
+setenv LOGFILE 	logs/www_mosa
+rm -f mosa.gif
 set device="GF|mosa.gif"
 set date1=`date --date '24 hours' +'%Y%m%d'`
 set date2=`date --date '48 hours' +'%Y%m%d'`
@@ -15,7 +15,7 @@ set grid=${DATA_DIR}/${DATE}${1}_gmos.gem
 # Run SFMAP to generate plot of 12hrly temps,qpf,pp
 #
 
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= $device
 AREA     = 39.5;-98;45;-88
