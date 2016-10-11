@@ -161,6 +161,7 @@ EOF
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
 	DEVICE	= GF|${OUTPUT1}|720;540
+	GDATTIM	= ${date}/${hh}00
 	GAREA    = 18;-120;53;-59
 	GVCORD   = none
 	PANEL    = 0
@@ -200,6 +201,7 @@ cp ${OUTPUT1} ${ARCHIVE2}/dew${TIMESTAMP}.gif
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
 	DEVICE	= GF|${OUTPUT15}|720;540
+	GDATTIM	= ${date}/${hh}00
 	GAREA    = 37;-101;46;-87
 	GVCORD   = none
 	PANEL    = 0
@@ -274,6 +276,7 @@ cp ${OUTPUT2} ${ARCHIVE2}/moist${TIMESTAMP}.gif
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
 	DEVICE	= GF|${OUTPUT25}|720;540
+	GDATTIM	= ${date}/${hh}00
 	GAREA    = 37;-101;46;-87
 	GVCORD   = none
 	PANEL    = 0
@@ -311,6 +314,7 @@ EOF
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
 	DEVICE	= GF|${OUTPUT3}|720;540
+	GDATTIM	= ${date}/${hh}00
 	GAREA    = 18;-120;53;-59
 	GVCORD   = none
 	PANEL    = 0
@@ -349,6 +353,7 @@ EOF
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GLEVEL   = 0
 	DEVICE	= GF|${OUTPUT35}|720;540
+	GDATTIM	= ${date}/${hh}00
 	GAREA    = 37;-101;46;-87
 	GVCORD   = none
 	PANEL    = 0
