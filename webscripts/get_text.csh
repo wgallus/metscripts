@@ -14,7 +14,6 @@ while ( $cc <= 24 )
 
 cp /data/text/boy/${date3}${h[$cc]}.boy ${ddir}${date1}/text/boy/${date2}${h[$cc]}_boy.txt
 cp /data/text/mod/${date3}${h[$cc]}.mod ${ddir}${date1}/text/mod/${date2}${h[$cc]}_mod.txt
-cp /data/text/rad/${date3}${h[$cc]}.rad ${ddir}${date1}/text/rad/${date2}${h[$cc]}_rad.txt
 cp /data/text/sao/${date3}${h[$cc]}.sao ${ddir}${date1}/text/sao/${date2}${h[$cc]}_sao.txt
 cp /data/text/syn/${date3}${h[$cc]}.syn ${ddir}${date1}/text/syn/${date2}${h[$cc]}_syn.txt
 cp /data/text/upa/${date3}${h[$cc]}.upa ${ddir}${date1}/text/upa/${date2}${h[$cc]}_upa.txt
