@@ -65,6 +65,7 @@ endif
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
+DEVICE	= $device 
 GVCORD  = pres
 GLEVEL	= 500
 GVECT	= WND ! 
@@ -111,6 +112,7 @@ endif
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
+DEVICE	= $device
 GDATTIM	= F03-F12-03
 GLEVEL	= 0 ! 0 ! 0 !700
 GVCORD	= pres !   pres  !   none  
@@ -219,7 +221,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 GAREA	= grid
 PROJ	= lcc/25;-95;25
 CLRBAR  = 31
-
+DEVICE	= $device 
 GLEVEL	= 700 
 GVCORD  = pres !pres !pres
 GFUNC	= relh(tmpc,dwpc)    !tmpc           !hght
@@ -266,7 +268,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 GAREA	= grid
 PROJ	= lcc/25;-95;25
 CLRBAR  = 31
-
+DEVICE	= $device 
 GLEVEL	= 250  
 GVCORD	= pres !pres  !pres
 GFUNC	= sped !hght  !div(wnd)
