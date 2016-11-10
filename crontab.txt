@@ -92,7 +92,6 @@ PROJDIR="projects/metscripts"
 
 24  * * * * cd $PROJDIR/webscripts; csh surface.csh 
 19  * * * * cd $PROJDIR/webscripts; csh surfacePlot.csh 
-35  * * * * cd $PROJDIR/webscripts; csh slater.csh
  4 16,17 * * * cd $PROJDIR/webscripts; csh eta.csh 12 
 48 3,4 * * * cd $PROJDIR/webscripts; csh eta.csh 00 
 4 18 * * * cd $PROJDIR/webscripts; csh avn.csh 12
