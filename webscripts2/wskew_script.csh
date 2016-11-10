@@ -3,12 +3,10 @@
 
 source ~/projects/metscripts/COMMON.csh
 
-setenv LOGFILE 	www_skew
-rm -f skew_0?.gif* >& /dev/null
+setenv LOGFILE 	logs/www_skew
+
 set grid=/data/gempak/upperair/${DATE}_upa.gem
-#
-# Run SNPROF to generate skew-Ts from OAX and DVN
-#
+
 $GEMEXE/snprof_gf << EOF > $LOGFILE
 SNFILE   = $grid
 DEVICE	= GF|skew_01.gif|720;540

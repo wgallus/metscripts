@@ -1,16 +1,13 @@
 #!/bin/csh 
-# 21 Mar 2003	Cleanup and not use WSI products
-#
+
 source ~/projects/metscripts/COMMON.csh
 setenv DATA_DIR	/data/gempak/nexrad/NIDS/DMX/NTP
-setenv LOGFILE 	www_radp12
-rm -f radp.gif* >& /dev/null
+setenv LOGFILE 	logs/www_radp12
+
 set device="GF|radp.gif"
 set grid=`ls ${DATA_DIR}/NTP_${DATE}_12?? | tail -1`
 
-#
-# Run GPMAP to generate radar plot
-#
+
 $GEMEXE/gpmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE   = $device

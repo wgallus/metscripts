@@ -1,16 +1,11 @@
-#! /bin/csh 
+#!/bin/csh 
 
 source ~/projects/metscripts/COMMON.csh
 
-#
-rm -f sfc2_01.gif* >& /dev/null
-setenv LOGFILE 	www_sfc2
-rm -f www_sfc2
+setenv LOGFILE 	logs/www_sfc2
 set grid=/data/gempak/surface/sao/${DATE}${1}_sao.gem
-#
-# Run SFMAP to generate surface plot
-#
-$GEMEXE/sfmap_gf << EOF >> $LOGFILE
+
+$GEMEXE/sfmap_gf << EOF > $LOGFILE
 \$RESPOND = YES
 DEVICE	= GF|sfc2_01.gif|964;624
 AREA     = 20;-128;53;-54
