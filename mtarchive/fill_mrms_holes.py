@@ -23,14 +23,21 @@ PRODS = {'GaugeCorr_QPE_01H': datetime.timedelta(minutes=60),
 
 def fetch(prod, now):
     """We have work to do!"""
-    uri = now.strftime(("http://mrms.ncep.noaa.gov/data/2D/" +
-                        prod + "/MRMS_" + prod +
-                        "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
+    for center in ['cprk', 'bldr']:
+        uri = now.strftime(("http://mrms." + center +
+                            ".ncep.noaa.gov/data/2D/" +
+                            prod + "/MRMS_" + prod +
+                            "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
 
-    res = requests.get(uri, timeout=60)
-    if res is None or res.status_code != 200:
-        print("MISS %s %s" % (now.strftime("%Y-%m-%dT%H:%MZ"), prod))
-        return
+        res = requests.get(uri, timeout=60)
+        if res.status_code == 200:
+            break
+        if res is None or res.status_code != 200:
+            print("MISS %s %s %s" % (center, now.strftime("%Y-%m-%dT%H:%MZ"),
+                                     prod))
+            if center == 'bldr':
+                return
+
     (tmpfd, tmpfn) = tempfile.mkstemp()
     os.write(tmpfd, res.content)
     os.close(tmpfd)
