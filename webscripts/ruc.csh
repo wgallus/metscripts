@@ -24,7 +24,7 @@ LATLON	= 0
 
 GLEVEL	= 500:1000                  !0
 GVCORD	= pres                      !none
-GFUNC	= (sub(hght@500,hght@1000)) !mmsl@0%none
+GFUNC	= (sub(hght@500,hght@1000)) !MUL(0.01,MSLMA)
 SCALE	= -1                        ! 0
 CINT	= 6                         ! 4
 LINE	= 3/3/1                     ! 20//2
@@ -116,7 +116,7 @@ DEVICE	= $device
 GDATTIM	= F03-F12-03
 GLEVEL	= 0 ! 0 ! 0 !700
 GVCORD	= pres !   pres  !   none  
-GFUNC	= (quo(p03m,25.4)) !(quo(p03m,25.4)) ! mmsl@0%none 
+GFUNC	= (quo(p03m,25.4)) !(quo(p03m,25.4)) ! MUL(0.01,MMSLA) 
 GVECT	=
 CINT	= /.1/.1!0.10;0.20;0.30;0.50;0.75;1.00;1.25;1.5;1.75;2.0;2.25;2.5;3.0!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 
@@ -135,9 +135,7 @@ run
 
 exit
 EOF
-#
-# Run GPEND to clean up
-#
+
 
 if (-e ruc1.gif) then
   cp ruc1.gif $CURRENT/rucPRECF03.gif
