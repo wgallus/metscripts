@@ -1,6 +1,6 @@
 source ../COMMON.csh
 setenv TARGET $WEBPIX/skew
-setenv IMAGE ${TARGET}/skew_${2}_${1}.gif
+setenv IMAGE skew_${2}_${1}.gif
 setenv DEVICE GF\|${IMAGE}\|720\;540
 #
 set yy=`date -u +%Y`
@@ -14,7 +14,7 @@ set date=${yy}${mm}${dd}
 # LOGFILE=file to catch GEMPAK program output
 #
 setenv DATA_DIR	/data/gempak/upperair
-setenv LOGFILE 	logs/www_skew.log
+setenv LOGFILE 	logs/www_skew_${1}_${2}.log
 #
 set grid=${DATA_DIR}/${date}_upa.gem
 #
@@ -62,5 +62,7 @@ EOF
 
 # archive the image we just created
 if (-e ${IMAGE}) then
-  keep ${IMAGE}
+	cp $IMAGE $TARGET/$IMAGE
+	keep ${IMAGE}
+	rm $IMAGE
 endif
