@@ -16,6 +16,7 @@ BASE = "/isu/las/class/meteorology/mtarchive/data"
 PRODS = {'GaugeCorr_QPE_01H': datetime.timedelta(minutes=60),
          'PrecipFlag': datetime.timedelta(minutes=2),
          'PrecipRate': datetime.timedelta(minutes=2),
+         'RadarQualityIndex': datetime.timedelta(minutes=2),
          'RadarOnly_QPE_01H': datetime.timedelta(minutes=60),
          'RadarOnly_QPE_24H': datetime.timedelta(minutes=60),
          'SeamlessHSR': datetime.timedelta(minutes=2)}
