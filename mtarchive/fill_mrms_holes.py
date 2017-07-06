@@ -4,14 +4,18 @@ Sadly, the NCEP LDM MRMS feed sometimes misses important files! We need to
 look at our archive and attempt to fill those holes.
 
 """
+from __future__ import print_function
+
 import datetime
 import sys
 import os
-import requests
 import tempfile
 import subprocess
 
+import requests
 
+
+PQINSERT = "/home/meteor_ldm/bin/pqinsert"
 BASE = "/isu/las/class/meteorology/mtarchive/data"
 PRODS = {'GaugeCorr_QPE_01H': datetime.timedelta(minutes=60),
          'PrecipFlag': datetime.timedelta(minutes=2),
@@ -32,11 +36,13 @@ def fetch(prod, now):
 
         res = requests.get(uri, timeout=60)
         if res.status_code == 200:
+            print(("Missing %s %s fixed from %s center"
+                   ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
             break
         if res is None or res.status_code != 200:
-            print("MISS %s %s %s" % (center, now.strftime("%Y-%m-%dT%H:%MZ"),
-                                     prod))
             if center == 'bldr':
+                print(("----> File %s %s missing for both centers"
+                       ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
                 return
 
     (tmpfd, tmpfn) = tempfile.mkstemp()
@@ -46,12 +52,12 @@ def fetch(prod, now):
     pattern = now.strftime(("/data/realtime/outgoing/grib2/"
                             "MRMS_" + prod + "_00.00_" +
                             "%Y%m%d-%H%M%S.grib2.gz"))
-    cmd = "/home/meteor_ldm/bin/pqinsert -p '%s' %s" % (pattern, tmpfn)
+    cmd = "%s -p '%s' %s" % (PQINSERT, pattern, tmpfn)
     subprocess.call(cmd, shell=True)
     os.remove(tmpfn)
 
 
-def do(prod, sts, ets):
+def workflow(prod, sts, ets):
     """Process this stuff now!"""
     now = sts
     while now < ets:
@@ -71,7 +77,8 @@ def main(argv):
     # delayed, like GaugeCorr_QPE_01H
     ets -= datetime.timedelta(hours=1)
     sts = ets - datetime.timedelta(hours=24)
-    [do(prod, sts, ets) for prod in PRODS]
+    _ = [workflow(prod, sts, ets) for prod in PRODS]
+
 
 if __name__ == '__main__':
     main(sys.argv)
