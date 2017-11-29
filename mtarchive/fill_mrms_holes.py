@@ -34,7 +34,11 @@ def fetch(prod, now):
                             prod + "/MRMS_" + prod +
                             "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
 
-        res = requests.get(uri, timeout=60)
+        try:
+            res = requests.get(uri, timeout=60)
+        except requests.exceptions.ReadTimeout as _exp:
+            print("Read timeout on %s" % (uri, ))
+            continue
         if res.status_code == 200:
             print(("Missing %s %s fixed from %s center"
                    ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
@@ -69,7 +73,7 @@ def workflow(prod, sts, ets):
         now += PRODS.get(prod)
 
 
-def main(argv):
+def main():
     """Do Something"""
     ets = datetime.datetime.utcnow().replace(minute=0, second=0,
                                              microsecond=0)
@@ -81,4 +85,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
