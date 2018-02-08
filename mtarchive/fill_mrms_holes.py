@@ -39,6 +39,9 @@ def fetch(prod, now):
         except requests.exceptions.ReadTimeout as _exp:
             print("Read timeout on %s" % (uri, ))
             continue
+        except requests.exceptions.ConnectionError as _exp:
+            print("Error for %s %s" % (uri, _exp))
+            continue
         if res.status_code == 200:
             print(("Missing %s %s fixed from %s center"
                    ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
