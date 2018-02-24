@@ -26,6 +26,11 @@ PRODS = {'GaugeCorr_QPE_01H': datetime.timedelta(minutes=60),
          'SeamlessHSR': datetime.timedelta(minutes=2)}
 
 
+def is_gzipped(text):
+    """Check that we have gzipped content"""
+    return text[:2] == '\x1f\x8b'
+
+
 def fetch(prod, now):
     """We have work to do!"""
     for center in ['cprk', 'bldr']:
@@ -46,7 +51,8 @@ def fetch(prod, now):
             print(("Missing %s %s fixed from %s center"
                    ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
             break
-        if res is None or res.status_code != 200:
+        if (res is None or res.status_code != 200 or
+                not is_gzipped(res.content)):
             if center == 'bldr':
                 print(("----> File %s %s missing for both centers"
                        ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
