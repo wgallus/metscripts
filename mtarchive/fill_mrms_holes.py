@@ -47,16 +47,16 @@ def fetch(prod, now):
         except requests.exceptions.ConnectionError as _exp:
             print("Error for %s %s" % (uri, _exp))
             continue
-        if res.status_code == 200:
-            print(("Missing %s %s fixed from %s center"
-                   ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
-            break
         if (res is None or res.status_code != 200 or
                 not is_gzipped(res.content)):
             if center == 'bldr':
                 print(("----> File %s %s missing for both centers"
                        ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
                 return
+        if res.status_code == 200:
+            print(("Missing %s %s fixed from %s center"
+                   ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
+            break
 
     (tmpfd, tmpfn) = tempfile.mkstemp()
     os.write(tmpfd, res.content)
