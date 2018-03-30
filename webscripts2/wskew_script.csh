@@ -38,12 +38,6 @@ run
 exit
 EOF
 
-#
-# Run GPEND to clean up
-#
-#$GEMEXE/gpend
-#
-
 # Rename ps file to indicate sfc data
 cp skew_01.gif ${ddir}${DATE2}/pix/skew/${1}z/${DATE}${1}_skewt_OAX.gif
 if (-e skew_01.gif) then

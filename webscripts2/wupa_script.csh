@@ -1,7 +1,7 @@
 #! /bin/csh 
 
 source ~/projects/metscripts/COMMON.csh
-setenv LOGFILE 	logs/www_uaa
+setenv LOGFILE 	logs/www_uaa.log
 #
 # Remove last upper grid file and upper ps plot
 #
