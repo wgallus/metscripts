@@ -1,0 +1,49 @@
+#!/bin/csh
+
+# prepare to make overlay image
+source /archive/tmp/nawips/Gemenviron
+#source /nawips/Gemenviron
+rm -f overlay.err *.nts overlay.gif >& /dev/null
+setenv RADAR `ls -1t /data/mcidas/AREA020? | head -1`
+setenv FRONT `ls -1t /data/*.frt | head -1`
+setenv SURFACE `ls -1t ${SAO}/*_sao.gem | head -1`
+setenv DISPLAY :1.0
+setenv DEVICE 'gf|overlay.gif|800;600|c'
+setenv AREA `cat area.txt`
+setenv TIME `date -u +/%H00`
+
+# grab McIDAS radar image
+gpmap << EOF >> overlay.err
+proj=rad
+area=US-
+garea=${AREA}
+radfil=${RADAR}
+lutfil=radar
+device=${DEVICE}
+clear=no
+run
+
+EOF
+
+# plot DDS front data
+gpfront << EOF >> overlay.err
+text=0.5/2//hw
+title=0
+device=${DEVICE}
+asfil=${FRONT}
+run
+
+EOF
+
+# plot station model
+sfmap << EOF >> overlay.err
+text=0.75/2//hw
+device=${DEVICE}
+sffil=${SURFACE}
+dattim=${TIME}
+run
+
+EOF
+
+# clean up
+gpend

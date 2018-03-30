@@ -1,0 +1,7 @@
+#!/bin/csh
+#tifftopnm $1 | pnmscale 0.333333 | pnmflip -r180 | ppmtogif > $2
+tifftopnm $1 | pnminvert | pnmscale 0.5 > ${2:r}.pgm
+make $2
+rm ${2:r}.pgm
+cp $2 /webpix/difax
+keep $2

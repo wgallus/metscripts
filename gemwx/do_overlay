@@ -1,0 +1,68 @@
+#!/bin/csh
+
+#source /home/nawips/Gemenviron
+#source /usr/local/nawips/Gemenviron
+#source /usr/local/nawips-5.10.1/Gemenviron
+source /usr/local/nawips/Gemenviron
+
+rm -f overlay.err *.nts overlay.gif >& /dev/null
+
+setenv RADAR `ls -1t /data/mcidas/AREA020? | head -1`
+ls -lrt $RADAR
+setenv FRONT `ls -1t /data/text/frt/*.frt | head -1`
+ls -lrt $FRONT
+setenv SURFACE `ls -1t /data/gempak/surface/*_sao.gem | head -1`
+ls -lrt $SURFACE
+setenv DISPLAY :1.0
+setenv DEVICE 'gf|overlay.gif|800;600|c'
+setenv AREA `cat area_us.txt`
+setenv TIME `date -u +/%H00`
+setenv DATE `date -u '+%H00Z %a %d %b %Y'`
+
+# grab McIDAS radar image
+echo "hi"
+gpmap << EOF >> overlay.err
+\$mapfil=hipowo.cia
+proj=rad
+area=US-
+garea=${AREA}
+radfil=${RADAR}
+lutfil=radar
+device=${DEVICE}
+clear=no
+title=0
+run
+
+EOF
+
+echo "hi"
+
+
+# plot DDS front data
+gpfront << EOF >> overlay.err
+text=0.5/2//hw
+garea=US-
+device=${DEVICE}
+asfil=${FRONT}
+clear=no
+run
+
+EOF
+
+echo sffil=${SURFACE} >> overlay.err
+# plot station model
+sfmap << EOF >> overlay.err
+text=0.75/2//hw
+area=US-
+garea=US-
+device=${DEVICE}
+sffil=${SURFACE}
+dattim=${TIME}
+clear=no
+title=1/0/${DATE} (GEMPAK sao time: ~)
+run
+
+EOF
+
+# clean up
+gpend

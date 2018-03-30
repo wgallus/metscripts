@@ -1,0 +1,26 @@
+#!/bin/csh
+
+set yy=`date -u +%y`
+set mm=`date -u +%m`
+set dd=`date -u +%d`
+set date=${yy}${mm}${dd}
+set DATE=`date -u +%Y%m%d`
+set date1 = `date -u +%Y/%m/%d`
+set hh=`date -u +%H`
+
+cd ~/gemwx
+rm -f combine.err
+( csh do_overlay ) >& combine.err
+( csh do_radar ) >>& combine.err
+( giftopnm overlay.gif > overlay.ppm ) >>& combine.err
+( ppmtopgm overlay.ppm \
+	 | pgmtopbm -thresh -val 0.01 > mask.pbm ) >>& combine.err
+( giftopnm radar.gif > radar.ppm ) >>& combine.err
+( pnmarith -sub radar.ppm mask.pbm > masked_radar.ppm ) >>& combine.err
+( pnmarith -add overlay.ppm masked_radar.ppm \
+	| pnmcrop | ppmtogif > final.gif ) >>& combine.err
+#uncomment these to publish the image on the web
+cp final.gif /mtarchive/data/${date1}/pix/gemwx/${DATE}${hh}_gemwx.gif
+cp final.gif /webpix/gemwx.gif
+keep /webpix/gemwx.gif
+

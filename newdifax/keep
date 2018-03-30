@@ -1,0 +1,3 @@
+#!/bin/sh
+cp $1 /data/difax
+cp $1 /mnt/disk3/www/httpd/html/restricted/difax

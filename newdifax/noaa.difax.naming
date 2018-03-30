@@ -1,0 +1,113 @@
+From owner-ldm-users@unidata.ucar.edu  Wed Oct 11 11:42:18 2000
+Return-Path: <owner-ldm-users@unidata.ucar.edu>
+Received: from pop-1.iastate.edu (pop-1.iastate.edu [129.186.1.61])
+	by amelia.geol.iastate.edu (8.9.3/8.9.3) with ESMTP id LAA06033
+	for <geff@amelia.geol.iastate.edu>; Wed, 11 Oct 2000 11:42:18 -0500
+Received: from unidata.ucar.edu (laraine.unidata.ucar.edu [128.117.149.62])
+	by pop-1.iastate.edu (8.9.3/8.9.3) with ESMTP id LAA25674;
+	Wed, 11 Oct 2000 11:42:16 -0500
+Received: (from majordo@localhost)
+	by unidata.ucar.edu (UCAR/Unidata) id e9BGe8t22418
+	for ldm-users-out; Wed, 11 Oct 2000 10:40:08 -0600 (MDT)
+Received: from bbmail1-out.unisys.com (bbmail1-out.unisys.com [192.63.108.40])
+	by unidata.ucar.edu (UCAR/Unidata) with ESMTP id e9BGe5422412;
+	Wed, 11 Oct 2000 10:40:06 -0600 (MDT)
+Organization: UCAR/Unidata
+Received: from sdosrv4 (sdosrv4.ks.unisys.com [192.62.131.2])
+	by bbmail1-out.unisys.com (8.9.3/8.9.3) with SMTP id QAA24759;
+	Wed, 11 Oct 2000 16:35:45 GMT
+Received: from devo by sdosrv4 (SMI-8.6/SMI-SVR4)
+	id MAA07086; Wed, 11 Oct 2000 12:39:14 -0400
+From: "Dan Vietor" <devo@ks.unisys.com>
+To: "'James D. Marco'" <jdm27@cornell.edu>, <ldm-users@unidata.ucar.edu>,
+        <difax@unidata.ucar.edu>
+Subject: RE: DIFAX Scripts
+Date: Wed, 11 Oct 2000 12:06:00 -0400
+Keywords: 200010111538.e9BFcZ419706
+Message-ID: <00c101c0339d$289f8980$37833ec0@devo>
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3 (Normal)
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook 8.5, Build 4.71.2377.0
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2919.6600
+In-Reply-To: <3.0.3.32.20001011113608.00c55b00@postoffice.mail.cornell.edu>
+Importance: Normal
+Sender: owner-ldm-users@unidata.ucar.edu
+Precedence: bulk
+Status: R
+
+For those really interested, the TIF files are on the NWS web site and
+you can cross reference this to the FTP files.
+
+http://weather.noaa.gov/fax/nwsfax.shtml
+
+The FTP files have a WMO header like name convention.  For example (all
+with .TIF extensions), here are some common ones:
+
+QAUA00 - radar summaries (24/day)
+QYAA00 - surface analyses (8/day)
+QGUA00 - weather depictions (8/day)
+QTTA00 - max temp
+QTTA01 - min temp
+QETA00 - 24 hr precip
+QSTA00 - snow cover
+
+* most of these are twice a day
+PGBE99 - 12, 24 hr sig wx, sfc prog
+QHUQ00 - 36, 48 hr sfc prog and description
+QHUA17 - 200 mb analysis
+QHUA25 - 250 mb analysis
+QHUA15, QMUA15 - 300 mb analysis (diff chart for 0 and 12)
+QHTA11 - 500 mb analysis
+QHTA07 - 700 mb analysis
+QHUA04 - 850 mb analysis
+QTTR00 - NGM MOS POP forecast
+QTTE00 - NGM max/min forecast
+
+* once a day
+PGUE00 - day 1,2 convective outlook
+QTMI01 - day 3-4 pop anom, day 3 temp anom
+QTMI00 - day 4-5 temp anom
+QPUT88 - 6-10 day prog
+
+* Multipanel that need to be put together, twice a day
+QHUA89,88 - LI, prec water, frz lvl, mn RH 4 panel
+QHUA71,70 - NGM 0 hr 4 panel
+QHUE71,70 - NGM 12 hr 4 panel
+QHUI71,70 - NGM 24 hr 4 panel
+QHUM71,70 - NGM 36 hr 4 panel
+QHUQ71,70 - NGM 48 hr 4 panel
+QHUM86,85 - NGM 850 48 hr 4 panel
+
+I take these charts and use ImageMagick's convert and montage to put
+them together and then output PNG.  I also rotate them 180 degrees for
+viewing on a screen with something like xv.
+
+For download, I wrote FTP code in Perl to do the hard work.  It
+downloads the directory listing, decodes the dates to determine which
+chart has changed since the last check.  Then I download the chart and
+do the post processing.
+
+I won't give away all my secrets but for those who want to do the
+legwork, everything you need is there!
+
+BTW, that NWS page covers about 90% of all current Difax charts.  NWs
+has told me that this will continue to be there and that they are
+updating the hardware on this system.  They will give priority use to
+some customers such as commercial data providers and maybe one or two
+Unidata sites (check with the NWS contact listed on bottom of web page).
+So it may be a good idea for one or two universities to handle most of
+the load and distribute it through IDD.  When they upgrade and provide
+priority service, Unidata won't be bundled into the low priority group.
+
+Good luck!
+________________________________________________________
+Daniel Vietor               Mail: devo@ks.unisys.com
+Unisys Corp                 Title: Engineer/Meteorologist
+221 Gale Lane               Phone: 610-925-5206
+Kennett Square PA 19348     Fax: 610-925-5215
+
+

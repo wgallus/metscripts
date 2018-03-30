@@ -1,0 +1,8 @@
+#!/bin/csh
+cd ~/newdifax
+foreach file (`cat hourly_tiff`)
+	./remake ${file}
+end
+foreach file (`cat hourly_gif`)
+	./remake ${file}
+end

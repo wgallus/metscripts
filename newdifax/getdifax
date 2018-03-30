@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+if ($#ARGV < 0) {
+	$time = "hourly";
+} else {
+	$time = $ARGV[0];
+}
+
+chdir;
+chdir "newdifax" or die "can't read working directory:  $!\n";
+
+$source = "ftp://weather.noaa.gov/fax";
+
+open NAMES, "<names.txt" or die "can't read config file:  $!\n";
+
+while ($line = <NAMES>) {
+	if ($line =~ /[^#].*$time$/) {
+		$line =~ /^(\w*)\s*(\w*)/;
+		$old = $1 . ".TIF";
+		$new = $2 . ".gif";
+		unlink $old;
+		$cmd = "wget -q $source/$old";
+		system "$cmd\n";
+		$cmd = "./translate $old $new";
+		system "$cmd\n";
+	}
+}

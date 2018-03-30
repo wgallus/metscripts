@@ -1,0 +1,32 @@
+#!/bin/csh
+
+# This has a couple of crude hacks, because the navigation is off in the
+# current gempak.  If that can be fixed, remove "map=0" and use the proper
+# Gemenviron.
+
+# prepare to make radar image
+source /home/nawips/Gemenviron
+rm -f radar.err *.nts radar.gif >& /dev/null
+setenv RADAR `ls -t /data/mcidas/AREA020? | head -1`
+setenv DISPLAY :1.0
+setenv DEVICE 'gf|radar.gif|800;600|c'
+setenv AREA `cat area.txt`
+
+# grab McIDAS radar image
+gpmap_gf << EOF >> radar.err
+\$mapfil=hipowo.cia
+map=0
+proj=rad
+area=${AREA}
+garea=${AREA}
+radfil=${RADAR}
+lutfil=radar
+device=${DEVICE}
+clear=yes
+title=0
+run
+
+EOF
+
+# clean up
+gpend
