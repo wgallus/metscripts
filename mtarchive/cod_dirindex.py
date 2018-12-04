@@ -9,7 +9,7 @@ import datetime
 import os
 import sys
 
-BASE = "/isu/las/class/meteorology/mtarchive/data"
+BASE = "/isu/mtarchive/data"
 INDEXFN = "000index.txt"
 
 

@@ -16,7 +16,7 @@ import requests
 
 
 PQINSERT = "/home/meteor_ldm/bin/pqinsert"
-BASE = "/isu/las/class/meteorology/mtarchive/data"
+BASE = "/isu/mtarchive/data"
 PRODS = {'GaugeCorr_QPE_01H': datetime.timedelta(minutes=60),
          'GaugeCorr_QPE_24H': datetime.timedelta(minutes=60),
          'GaugeCorr_QPE_72H': datetime.timedelta(minutes=60),
