@@ -7,7 +7,6 @@ look at our archive and attempt to fill those holes.
 from __future__ import print_function
 
 import datetime
-import sys
 import os
 import tempfile
 import subprocess
@@ -37,7 +36,7 @@ def is_gzipped(text):
 def fetch(prod, now):
     """We have work to do!"""
     for center in ['cprk', 'bldr']:
-        uri = now.strftime(("http://mrms." + center +
+        uri = now.strftime(("https://mrms-" + center +
                             ".ncep.noaa.gov/data/2D/" +
                             prod + "/MRMS_" + prod +
                             "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
@@ -56,9 +55,8 @@ def fetch(prod, now):
             break
         if center == 'bldr':
             print(("----> File %s %s missing for both centers"
-                    ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
+                   ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
             return
-
 
     (tmpfd, tmpfn) = tempfile.mkstemp()
     os.write(tmpfd, res.content)
@@ -92,7 +90,8 @@ def main():
     # delayed, like GaugeCorr_QPE_01H
     ets -= datetime.timedelta(hours=1)
     sts = ets - datetime.timedelta(hours=24)
-    _ = [workflow(prod, sts, ets) for prod in PRODS]
+    for prod in PRODS:
+        workflow(prod, sts, ets)
 
 
 if __name__ == '__main__':
