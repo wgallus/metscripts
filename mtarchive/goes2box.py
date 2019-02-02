@@ -20,12 +20,6 @@ def run(bird, dt):
         print("goes2box %s not found" % (path, ))
         return
     os.chdir(path)
-    o = open("HEADER.html", 'w')
-    o.write((
-        "subregional imagery found <a "
-        "href=\"https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
-        ">on CyBox</a>"))
-    o.close()
     zips = []
     for dirname in os.listdir("."):
         zipfn = "goes%s_%s_%s.zip" % (
@@ -42,6 +36,12 @@ def run(bird, dt):
             print("goes2box processing goes%s/%s resulted in %s %s" % (
                 bird, dirname, stdout, stderr))
         zips.append(zipfn)
+    o = open("HEADER.html", 'w')
+    o.write((
+        "subregional imagery found <a "
+        "href=\"https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
+        ">on CyBox</a>"))
+    o.close()
 
     os.chdir(TMPDIR)
     _fs, ress = send2box(
