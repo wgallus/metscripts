@@ -55,7 +55,10 @@ def run(bird, dt):
 
 def main(argv):
     """Go Main Go."""
-    dt = datetime.datetime(int(argv[1]), int(argv[2]), int(argv[3]))
+    if len(argv) == 4:
+        dt = datetime.datetime(int(argv[1]), int(argv[2]), int(argv[3]))
+    else:
+        dt = datetime.date.today() - datetime.timedelta(days=14)
     for offset in (0, 1, 14):
         for bird in (16, 17):
             run(bird, dt - datetime.timedelta(offset))
