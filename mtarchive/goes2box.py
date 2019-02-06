@@ -11,17 +11,21 @@ from pyiem.ftpsession import send2box
 TMPDIR = "/isu/mtarchive/tmp"
 
 
-def run(bird, dt):
+def run(bird, dt, offset):
     """Run for a given date."""
+    dt = dt - datetime.timedelta(days=offset)
     path = (
         "/isu/mtarchive/data/%s/cod/sat/goes%s/subregional"
     ) % (dt.strftime("%Y/%m/%d"), bird)
     if not os.path.isdir(path):
-        print("goes2box %s not found" % (path, ))
+        if offset == 0:
+            print("goes2box %s not found" % (path, ))
         return
     os.chdir(path)
     zips = []
     for dirname in os.listdir("."):
+        if dirname == 'HEADER.html':
+            continue
         zipfn = "goes%s_%s_%s.zip" % (
             bird, dirname, dt.strftime("%Y%m%d"))
         proc = subprocess.Popen(
@@ -59,9 +63,10 @@ def main(argv):
         dt = datetime.datetime(int(argv[1]), int(argv[2]), int(argv[3]))
     else:
         dt = datetime.date.today() - datetime.timedelta(days=14)
-    for offset in (0, 1, 14):
+    # as of 6 Feb, we need to be backprocessing 1 Jan 2018 data, can offload
+    for offset in (0, 1, 14, 420):
         for bird in (16, 17):
-            run(bird, dt - datetime.timedelta(offset))
+            run(bird, dt, offset)
 
 
 if __name__ == '__main__':
