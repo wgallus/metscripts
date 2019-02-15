@@ -1,8 +1,8 @@
 
 source ../COMMON.csh
-setenv LOGFILE 	logs/www_avn.log
+setenv LOGFILE 	logs/www_gfs.log
 
-set device="GF|avn.gif"
+set device="GF|gfs.gif"
 set grid=${MODEL}/gfs/${DATE}${1}_gfs215.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
@@ -50,25 +50,25 @@ gpend
 # Copy ps.plt to different name for eta model
 
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f06.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f12.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f18.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f24.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f30.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f36.gif
-cp avn.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f42.gif
-cp avn.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f48.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f06.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f12.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f18.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f24.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f30.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f36.gif
+cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f42.gif
+cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f48.gif
 
-mv avn.gif avn_01.gif
-mv avn.gif.001 avn_02.gif
-mv avn.gif.002 avn_03.gif
-mv avn.gif.003 avn_04.gif
-mv avn.gif.004 avn_05.gif
-mv avn.gif.005 avn_06.gif
-mv avn.gif.006 avn_07.gif
-mv avn.gif.007 avn_08.gif
-keep avn_0[1-8].gif 
-mv avn_0[1-8].gif $WEBPIX/
+mv gfs.gif gfs_01.gif
+mv gfs.gif.001 gfs_02.gif
+mv gfs.gif.002 gfs_03.gif
+mv gfs.gif.003 gfs_04.gif
+mv gfs.gif.004 gfs_05.gif
+mv gfs.gif.005 gfs_06.gif
+mv gfs.gif.006 gfs_07.gif
+mv gfs.gif.007 gfs_08.gif
+keep gfs_0[1-8].gif 
+mv gfs_0[1-8].gif $WEBPIX/
 
 #
 # Run GDPLOT and generate GFS model gfs
@@ -113,21 +113,21 @@ exit
 EOF
 # Copy ps.plt to different name for eta model
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f60.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f72.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f84.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f96.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f108.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_MSLP_thickness_f120.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f60.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f72.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f84.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f96.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f108.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_MSLP_thickness_f120.gif
 
-mv avn.gif avn_09.gif
-mv avn.gif.001 avn_10.gif
-mv avn.gif.002 avn_10a.gif
-mv avn.gif.003 avn_10b.gif
-mv avn.gif.004 avn_10c.gif
-mv avn.gif.005 avn_10d.gif
-keep avn_09.gif avn_10.gif avn_10[a-d].gif 
-mv avn_09.gif avn_10.gif avn_10[a-d].gif $WEBPIX/
+mv gfs.gif gfs_09.gif
+mv gfs.gif.001 gfs_10.gif
+mv gfs.gif.002 gfs_10a.gif
+mv gfs.gif.003 gfs_10b.gif
+mv gfs.gif.004 gfs_10c.gif
+mv gfs.gif.005 gfs_10d.gif
+keep gfs_09.gif gfs_10.gif gfs_10[a-d].gif 
+mv gfs_09.gif gfs_10.gif gfs_10[a-d].gif $WEBPIX/
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -160,25 +160,25 @@ EOF
 #
 # Copy ps.plt to different name for eta model
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f06.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f12.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f18.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f24.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f30.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f36.gif
-cp avn.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f42.gif
-cp avn.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f48.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f06.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f12.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f18.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f24.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f30.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f36.gif
+cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f42.gif
+cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f48.gif
 
-mv avn.gif avn_11.gif
-mv avn.gif.001 avn_12.gif
-mv avn.gif.002 avn_13.gif
-mv avn.gif.003 avn_14.gif
-mv avn.gif.004 avn_15.gif
-mv avn.gif.005 avn_16.gif
-mv avn.gif.006 avn_17.gif
-mv avn.gif.007 avn_18.gif
-keep avn_1[1-8].gif 
-mv avn_1[1-8].gif $WEBPIX/
+mv gfs.gif gfs_11.gif
+mv gfs.gif.001 gfs_12.gif
+mv gfs.gif.002 gfs_13.gif
+mv gfs.gif.003 gfs_14.gif
+mv gfs.gif.004 gfs_15.gif
+mv gfs.gif.005 gfs_16.gif
+mv gfs.gif.006 gfs_17.gif
+mv gfs.gif.007 gfs_18.gif
+keep gfs_1[1-8].gif 
+mv gfs_1[1-8].gif $WEBPIX/
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -211,21 +211,21 @@ EOF
 #
 # Copy ps.plt to different name for eta model
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f60.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f72.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f84.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f96.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f108.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_500mb_heights_vort_f120.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f60.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f72.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f84.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f96.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f108.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_500mb_heights_vort_f120.gif
 
-mv avn.gif avn_19.gif
-mv avn.gif.001 avn_20.gif
-mv avn.gif.002 avn_20a.gif
-mv avn.gif.003 avn_20b.gif
-mv avn.gif.004 avn_20c.gif
-mv avn.gif.005 avn_20d.gif
-keep avn_19.gif avn_20.gif avn_20[a-d].gif 
-mv avn_19.gif avn_20.gif avn_20[a-d].gif $WEBPIX/
+mv gfs.gif gfs_19.gif
+mv gfs.gif.001 gfs_20.gif
+mv gfs.gif.002 gfs_20a.gif
+mv gfs.gif.003 gfs_20b.gif
+mv gfs.gif.004 gfs_20c.gif
+mv gfs.gif.005 gfs_20d.gif
+keep gfs_19.gif gfs_20.gif gfs_20[a-d].gif 
+mv gfs_19.gif gfs_20.gif gfs_20[a-d].gif $WEBPIX/
 
 # Run GDPLOT and generate GFS model gfs
 #
@@ -260,25 +260,25 @@ EOF
 # Copy ps.plt to different name for eta model
 #mv ps.plt ps.plt_eta
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f06.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f12.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f18.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f24.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f30.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f36.gif
-cp avn.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f42.gif
-cp avn.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f48.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f06.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f12.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f18.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f24.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f30.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f36.gif
+cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f42.gif
+cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f48.gif
 
-mv avn.gif avn_21.gif
-mv avn.gif.001 avn_22.gif
-mv avn.gif.002 avn_23.gif
-mv avn.gif.003 avn_24.gif
-mv avn.gif.004 avn_25.gif
-mv avn.gif.005 avn_26.gif
-mv avn.gif.006 avn_27.gif
-mv avn.gif.007 avn_28.gif
-keep avn_2[1-8].gif
-mv avn_2[1-8].gif $WEBPIX/
+mv gfs.gif gfs_21.gif
+mv gfs.gif.001 gfs_22.gif
+mv gfs.gif.002 gfs_23.gif
+mv gfs.gif.003 gfs_24.gif
+mv gfs.gif.004 gfs_25.gif
+mv gfs.gif.005 gfs_26.gif
+mv gfs.gif.006 gfs_27.gif
+mv gfs.gif.007 gfs_28.gif
+keep gfs_2[1-8].gif
+mv gfs_2[1-8].gif $WEBPIX/
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -311,21 +311,21 @@ EOF
 # Copy ps.plt to different name for eta model
 #mv ps.plt ps.plt_eta
 
-cp avn.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f60.gif
-cp avn.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
-cp avn.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
-cp avn.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
-cp avn.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
-cp avn.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
+cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f60.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
 
-mv avn.gif avn_29.gif
-mv avn.gif.001 avn_30.gif
-mv avn.gif.002 avn_30a.gif
-mv avn.gif.003 avn_30b.gif
-mv avn.gif.004 avn_30c.gif
-mv avn.gif.005 avn_30d.gif
-keep avn_29.gif avn_30.gif avn_30[a-d].gif 
-mv avn_29.gif avn_30.gif avn_30[a-d].gif $WEBPIX/
+mv gfs.gif gfs_29.gif
+mv gfs.gif.001 gfs_30.gif
+mv gfs.gif.002 gfs_30a.gif
+mv gfs.gif.003 gfs_30b.gif
+mv gfs.gif.004 gfs_30c.gif
+mv gfs.gif.005 gfs_30d.gif
+keep gfs_29.gif gfs_30.gif gfs_30[a-d].gif 
+mv gfs_29.gif gfs_30.gif gfs_30[a-d].gif $WEBPIX/
 #
 #endif
 

@@ -23,8 +23,8 @@ PROJDIR="projects/metscripts"
 01 04 * * * cd $PROJDIR/webscripts2; csh wlapse_script.csh 00
 01 15 * * * cd $PROJDIR/webscripts2; csh wlapse_script.csh 12
 
-55 04 * * * cd $PROJDIR/webscripts2; csh wmos_avn00_script.csh 00
-55 16 * * * cd $PROJDIR/webscripts2; csh wmos_avn12_script.csh 12
+55 04 * * * cd $PROJDIR/webscripts2; csh wmos_gfs00_script.csh 00
+55 16 * * * cd $PROJDIR/webscripts2; csh wmos_gfs12_script.csh 12
 
 50  2 * * * cd $PROJDIR/webscripts2; csh wskew_script.csh 00
 50 14 * * * cd $PROJDIR/webscripts2; csh wskew_script.csh 12
@@ -72,12 +72,12 @@ PROJDIR="projects/metscripts"
 54 23 * * * cd $PROJDIR/webscripts2; sh do_ruc1.sh 22
 54  0 * * * cd $PROJDIR/webscripts2; sh do_ruc1.sh 23
 
-45  6 * * * cd $PROJDIR/webscripts2; csh web_avn_script.csh 00
-45 18 * * * cd $PROJDIR/webscripts2; csh web_avn_script.csh 12
-47  7 * * * cd $PROJDIR/webscripts2; csh web_avn2_script.csh 00
-47 19 * * * cd $PROJDIR/webscripts2; csh web_avn2_script.csh 12
-51 08 * * * cd $PROJDIR/webscripts2; csh web_avn3_script.csh 00
-51 18 * * * cd $PROJDIR/webscripts2; csh web_avn3_script.csh 12
+45  6 * * * cd $PROJDIR/webscripts2; csh web_gfs_script.csh 00
+45 18 * * * cd $PROJDIR/webscripts2; csh web_gfs_script.csh 12
+47  7 * * * cd $PROJDIR/webscripts2; csh web_gfs2_script.csh 00
+47 19 * * * cd $PROJDIR/webscripts2; csh web_gfs2_script.csh 12
+51 08 * * * cd $PROJDIR/webscripts2; csh web_gfs3_script.csh 00
+51 18 * * * cd $PROJDIR/webscripts2; csh web_gfs3_script.csh 12
 
 20 18 * * * cd $PROJDIR/skews2; csh skew_many.csh 12
 20  4 * * * cd $PROJDIR/skews2; csh skew_many.csh 00

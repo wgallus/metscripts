@@ -12,9 +12,9 @@ mkdir -p ${d1}/pix/rad
 mkdir -p ${d1}/pix/lapse
 mkdir -p ${d1}/pix/lapse/00z
 mkdir -p ${d1}/pix/lapse/12z
-mkdir -p ${d1}/pix/avn
-mkdir -p ${d1}/pix/avn/00z
-mkdir -p ${d1}/pix/avn/12z
+mkdir -p ${d1}/pix/gfs
+mkdir -p ${d1}/pix/gfs/00z
+mkdir -p ${d1}/pix/gfs/12z
 mkdir -p ${d1}/pix/ecm
 mkdir -p ${d1}/pix/eta
 mkdir -p ${d1}/pix/eta/00z

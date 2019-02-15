@@ -1,7 +1,7 @@
 source ../COMMON.csh
-setenv LOGFILE 	logs/www_avn3.log
+setenv LOGFILE 	logs/www_gfs3.log
 
-set device="GF|avn3.gif"
+set device="GF|gfs3.gif"
 set grid=${MODEL}/gfs/${DATE}${1}_gfs215.gem
 
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
@@ -45,25 +45,25 @@ EOF
 #
 # Copy images to different name for eta model
 
-cp avn3.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f06.gif
-cp avn3.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f12.gif
-cp avn3.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f18.gif
-cp avn3.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f24.gif
-cp avn3.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f30.gif
-cp avn3.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f36.gif
-cp avn3.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f42.gif
-cp avn3.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f48.gif
+cp gfs3.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f06.gif
+cp gfs3.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f12.gif
+cp gfs3.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f18.gif
+cp gfs3.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f24.gif
+cp gfs3.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f30.gif
+cp gfs3.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f36.gif
+cp gfs3.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f42.gif
+cp gfs3.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f48.gif
 
-mv avn3.gif avn3_01.gif
-mv avn3.gif.001 avn3_02.gif
-mv avn3.gif.002 avn3_03.gif
-mv avn3.gif.003 avn3_04.gif
-mv avn3.gif.004 avn3_05.gif
-mv avn3.gif.005 avn3_06.gif
-mv avn3.gif.006 avn3_07.gif
-mv avn3.gif.007 avn3_08.gif
-keep avn3_0[1-8].gif 
-mv avn3_0[1-8].gif  $WEBPIX/
+mv gfs3.gif gfs3_01.gif
+mv gfs3.gif.001 gfs3_02.gif
+mv gfs3.gif.002 gfs3_03.gif
+mv gfs3.gif.003 gfs3_04.gif
+mv gfs3.gif.004 gfs3_05.gif
+mv gfs3.gif.005 gfs3_06.gif
+mv gfs3.gif.006 gfs3_07.gif
+mv gfs3.gif.007 gfs3_08.gif
+keep gfs3_0[1-8].gif 
+mv gfs3_0[1-8].gif  $WEBPIX/
 #
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -105,22 +105,22 @@ EOF
 # Run GPEND to clean up
 #
 # Copy images to different name for eta model
-cp avn3.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f60.gif
-cp avn3.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f72.gif
-cp avn3.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f84.gif
-cp avn3.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f96.gif
-cp avn3.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f108.gif
-cp avn3.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_CAPE_CIN_0to6km_shear_f120.gif
+cp gfs3.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f60.gif
+cp gfs3.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f72.gif
+cp gfs3.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f84.gif
+cp gfs3.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f96.gif
+cp gfs3.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f108.gif
+cp gfs3.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_CAPE_CIN_0to6km_shear_f120.gif
 
 
-mv avn3.gif avn3_09.gif
-mv avn3.gif.001 avn3_10.gif
-mv avn3.gif.002 avn3_10a.gif
-mv avn3.gif.003 avn3_10b.gif
-mv avn3.gif.004 avn3_10c.gif
-mv avn3.gif.005 avn3_10d.gif
-keep avn3_09.gif avn3_10.gif avn3_10[a-d].gif 
-mv avn3_09.gif avn3_10.gif avn3_10[a-d].gif  $WEBPIX/
+mv gfs3.gif gfs3_09.gif
+mv gfs3.gif.001 gfs3_10.gif
+mv gfs3.gif.002 gfs3_10a.gif
+mv gfs3.gif.003 gfs3_10b.gif
+mv gfs3.gif.004 gfs3_10c.gif
+mv gfs3.gif.005 gfs3_10d.gif
+keep gfs3_09.gif gfs3_10.gif gfs3_10[a-d].gif 
+mv gfs3_09.gif gfs3_10.gif gfs3_10[a-d].gif  $WEBPIX/
 # Run GDPLOT and generate GFS model gfs
 #
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
@@ -155,25 +155,25 @@ EOF
 # Copy ps.plt to different name for eta model
 #mv ps.plt ps.plt_eta
 
-cp avn3.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f06.gif
-cp avn3.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f12.gif
-cp avn3.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f18.gif
-cp avn3.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f24.gif
-cp avn3.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f30.gif
-cp avn3.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f36.gif
-cp avn3.gif.006 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f42.gif
-cp avn3.gif.007 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f48.gif
+cp gfs3.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f06.gif
+cp gfs3.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f12.gif
+cp gfs3.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f18.gif
+cp gfs3.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f24.gif
+cp gfs3.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f30.gif
+cp gfs3.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f36.gif
+cp gfs3.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f42.gif
+cp gfs3.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f48.gif
 
-mv avn3.gif avn3_11.gif
-mv avn3.gif.001 avn3_12.gif
-mv avn3.gif.002 avn3_13.gif
-mv avn3.gif.003 avn3_14.gif
-mv avn3.gif.004 avn3_15.gif
-mv avn3.gif.005 avn3_16.gif
-mv avn3.gif.006 avn3_17.gif
-mv avn3.gif.007 avn3_18.gif
-keep avn3_1[1-8].gif 
-mv avn3_1[1-8].gif $WEBPIX/
+mv gfs3.gif gfs3_11.gif
+mv gfs3.gif.001 gfs3_12.gif
+mv gfs3.gif.002 gfs3_13.gif
+mv gfs3.gif.003 gfs3_14.gif
+mv gfs3.gif.004 gfs3_15.gif
+mv gfs3.gif.005 gfs3_16.gif
+mv gfs3.gif.006 gfs3_17.gif
+mv gfs3.gif.007 gfs3_18.gif
+keep gfs3_1[1-8].gif 
+mv gfs3_1[1-8].gif $WEBPIX/
 #
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
@@ -207,20 +207,20 @@ EOF
 # Copy ps.plt to different name for eta model
 #mv ps.plt ps.plt_eta
 
-cp avn3.gif ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f60.gif
-cp avn3.gif.001 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f72.gif
-cp avn3.gif.002 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f84.gif
-cp avn3.gif.003 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f96.gif
-cp avn3.gif.004 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f108.gif
-cp avn3.gif.005 ${ddir2}/pix/avn/${1}z/avn_${DATE}${1}_PWTR_LI_f120.gif
+cp gfs3.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f60.gif
+cp gfs3.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f72.gif
+cp gfs3.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f84.gif
+cp gfs3.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f96.gif
+cp gfs3.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f108.gif
+cp gfs3.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_PWTR_LI_f120.gif
 
 
-mv avn3.gif avn3_19.gif
-mv avn3.gif.001 avn3_20.gif
-mv avn3.gif.002 avn3_20a.gif
-mv avn3.gif.003 avn3_20b.gif
-mv avn3.gif.004 avn3_20c.gif
-mv avn3.gif.005 avn3_20d.gif
-keep avn3_19.gif avn3_20.gif avn3_20[a-d].gif 
-mv avn3_19.gif avn3_20.gif avn3_20[a-d].gif $WEBPIX/
+mv gfs3.gif gfs3_19.gif
+mv gfs3.gif.001 gfs3_20.gif
+mv gfs3.gif.002 gfs3_20a.gif
+mv gfs3.gif.003 gfs3_20b.gif
+mv gfs3.gif.004 gfs3_20c.gif
+mv gfs3.gif.005 gfs3_20d.gif
+keep gfs3_19.gif gfs3_20.gif gfs3_20[a-d].gif 
+mv gfs3_19.gif gfs3_20.gif gfs3_20[a-d].gif $WEBPIX/
 #endif

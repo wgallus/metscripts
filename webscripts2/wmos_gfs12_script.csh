@@ -50,7 +50,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_nighttime_temps_f24.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_nighttime_temps_f24.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_01.gif
   keep $WEBPIX/mosa_01.gif
@@ -90,7 +90,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_daytime_temps_f36.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_daytime_temps_f36.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_02.gif
   keep $WEBPIX/mosa_02.gif
@@ -130,7 +130,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_nighttime_temps_f48.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_nighttime_temps_f48.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_03.gif
   keep $WEBPIX/mosa_03.gif
@@ -170,7 +170,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_daytime_temps_f60.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_daytime_temps_f60.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_04.gif
   keep $WEBPIX/mosa_04.gif
@@ -210,7 +210,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_nighttime_temps_f72.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_nighttime_temps_f72.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_05.gif
   keep $WEBPIX/mosa_05.gif
@@ -250,7 +250,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_pops_f24.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_pops_f24.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_01p.gif
   keep $WEBPIX/mosa_01p.gif
@@ -290,7 +290,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_pops_f36.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_pops_f36.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_02p.gif
   keep $WEBPIX/mosa_02p.gif
@@ -330,7 +330,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_pops_f48.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_pops_f48.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_03p.gif
   keep $WEBPIX/mosa_03p.gif
@@ -370,7 +370,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_pops_f60.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_pops_f60.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_04p.gif
   keep $WEBPIX/mosa_04p.gif
@@ -410,7 +410,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_pops_f72.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_pops_f72.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_05p.gif
   keep $WEBPIX/mosa_05p.gif
@@ -450,7 +450,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_QPF_f24.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_QPF_f24.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_01q.gif
   keep $WEBPIX/mosa_01q.gif
@@ -490,7 +490,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_QPF_f36.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_QPF_f36.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_02q.gif
   keep $WEBPIX/mosa_02q.gif
@@ -530,7 +530,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_QPF_f48.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_QPF_f48.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_03q.gif
   keep $WEBPIX/mosa_03q.gif
@@ -570,7 +570,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_QPF_f60.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_QPF_f60.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_04q.gif
   keep $WEBPIX/mosa_04q.gif
@@ -610,7 +610,7 @@ EOF
 #$GEMEXE/gpend
 #
 # Rename ps file to indicate sfc data
-cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/avn_mos_${DATE}12_12hr_QPF_f72.gif
+cp mosa.gif ${ddir}${DATE2}/pix/mos/12z/gfs_mos_${DATE}12_12hr_QPF_f72.gif
 ##if (-e mos_01.gif) then
   mv mosa.gif $WEBPIX/mosa_05q.gif
   keep $WEBPIX/mosa_05q.gif
