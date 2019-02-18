@@ -236,7 +236,7 @@ GDATTIM	= F06-F48-06
 SCALE	= 0 !0 ! ! 3
 GLEVEL  = 0 ! 0 ! 0 ! 700
 GVCORD  = pres !pres  !none !pres
-GFUNC   = (quo(p12m,25.4)) !(quo(p12m,25.4)) ! pmsl@0%none !omeg@700%pres
+GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! pmsl@0%none !omeg@700%pres
 GVECT	=
 CINT	= /.1/.1!0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0!4!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 !2/1/1/1
@@ -283,15 +283,15 @@ mv gfs_2[1-8].gif $WEBPIX/
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
-GDATTIM	= F60-F120-12
+GDATTIM	= F60-F120-6
 SCALE	= 0 !0 ! ! 3
 GLEVEL  = 0 ! 0 ! 0 ! 700
 GVCORD  = pres !pres  !none !pres
-GFUNC   = (quo(p12m,25.4)) !(quo(p12m,25.4)) ! pmsl@0%none !omeg@700%pres
+GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! pmsl@0%none !omeg@700%pres
 GVECT	=
 CINT	= /.1/.1!0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0!4!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 !2/1/1/1
-TITLE	= 5/-2/ ~ GFS  12-HR TOTAL PCPN, MSLP, 700 VV|^ 12-HRLY TOT PCPN, MSLP, 700 VV!0!0
+TITLE	= 5/-2/ ~ GFS  6-HR TOTAL PCPN, MSLP, 700 VV|^ 6-HRLY TOT PCPN, MSLP, 700 VV!0!0
 SKIP	= 0
 FINT    = 0.01;0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0
 FLINE   = 0;21-27;24;28-30;14;15;2;5
@@ -312,20 +312,26 @@ EOF
 #mv ps.plt ps.plt_eta
 
 cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f60.gif
-cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
-cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
-cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
-cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
-cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
+cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f66.gif
+cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
+cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f78.gif
+cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
+cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f90.gif
+cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
+cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f102.gif
+cp gfs.gif.008 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
+cp gfs.gif.009 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f114.gif
+cp gfs.gif.010 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
 
 mv gfs.gif gfs_29.gif
-mv gfs.gif.001 gfs_30.gif
-mv gfs.gif.002 gfs_30a.gif
-mv gfs.gif.003 gfs_30b.gif
-mv gfs.gif.004 gfs_30c.gif
-mv gfs.gif.005 gfs_30d.gif
+mv gfs.gif.002 gfs_30.gif
+mv gfs.gif.004 gfs_30a.gif
+mv gfs.gif.006 gfs_30b.gif
+mv gfs.gif.008 gfs_30c.gif
+mv gfs.gif.010 gfs_30d.gif
 keep gfs_29.gif gfs_30.gif gfs_30[a-d].gif 
 mv gfs_29.gif gfs_30.gif gfs_30[a-d].gif $WEBPIX/
+rm gfs.gif.*
 #
 #endif
 

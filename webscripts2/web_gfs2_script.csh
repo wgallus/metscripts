@@ -23,7 +23,7 @@ LATLON	= 0
 
 GLEVEL  = 0                !850              ! 700  !2
 GVCORD  = pres             !pres             !pres  !hght
-GFUNC   = (quo(p12m,25.4)) !(tmpc) ! (tmpc)! (tmpc)
+GFUNC   = (quo(APCP06,25.4)) !(tmpc) ! (tmpc)! (tmpc)
 GVECT   =
 CINT    = 0.10;0.25;0.50;0.75;1.0;1.25;1.5;2.0!-5.0;0.0;2.0!-2.0;0.0;2.0 !-5.;0.;2.
 LINE    = 20//2/0           !6/1/2          ! 7/1/2  ! 2/4/2
@@ -84,7 +84,7 @@ LATLON	= 0
 
 GLEVEL  = 0                !850              ! 700  !2
 GVCORD  = pres             !pres             !pres  !hght
-GFUNC   = (quo(p12m,25.4)) !(tmpc) ! (tmpc)! (tmpc)
+GFUNC   = (quo(APCP06,25.4)) !(tmpc) ! (tmpc)! (tmpc)
 GVECT   =
 CINT    = 0.10;0.25;0.50;0.75;1.0;1.25;1.5;2.0!-5.0;0.0;2.0!-2.0;0.0;2.0 !-5.;0.;2.
 LINE    = 20//2/0           !6/1/2          ! 7/1/2  ! 2/4/2
