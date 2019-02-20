@@ -49,7 +49,14 @@ mygetter gempak/surface/sao/${date2}_sao.gem ${ddir}/${date1}/gempak/surface/sao
 
 mkdir -p ${ddir}/${date1}/gempak/upperair
 mygetter gempak/upperair/${date2}_upa.gem ${ddir}/${date1}/gempak/upperair/${date2}_upa.gem
- 
+
+mkdir -p ${ddir}${date1}/gempak/nldn
+for cc in $(seq 0 23);
+do
+mygetter gempak/nldn/${date2}${h[$cc]}00_nldn.gem ${ddir}${date1}/gempak/nldn/${date2}${h[$cc]}00_nldn.gem 
+mygetter gempak/nldn/${date2}${h[$cc]}30_nldn.gem ${ddir}${date1}/gempak/nldn/${date2}${h[$cc]}30_nldn.gem 
+done
+
 mygetter gempak/model/ruc/${date2}00_ruc130.gem ${ddir}/${date1}/gempak/model/${date2}00_ruc130.gem
 mygetter gempak/model/ruc/${date2}03_ruc130.gem ${ddir}/${date1}/gempak/model/${date2}03_ruc130.gem
 mygetter gempak/model/ruc/${date2}06_ruc130.gem ${ddir}/${date1}/gempak/model/${date2}06_ruc130.gem
