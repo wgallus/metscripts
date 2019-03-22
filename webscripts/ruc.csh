@@ -60,11 +60,11 @@ if (-e ruc1.gif) then
 endif
 
 #
-# Run GDPLOT and generate ETA model gfs
-#
+set device="GF|ruc2.gif"
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
+GDATTIM	= f00-f12-03
 DEVICE	= $device 
 GVCORD  = pres
 GLEVEL	= 500
@@ -92,23 +92,23 @@ EOF
 # Run GPEND to clean up
 #
 
-if (-e ruc1.gif) then
-  cp ruc1.gif ${ARCHIVE2}/rucVORT${date}${1}F00.gif
-  cp ruc1.gif.001 ${ARCHIVE2}/rucVORT${date}${1}F03.gif
-  cp ruc1.gif.002 ${ARCHIVE2}/rucVORT${date}${1}F06.gif
-  cp ruc1.gif.003 ${ARCHIVE2}/rucVORT${date}${1}F09.gif
-  cp ruc1.gif.004 ${ARCHIVE2}/rucVORT${date}${1}F12.gif
+if (-e ruc2.gif) then
+  cp ruc2.gif ${ARCHIVE2}/rucVORT${date}${1}F00.gif
+  cp ruc2.gif.001 ${ARCHIVE2}/rucVORT${date}${1}F03.gif
+  cp ruc2.gif.002 ${ARCHIVE2}/rucVORT${date}${1}F06.gif
+  cp ruc2.gif.003 ${ARCHIVE2}/rucVORT${date}${1}F09.gif
+  cp ruc2.gif.004 ${ARCHIVE2}/rucVORT${date}${1}F12.gif
 
-  mv ruc1.gif $CURRENT/rucVORTF00.gif
-  mv ruc1.gif.001 $CURRENT/rucVORTF03.gif
-  mv ruc1.gif.002 $CURRENT/rucVORTF06.gif
-  mv ruc1.gif.003 $CURRENT/rucVORTF09.gif
-  mv ruc1.gif.004 $CURRENT/rucVORTF12.gif
+  mv ruc2.gif $CURRENT/rucVORTF00.gif
+  mv ruc2.gif.001 $CURRENT/rucVORTF03.gif
+  mv ruc2.gif.002 $CURRENT/rucVORTF06.gif
+  mv ruc2.gif.003 $CURRENT/rucVORTF09.gif
+  mv ruc2.gif.004 $CURRENT/rucVORTF12.gif
 endif
 
-
-# Run GDPLOT and generate ETA model gfs
 #
+#
+set device="GF|ruc3.gif"
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
@@ -137,20 +137,20 @@ exit
 EOF
 
 
-if (-e ruc1.gif) then
-  cp ruc1.gif $CURRENT/rucPRECF03.gif
-  cp ruc1.gif.001 $CURRENT/rucPRECF06.gif
-  cp ruc1.gif.002 $CURRENT/rucPRECF09.gif
-  cp ruc1.gif.003 $CURRENT/rucPRECF12.gif
+if (-e ruc3.gif) then
+  cp ruc3.gif $CURRENT/rucPRECF03.gif
+  cp ruc3.gif.001 $CURRENT/rucPRECF06.gif
+  cp ruc3.gif.002 $CURRENT/rucPRECF09.gif
+  cp ruc3.gif.003 $CURRENT/rucPRECF12.gif
 
-  mv ruc1.gif ${ARCHIVE2}/rucPREC${date}${1}F03.gif
-  mv ruc1.gif.001 ${ARCHIVE2}/rucPREC${date}${1}F06.gif
-  mv ruc1.gif.002 ${ARCHIVE2}/rucPREC${date}${1}F09.gif
-  mv ruc1.gif.003 ${ARCHIVE2}/rucPREC${date}${1}F12.gif
+  mv ruc3.gif ${ARCHIVE2}/rucPREC${date}${1}F03.gif
+  mv ruc3.gif.001 ${ARCHIVE2}/rucPREC${date}${1}F06.gif
+  mv ruc3.gif.002 ${ARCHIVE2}/rucPREC${date}${1}F09.gif
+  mv ruc3.gif.003 ${ARCHIVE2}/rucPREC${date}${1}F12.gif
 endif
 
 ##############################################################
-set device="GF|ruc2.gif"
+set device="GF|ruc4.gif"
 
 #
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
@@ -197,26 +197,28 @@ EOF
 #
 # Copy ps.plt to different name for ruc model
 
-if (-e ruc2.gif) then
-  cp ruc2.gif $CURRENT/ruc85PF00.gif
-  cp ruc2.gif.001 $CURRENT/ruc85PF03.gif
-  cp ruc2.gif.002 $CURRENT/ruc85PF06.gif
-  cp ruc2.gif.003 $CURRENT/ruc85PF09.gif
-  cp ruc2.gif.004 $CURRENT/ruc85PF12.gif
+if (-e ruc4.gif) then
+  cp ruc4.gif $CURRENT/ruc85PF00.gif
+  cp ruc4.gif.001 $CURRENT/ruc85PF03.gif
+  cp ruc4.gif.002 $CURRENT/ruc85PF06.gif
+  cp ruc4.gif.003 $CURRENT/ruc85PF09.gif
+  cp ruc4.gif.004 $CURRENT/ruc85PF12.gif
 
-  mv ruc2.gif ${ARCHIVE2}/ruc85P${date}${1}F00.gif
-  mv ruc2.gif.001 ${ARCHIVE2}/ruc85P${date}${1}F03.gif
-  mv ruc2.gif.002 ${ARCHIVE2}/ruc85P${date}${1}F06.gif
-  mv ruc2.gif.003 ${ARCHIVE2}/ruc85P${date}${1}F09.gif
-  mv ruc2.gif.004 ${ARCHIVE2}/ruc85P${date}${1}F12.gif
+  mv ruc4.gif ${ARCHIVE2}/ruc85P${date}${1}F00.gif
+  mv ruc4.gif.001 ${ARCHIVE2}/ruc85P${date}${1}F03.gif
+  mv ruc4.gif.002 ${ARCHIVE2}/ruc85P${date}${1}F06.gif
+  mv ruc4.gif.003 ${ARCHIVE2}/ruc85P${date}${1}F09.gif
+  mv ruc4.gif.004 ${ARCHIVE2}/ruc85P${date}${1}F12.gif
 endif
 
 
 # Run GDPLOT and generate RUC model gfs
 #
+set device="GF|ruc5.gif"
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GAREA	= grid
+GDATTIM	= f00-f12-03
 PROJ	= lcc/25;-95;25
 CLRBAR  = 31
 DEVICE	= $device 
@@ -245,22 +247,23 @@ EOF
 #
 # Run GPEND to clean up
 #
-if (-e ruc2.gif) then
-  cp ruc2.gif ${ARCHIVE2}/ruc70P${date}${1}F00.gif
-  cp ruc2.gif.001 ${ARCHIVE2}/ruc70P${date}${1}F03.gif
-  cp ruc2.gif.002 ${ARCHIVE2}/ruc70P${date}${1}F06.gif
-  cp ruc2.gif.003 ${ARCHIVE2}/ruc70P${date}${1}F09.gif
-  cp ruc2.gif.004 ${ARCHIVE2}/ruc70P${date}${1}F12.gif
+if (-e ruc5.gif) then
+  cp ruc5.gif ${ARCHIVE2}/ruc70P${date}${1}F00.gif
+  cp ruc5.gif.001 ${ARCHIVE2}/ruc70P${date}${1}F03.gif
+  cp ruc5.gif.002 ${ARCHIVE2}/ruc70P${date}${1}F06.gif
+  cp ruc5.gif.003 ${ARCHIVE2}/ruc70P${date}${1}F09.gif
+  cp ruc5.gif.004 ${ARCHIVE2}/ruc70P${date}${1}F12.gif
 
-  mv ruc2.gif $CURRENT/ruc70PF00.gif
-  mv ruc2.gif.001 $CURRENT/ruc70PF03.gif
-  mv ruc2.gif.002 $CURRENT/ruc70PF06.gif
-  mv ruc2.gif.003 $CURRENT/ruc70PF09.gif
-  mv ruc2.gif.004 $CURRENT/ruc70PF12.gif
+  mv ruc5.gif $CURRENT/ruc70PF00.gif
+  mv ruc5.gif.001 $CURRENT/ruc70PF03.gif
+  mv ruc5.gif.002 $CURRENT/ruc70PF06.gif
+  mv ruc5.gif.003 $CURRENT/ruc70PF09.gif
+  mv ruc5.gif.004 $CURRENT/ruc70PF12.gif
 endif
 
 # Run GDPLOT and generate RUC model gfs
 #
+set device="GF|ruc6.gif"
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GAREA	= grid
@@ -268,6 +271,7 @@ PROJ	= lcc/25;-95;25
 CLRBAR  = 31
 DEVICE	= $device 
 GLEVEL	= 250  
+GDATTIM	= f00-f12-03
 GVCORD	= pres !pres  !pres
 GFUNC	= sped !hght  !div(wnd)
 GVECT	= ! !
@@ -291,21 +295,22 @@ EOF
 #
 # Copy ps.plt to different name for eta model
 
-if (-e ruc2.gif) then 
-  cp ruc2.gif $CURRENT/ruc25PF00.gif
-  cp ruc2.gif.001 $CURRENT/ruc25PF03.gif
-  cp ruc2.gif.002 $CURRENT/ruc25PF06.gif
-  cp ruc2.gif.003 $CURRENT/ruc25PF09.gif
-  cp ruc2.gif.004 $CURRENT/ruc25PF12.gif
+if (-e ruc6.gif) then 
+  cp ruc6.gif $CURRENT/ruc25PF00.gif
+  cp ruc6.gif.001 $CURRENT/ruc25PF03.gif
+  cp ruc6.gif.002 $CURRENT/ruc25PF06.gif
+  cp ruc6.gif.003 $CURRENT/ruc25PF09.gif
+  cp ruc6.gif.004 $CURRENT/ruc25PF12.gif
 
-  mv ruc2.gif ${ARCHIVE2}/ruc25P${date}${1}F00.gif
-  mv ruc2.gif.001 ${ARCHIVE2}/ruc25P${date}${1}F03.gif
-  mv ruc2.gif.002 ${ARCHIVE2}/ruc25P${date}${1}F06.gif
-  mv ruc2.gif.003 ${ARCHIVE2}/ruc25P${date}${1}F09.gif
-  mv ruc2.gif.004 ${ARCHIVE2}/ruc25P${date}${1}F12.gif
+  mv ruc6.gif ${ARCHIVE2}/ruc25P${date}${1}F00.gif
+  mv ruc6.gif.001 ${ARCHIVE2}/ruc25P${date}${1}F03.gif
+  mv ruc6.gif.002 ${ARCHIVE2}/ruc25P${date}${1}F06.gif
+  mv ruc6.gif.003 ${ARCHIVE2}/ruc25P${date}${1}F09.gif
+  mv ruc6.gif.004 ${ARCHIVE2}/ruc25P${date}${1}F12.gif
 endif
-####################################################################################
-set device="GF|ruc3.gif"
+
+#
+set device="GF|ruc7.gif"
 
 ##set param1="mul(quo(cape@0%none,1000.),quo(hlcy@0:3000%hagl,150.))"
 ##set param1="MUL(WSHR(OBS),SQRT(CAPE%NONE@0))"
@@ -357,16 +362,16 @@ EOF
 # Run GPEND to clean up
 #
 # Copy images to different name for eta model
-if (-e ruc3.gif) then
-  cp ruc3.gif $CURRENT/rucTEMPF00.gif
-  cp ruc3.gif.001 $CURRENT/rucTEMPF03.gif
-  cp ruc3.gif.002 $CURRENT/rucTEMPF06.gif
-  cp ruc3.gif.003 $CURRENT/rucTEMPF09.gif
-  cp ruc3.gif.004 $CURRENT/rucTEMPF12.gif
+if (-e ruc7.gif) then
+  cp ruc7.gif $CURRENT/rucTEMPF00.gif
+  cp ruc7.gif.001 $CURRENT/rucTEMPF03.gif
+  cp ruc7.gif.002 $CURRENT/rucTEMPF06.gif
+  cp ruc7.gif.003 $CURRENT/rucTEMPF09.gif
+  cp ruc7.gif.004 $CURRENT/rucTEMPF12.gif
 
-  mv ruc3.gif ${ARCHIVE2}/rucTEMP${date}${1}F00.gif
-  mv ruc3.gif.001 ${ARCHIVE2}/rucTEMP${date}${1}F03.gif
-  mv ruc3.gif.002 ${ARCHIVE2}/rucTEMP${date}${1}F06.gif
-  mv ruc3.gif.003 ${ARCHIVE2}/rucTEMP${date}${1}F09.gif
-  mv ruc3.gif.004 ${ARCHIVE2}/rucTEMP${date}${1}F12.gif
+  mv ruc7.gif ${ARCHIVE2}/rucTEMP${date}${1}F00.gif
+  mv ruc7.gif.001 ${ARCHIVE2}/rucTEMP${date}${1}F03.gif
+  mv ruc7.gif.002 ${ARCHIVE2}/rucTEMP${date}${1}F06.gif
+  mv ruc7.gif.003 ${ARCHIVE2}/rucTEMP${date}${1}F09.gif
+  mv ruc7.gif.004 ${ARCHIVE2}/rucTEMP${date}${1}F12.gif
 endif
