@@ -104,7 +104,7 @@ def workflow(prod, sts, ets, extra):
                            ))
         if not os.path.isfile(fn):
             fetch(prod, now, extra)
-        now += PRODS.get(prod)
+        now += PRODS.get(prod, FLASH_PRODS.get(prod))
 
 
 def main():
