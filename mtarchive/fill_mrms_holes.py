@@ -59,10 +59,11 @@ def is_gzipped(text):
 
 def fetch(prod, now, extra):
     """We have work to do!"""
+    extra2 = "FLASH_" if extra != '' else ''
     for center in ['cprk', 'bldr']:
         uri = now.strftime(("https://mrms-" + center +
                             ".ncep.noaa.gov/data/2D/" + extra +
-                            prod + "/MRMS_" + prod +
+                            prod + "/MRMS_" + extra2 + prod +
                             "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
 
         try:
@@ -86,7 +87,6 @@ def fetch(prod, now, extra):
     os.write(tmpfd, res.content)
     os.close(tmpfd)
 
-    extra2 = "FLASH_" if extra != '' else ''
     pattern = now.strftime(("/data/realtime/outgoing/grib2/" + extra +
                             "MRMS_" + extra2 + prod + "_00.00_" +
                             "%Y%m%d-%H%M%S.grib2.gz"))
