@@ -64,7 +64,7 @@ def main(argv):
     else:
         dt = datetime.date.today() - datetime.timedelta(days=14)
     # as of 6 Feb, we need to be backprocessing 1 Jan 2018 data, can offload
-    for offset in (0, 1, 14, 420):
+    for offset in (0, 1, 14, 250, 420):
         for bird in (16, 17):
             run(bird, dt, offset)
 
