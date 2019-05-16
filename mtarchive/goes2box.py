@@ -48,10 +48,14 @@ def run(bird, dt, offset):
     o.close()
 
     os.chdir(TMPDIR)
-    _fs, ress = send2box(
-        zips,
-        "/mtarchive/%s/%s/%s/cod/sat/goes%s" % (
-            dt.year, dt.month, dt.day, bird))
+    try:
+        _fs, ress = send2box(
+            zips,
+            "/mtarchive/%s/%s/%s/cod/sat/goes%s" % (
+                dt.year, dt.month, dt.day, bird))
+    except Exception as exp:
+        print("goes2box send2box exception: %s" % (exp, ))
+        return
     for fn, res in zip(zips, ress):
         if res:
             os.unlink(fn)
