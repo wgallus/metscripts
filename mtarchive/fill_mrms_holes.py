@@ -15,7 +15,7 @@ import requests
 
 
 PQINSERT = "/home/meteor_ldm/bin/pqinsert"
-BASE = "/isu/mtarchive/data"
+BASE = "/lss/research/mtarchive/data"
 M60 = datetime.timedelta(minutes=60)
 M2 = datetime.timedelta(minutes=2)
 M10 = datetime.timedelta(minutes=10)
