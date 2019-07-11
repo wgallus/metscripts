@@ -54,7 +54,7 @@ FLASH_PRODS = {
 
 def is_gzipped(text):
     """Check that we have gzipped content"""
-    return text[:2] == '\x1f\x8b'
+    return text[:2] == b'\x1f\x8b'
 
 
 def fetch(prod, now, extra):
