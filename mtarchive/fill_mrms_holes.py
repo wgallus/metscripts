@@ -69,15 +69,21 @@ def fetch(prod, now, extra):
         try:
             res = requests.get(uri, timeout=60)
         except requests.exceptions.ReadTimeout as _exp:
-            print("Read timeout on %s" % (uri, ))
+            print("Read timeout on %s %s" % (uri, _exp))
             continue
         except requests.exceptions.ConnectionError as _exp:
             print("Error for %s %s" % (uri, _exp))
             continue
-        if res.status_code == 200 and is_gzipped(res.content):
-            print(("Missing %s %s fixed from %s center"
-                   ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
-            break
+        if res.status_code == 200:
+            if is_gzipped(res.content):
+                print(
+                    "Missing %s %s fixed from %s center" % (
+                        prod, now.strftime("%Y-%m-%dT%H:%MZ"), center))
+                break
+            else:
+                print(
+                    "----> Not gzipped res from %s for %s %s" % (
+                        center, prod, now.strftime("%Y-%m-%dT%H:%MZ")))
         if center == 'bldr':
             print(("----> File %s %s missing for both centers"
                    ) % (prod, now.strftime("%Y-%m-%dT%H:%MZ")))
