@@ -57,14 +57,14 @@ def is_gzipped(text):
     return text[:2] == b'\x1f\x8b'
 
 
-def fetch(prod, now, extra):
+def fetch(prod, now, extra, level):
     """We have work to do!"""
     extra2 = "FLASH_" if extra != '' else ''
     for center in ['cprk', 'bldr']:
         uri = now.strftime(("https://mrms-" + center +
                             ".ncep.noaa.gov/data/2D/" + extra +
                             prod + "/MRMS_" + extra2 + prod +
-                            "_00.00_%Y%m%d-%H%M%S.grib2.gz"))
+                            "_" + level + "_%Y%m%d-%H%M%S.grib2.gz"))
 
         try:
             res = requests.get(uri, timeout=60)
@@ -94,7 +94,7 @@ def fetch(prod, now, extra):
     os.close(tmpfd)
 
     pattern = now.strftime(("/data/realtime/outgoing/grib2/" + extra +
-                            "MRMS_" + extra2 + prod + "_00.00_" +
+                            "MRMS_" + extra2 + prod + "_" + level + "_" +
                             "%Y%m%d-%H%M%S.grib2.gz"))
     cmd = "%s -p '%s' %s" % (PQINSERT, pattern, tmpfn)
     subprocess.call(cmd, shell=True)
@@ -104,12 +104,14 @@ def fetch(prod, now, extra):
 def workflow(prod, sts, ets, extra):
     """Process this stuff now!"""
     now = sts
+    level = "00.50" if prod == 'MESH' else "00.00"
     while now < ets:
         fn = now.strftime((BASE + "/%Y/%m/%d/mrms/ncep/" + extra +
-                           prod + "/" + prod + "_00.00_%Y%m%d-%H%M%S.grib2.gz"
+                           prod + "/" + prod + "_" + level +
+                           "_%Y%m%d-%H%M%S.grib2.gz"
                            ))
         if not os.path.isfile(fn):
-            fetch(prod, now, extra)
+            fetch(prod, now, extra, level)
         now += PRODS.get(prod, FLASH_PRODS.get(prod))
 
 
