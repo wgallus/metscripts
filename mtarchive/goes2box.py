@@ -40,12 +40,11 @@ def run(bird, dt, offset):
             print("goes2box processing goes%s/%s resulted in %s %s" % (
                 bird, dirname, stdout, stderr))
         zips.append(zipfn)
-    o = open("HEADER.html", 'w')
-    o.write((
-        "subregional imagery found <a "
-        "href=\"https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
-        ">on CyBox</a>"))
-    o.close()
+    with open("HEADER.html", 'w') as fh:
+        fh.write((
+            "subregional imagery found <a href=\""
+            "https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
+            ">on CyBox</a>"))
 
     os.chdir(TMPDIR)
     try:
