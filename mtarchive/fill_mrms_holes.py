@@ -29,6 +29,13 @@ PRODS = {'GaugeCorr_QPE_01H': M60,
          'RadarOnly_QPE_01H': M60,
          'RadarOnly_QPE_24H': M60,
          'RadarOnly_QPE_72H': M60,
+         'MountainMapper_QPE_01H': M60,
+         'MountainMapper_QPE_03H': M60,
+         'MountainMapper_QPE_06H': M60,
+         'MountainMapper_QPE_12H': M60,
+         'MountainMapper_QPE_24H': M60,
+         'MountainMapper_QPE_48H': M60,
+         'MountainMapper_QPE_72H': M60,
          'SeamlessHSR': M2}
 FLASH_PRODS = {
     'CREST_MAXSOILSAT': M10,
