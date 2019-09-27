@@ -36,11 +36,11 @@ def main(argv):
         mydir = argv[1]
         do(mydir)
         return
-    mydir = (utc() - datetime.timedelta(hours=12)).strftime("%Y%m%d%H")
+    mydir = (utc() - datetime.timedelta(hours=6)).strftime("%Y%m%d%H")
     do(mydir)
 
     # reprocess with no error reported
-    mydir = (utc() - datetime.timedelta(hours=24)).strftime("%Y%m%d%H")
+    mydir = (utc() - datetime.timedelta(hours=12)).strftime("%Y%m%d%H")
     do(mydir, False)
 
 
