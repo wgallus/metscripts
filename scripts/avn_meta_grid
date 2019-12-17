@@ -1,0 +1,4 @@
+#!/bin/csh
+source ~/nawips/Gemenviron
+cd /tmp
+csh /home/meteor_ldm/projects/metscripts/nascripts/avn_meta_grid `date -u +%Y%m%d` $*
