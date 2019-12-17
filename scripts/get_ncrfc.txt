@@ -1,0 +1,3 @@
+cd /data/Outgoing/ncrfc/rdhm_forcings
+get -r *
+exit
