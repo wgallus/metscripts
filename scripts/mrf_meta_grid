@@ -1,0 +1,3 @@
+#!/bin/csh
+cd /tmp
+csh /home/ldm/nascripts/mrf_meta_grid `date -u +%Y%m%d` $*

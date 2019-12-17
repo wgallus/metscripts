@@ -1,0 +1,3 @@
+#!/bin/csh
+cd /tmp
+csh /home/ldm/nascripts/ecmwf_meta_grid `date --date=yesterday -u +%Y%m%d` $*
