@@ -75,4 +75,4 @@ mygetter gempak/model/gfs/${date2}12_thin.gem ${ddir}/${date1}/gempak/model/${da
 
 # Pull over anything else that upstream mtarchive has and we would like
 cd ${ddir}/${date1}
-rsync -a --ignore-existing ldm@cyclone.agron.iastate.edu:/mnt/mtarchive/data/${date1}/. .
+rsync -a --ignore-existing /mnt/mtarchive/data/${date1}/. .
