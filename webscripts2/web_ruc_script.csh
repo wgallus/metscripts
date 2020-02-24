@@ -115,14 +115,14 @@ endif
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
-GDATTIM	= F03-F12-03
+GDATTIM	= F01-F15-01
 GLEVEL	= 0 ! 0 ! 0 !700
 GVCORD	= NONE ! NONE !   none  
-GFUNC	= (quo(p03m,25.4)) !(quo(p03m,25.4)) ! mmsl@0%none 
+GFUNC	= (quo(APCP01,25.4)) !(quo(APCP01,25.4)) ! mmsl@0%none 
 GVECT	=
 CINT	= /.1/.1!0.10;0.20;0.30;0.50;0.75;1.00;1.25;1.5;1.75;2.0;2.25;2.5;3.0!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 
-TITLE	= 5// ~ RAP  03-HR TOTAL PCPN, MSLP|^ 03-HOURLY TOTAL PCPN, MSLP!0
+TITLE	= 5// ~ RAP  01-HR TOTAL PCPN, MSLP|^ 01-HOURLY TOTAL PCPN, MSLP!0
 SCALE	= 0 ! ! 
 SKIP	= 0
 FINT    = 0.01;0.10;0.20;0.30;0.5;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.5;3.0
@@ -146,15 +146,27 @@ EOF
 #mv ps.plt ps.plt_ruc
 if (-e ruc.gif) then
  
-  cp ruc.gif ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f03.gif
-  cp ruc.gif.001 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f06.gif
-  cp ruc.gif.002 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f09.gif
-  cp ruc.gif.003 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f12.gif
+  mv ruc.gif ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f01.gif
+  cp ruc.gif.001 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f02.gif
+  cp ruc.gif.002 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f03.gif
+  cp ruc.gif.003 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f04.gif
+  cp ruc.gif.004 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f05.gif
+  cp ruc.gif.005 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f06.gif
+  cp ruc.gif.006 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f07.gif
+  cp ruc.gif.007 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f08.gif
+  cp ruc.gif.008 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f09.gif
+  cp ruc.gif.009 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f10.gif
+  cp ruc.gif.010 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f11.gif
+  cp ruc.gif.011 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f12.gif
+  cp ruc.gif.012 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f13.gif
+  cp ruc.gif.013 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f14.gif
+  cp ruc.gif.014 ${ddir2}/pix/ruc/${1}z/ruc_${DATE}${1}_3hr_total_precip_MSLP_f15.gif
 
-  mv ruc.gif ruc_11.gif
-  mv ruc.gif.001 ruc_12.gif
-  mv ruc.gif.002 ruc_13.gif
-  mv ruc.gif.003 ruc_14.gif
+  mv ruc.gif.002 ruc_11.gif
+  mv ruc.gif.005 ruc_12.gif
+  mv ruc.gif.008 ruc_13.gif
+  mv ruc.gif.011 ruc_14.gif
   keep ruc_1[1-4].gif
   mv ruc_1[1-4].gif $WEBPIX/
+  rm -f ruc.gif.???
 endif

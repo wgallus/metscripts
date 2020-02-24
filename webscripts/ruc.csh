@@ -113,14 +113,14 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
 DEVICE	= $device
-GDATTIM	= F03-F12-03
+GDATTIM	= F01-F15-01
 GLEVEL	= 0 ! 0 ! 0 !700
 GVCORD	= pres !   pres  !   none  
-GFUNC	= (quo(p03m,25.4)) !(quo(p03m,25.4)) ! MUL(0.01,MMSLA) 
+GFUNC	= (quo(APCP01,25.4)) !(quo(APCP01,25.4)) ! MUL(0.01,MMSLA) 
 GVECT	=
 CINT	= /.1/.1!0.10;0.20;0.30;0.50;0.75;1.00;1.25;1.5;1.75;2.0;2.25;2.5;3.0!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 
-TITLE	= 5/-2/ ~ RUC  03-HR TOTAL PCPN, MSLP|^ 03-HOURLY TOTAL PCPN, MSLP!0
+TITLE	= 5/-2/ ~ RUC  01-HR TOTAL PCPN, MSLP|^ 01-HOURLY TOTAL PCPN, MSLP!0
 SCALE	= 0 ! ! 
 SKIP	= 0
 FINT    = 0.01;0.10;0.20;0.30;0.5;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.5;3.0
@@ -138,15 +138,16 @@ EOF
 
 
 if (-e ruc3.gif) then
-  cp ruc3.gif $CURRENT/rucPRECF03.gif
-  cp ruc3.gif.001 $CURRENT/rucPRECF06.gif
-  cp ruc3.gif.002 $CURRENT/rucPRECF09.gif
-  cp ruc3.gif.003 $CURRENT/rucPRECF12.gif
+  cp ruc3.gif.002 $CURRENT/rucPRECF03.gif
+  cp ruc3.gif.005 $CURRENT/rucPRECF06.gif
+  cp ruc3.gif.008 $CURRENT/rucPRECF09.gif
+  cp ruc3.gif.011 $CURRENT/rucPRECF12.gif
 
-  mv ruc3.gif ${ARCHIVE2}/rucPREC${date}${1}F03.gif
-  mv ruc3.gif.001 ${ARCHIVE2}/rucPREC${date}${1}F06.gif
-  mv ruc3.gif.002 ${ARCHIVE2}/rucPREC${date}${1}F09.gif
-  mv ruc3.gif.003 ${ARCHIVE2}/rucPREC${date}${1}F12.gif
+  mv ruc3.gif.002 ${ARCHIVE2}/rucPREC${date}${1}F03.gif
+  mv ruc3.gif.006 ${ARCHIVE2}/rucPREC${date}${1}F06.gif
+  mv ruc3.gif.008 ${ARCHIVE2}/rucPREC${date}${1}F09.gif
+  mv ruc3.gif.011 ${ARCHIVE2}/rucPREC${date}${1}F12.gif
+  rm -f ruc3.gif*
 endif
 
 ##############################################################
