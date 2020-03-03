@@ -6,17 +6,18 @@ import os
 import datetime
 import subprocess
 
-from pyiem.ftpsession import send2box
+from pyiem.util import logger
 
+LOG = logger()
 TMPDIR = "/isu/mtarchive/tmp"
 
 
-def run(bird, dt, offset):
+def run(bird, dt, offset, sector):
     """Run for a given date."""
     dt = dt - datetime.timedelta(days=offset)
     path = (
-        "/isu/mtarchive/data/%s/cod/sat/goes%s/subregional"
-    ) % (dt.strftime("%Y/%m/%d"), bird)
+        "/isu/mtarchive/data/%s/cod/sat/goes%s/%s"
+    ) % (dt.strftime("%Y/%m/%d"), bird, sector)
     if not os.path.isdir(path):
         if offset == 0:
             print("goes2box %s not found" % (path, ))
@@ -26,8 +27,9 @@ def run(bird, dt, offset):
     for dirname in os.listdir("."):
         if dirname == 'HEADER.html':
             continue
-        zipfn = "goes%s_%s_%s.zip" % (
-            bird, dirname, dt.strftime("%Y%m%d"))
+        zipfn = "goes%s_%s_%s_%s.zip" % (
+            bird, sector, dirname, dt.strftime("%Y%m%d"))
+        LOG.debug("creating %s", zipfn)
         proc = subprocess.Popen(
             "zip -q -r %s/%s %s" % (TMPDIR, zipfn, dirname),
             shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -42,21 +44,29 @@ def run(bird, dt, offset):
         zips.append(zipfn)
     with open("HEADER.html", 'w') as fh:
         fh.write((
-            "subregional imagery found <a href=\""
+            "%s imagery found <a href=\""
             "https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
-            ">on CyBox</a>"))
+            ">on CyBox</a>") % (sector, ))
 
     os.chdir(TMPDIR)
-    try:
-        _fs, ress = send2box(
-            zips,
-            "/mtarchive/%s/%s/%s/cod/sat/goes%s" % (
-                dt.year, dt.month, dt.day, bird))
-    except Exception as exp:
-        print("goes2box send2box exception: %s" % (exp, ))
-        return
-    for fn, res in zip(zips, ress):
-        if res:
+    dirname = "/stage/mtarchive/%s/%s/%s/cod/sat/goes%s/%s" % (
+        dt.year, dt.month, dt.day, bird, sector)
+    cmd = "ssh meteor_ldm@metl60.agron.iastate.edu mkdir -p %s" % (dirname, )
+    subprocess.call(cmd, shell=True)
+    cmd = "rsync -a %s meteor_ldm@metl60.agron.iastate.edu:%s/" % (
+        " ".join(zips), dirname
+    )
+    proc = subprocess.Popen(
+        cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout = proc.stdout.read()
+    stderr = proc.stderr.read()
+    if stdout != b'' or stderr != b'':
+        print(cmd)
+        print(stdout.decode('ascci', 'ignore'))
+        print(stderr.decode('ascii', 'ignore'))
+    else:
+        for fn in zips:
+            LOG.debug("Deleting %s", fn)
             os.unlink(fn)
 
 
@@ -67,9 +77,11 @@ def main(argv):
     else:
         dt = datetime.date.today() - datetime.timedelta(days=14)
     # as of 6 Feb, we need to be backprocessing 1 Jan 2018 data, can offload
-    for offset in (0, 1, 14, 250, 420):
+    for offset in (0, 1, 14, 250, 800):
+        LOG.debug("processing offset %s", offset)
         for bird in (16, 17):
-            run(bird, dt, offset)
+            for sector in ['global', 'meso', 'subregional']:
+                run(bird, dt, offset, sector)
 
 
 if __name__ == '__main__':
