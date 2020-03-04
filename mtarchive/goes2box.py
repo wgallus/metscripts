@@ -47,7 +47,8 @@ def run(bird, dt, offset, sector):
             "%s imagery found <a href=\""
             "https://iastate.box.com/s/biv6ungdrto2pyjufyg5sz9j98jlwg9u\""
             ">on CyBox</a>") % (sector, ))
-
+    if not zips:
+        return
     os.chdir(TMPDIR)
     dirname = "/stage/mtarchive/%s/%s/%s/cod/sat/goes%s/%s" % (
         dt.year, dt.month, dt.day, bird, sector)
@@ -62,7 +63,7 @@ def run(bird, dt, offset, sector):
     stderr = proc.stderr.read()
     if stdout != b'' or stderr != b'':
         print(cmd)
-        print(stdout.decode('ascci', 'ignore'))
+        print(stdout.decode('ascii', 'ignore'))
         print(stderr.decode('ascii', 'ignore'))
     else:
         for fn in zips:
