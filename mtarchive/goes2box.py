@@ -54,7 +54,7 @@ def run(bird, dt, offset, sector):
         dt.year, dt.month, dt.day, bird, sector)
     rsyncpath = "mkdir -p %s && rsync" % (dirname, )
     cmd = (
-        "rsync -a --rsync-path=\"%s\" --remove-source-files"
+        "rsync -a --rsync-path=\"%s\" --remove-source-files "
         "%s meteor_ldm@metl60.agron.iastate.edu:%s/"
         ) % (
             rsyncpath,
