@@ -50,12 +50,15 @@ def run(bird, dt, offset, sector):
     if not zips:
         return
     os.chdir(TMPDIR)
-    dirname = "/stage/mtarchive/%s/%s/%s/cod/sat/goes%s/%s" % (
+    dirname = "/stage/mtarchive/%s/%02i/%02i/cod/sat/goes%s/%s" % (
         dt.year, dt.month, dt.day, bird, sector)
-    cmd = "ssh meteor_ldm@metl60.agron.iastate.edu mkdir -p %s" % (dirname, )
-    subprocess.call(cmd, shell=True)
-    cmd = "rsync -a %s meteor_ldm@metl60.agron.iastate.edu:%s/" % (
-        " ".join(zips), dirname
+    rsyncpath = "mkdir -p %s && rsync" % (dirname, )
+    cmd = (
+        "rsync -a --rsync-path=\"%s\" --remove-source-files"
+        "%s meteor_ldm@metl60.agron.iastate.edu:%s/"
+        ) % (
+            rsyncpath,
+            " ".join(zips), dirname
     )
     proc = subprocess.Popen(
         cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -65,10 +68,6 @@ def run(bird, dt, offset, sector):
         print(cmd)
         print(stdout.decode('ascii', 'ignore'))
         print(stderr.decode('ascii', 'ignore'))
-    else:
-        for fn in zips:
-            LOG.debug("Deleting %s", fn)
-            os.unlink(fn)
 
 
 def main(argv):
