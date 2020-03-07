@@ -1,11 +1,10 @@
-"""Bundle up our MRMS data to CyBox."""
+"""Bundle up our MRMS data to staging for delivery to GDrive."""
 import sys
 import datetime
 import os
 import subprocess
 
 from pyiem.util import utc, logger
-from pyiem.box_utils import sendfiles2box
 LOG = logger()
 
 
@@ -20,13 +19,13 @@ def do(mydir, reporterror=True):
         os.unlink(zipfn)
     subprocess.call("zip -r -q %s %s" % (zipfn, mydir), shell=True)
 
-    remotepath = "/MRMS/%s/%s/%s" % (mydir[:4], mydir[4:6], mydir[6:8])
-    res = sendfiles2box(remotepath, [zipfn, ])
-    if res[0] is not None:
-        os.unlink(zipfn)
-        subprocess.call("rm -rf %s" % (mydir, ), shell=True)
-        return
-    LOG.info("sendfiles2box for %s failed", zipfn)
+    remotepath = "/stage/MRMS/%s/%s/%s" % (mydir[:4], mydir[4:6], mydir[6:8])
+    cmd = (
+        "rsync -a --remove-source-files --rsync-path=\"mkdir -p %s && rsync\" "
+        "%s meteor_ldm@metl60.agron.iastate.edu:%s"
+        ) % (remotepath, zipfn, remotepath)
+    subprocess.call(cmd, shell=True)
+    subprocess.call("rm -rf %s" % (mydir, ), shell=True)
 
 
 def main(argv):
