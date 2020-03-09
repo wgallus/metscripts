@@ -1,19 +1,14 @@
-"""Send a tar file of our daily data to CyBox!
-
-Note, needs a ~/.netrc file with 600 perms
+"""Send a tar file of our daily data to staging for upload to GDrive.
 
 Lets run at 12z for the previous date
 """
 import datetime
 import subprocess
 import os
-import sys
 import logging
-from pyiem.ftpsession import send2box
 
 logger = logging.getLogger()
-#logger.setLevel(logging.DEBUG)
-#logging.debug("Setting logging to debug...")
+
 
 def run(date):
     """Upload this date's worth of data!"""
@@ -21,16 +16,21 @@ def run(date):
     tarfn = date.strftime("mtarchive_%Y%m%d.tgz")
     # Step 1: Create a gzipped tar file
     cmd = "tar -czf %s /mnt/mtarchive/data/%s" % (tarfn,
-                                                    date.strftime("%Y/%m/%d"))
+                                                  date.strftime("%Y/%m/%d"))
     subprocess.call(cmd, shell=True, stderr=subprocess.PIPE)
-    send2box(tarfn, date.strftime("/DailyMetArchive/%Y/%m"),
-             tmpdir="/data/tmp")
-    os.unlink(tarfn)
+    remotedir = date.strftime("/stage/DailyMetArchive/%Y/%m")
+    cmd = (
+        "rsync -a --remove-source-files --rsync-path \"mkdir -p %s; rsync\" "
+        "%s meteor_ldm@metl60.agron.iastate.edu:%s"
+    ) % (remotedir, tarfn, remotedir)
+    subprocess.call(cmd, shell=True)
 
 
-def main(argv):
+def main():
+    """Go Main Go!"""
     yesterday = datetime.date.today() - datetime.timedelta(days=1)
     run(yesterday)
 
+
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
