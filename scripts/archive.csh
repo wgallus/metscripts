@@ -4,6 +4,7 @@
 #set echo
 
 set dd=`date -u '--date=1 day ago' +%d`
+set yyyy=`date -u '--date=1 day ago' +%Y`
 set sday=`date -u '--date=1 day ago' +%y%m%d`
 set day=`date -u '--date=1 day ago' +%Y%m%d`
 set jday=`date -u '--date=1 day ago' +%Y%j`
@@ -31,3 +32,6 @@ tar cfz ${target} \
         gempak/model/gfs/${day}12_thin.gem \
         gempak/nldn/${day}*.gem \
         gempak/mos/${day}*.gem
+
+set remotedir="/stage/DailyMetArchive/daily/$YYYY"
+rsync -a --remove-source-files --rsync-path "mkdir -p $remotedir && rsync" $target meteor_ldm@metl60.agron.iastate.edu:$remotedir
