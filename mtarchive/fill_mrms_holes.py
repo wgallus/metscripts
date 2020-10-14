@@ -20,9 +20,9 @@ M60 = datetime.timedelta(minutes=60)
 M2 = datetime.timedelta(minutes=2)
 M10 = datetime.timedelta(minutes=10)
 PRODS = {
-    "GaugeCorr_QPE_01H": M60,
-    "GaugeCorr_QPE_24H": M60,
-    "GaugeCorr_QPE_72H": M60,
+    "MultiSensor_QPE_01H_Pass2": M60,
+    "MultiSensor_QPE_24H_Pass2": M60,
+    "MultiSensor_QPE_72H_Pass2": M60,
     # 'MESH': M2, can't do at the moment as it has random seconds
     "PrecipFlag": M2,
     "PrecipRate": M2,
@@ -30,13 +30,6 @@ PRODS = {
     "RadarOnly_QPE_01H": M60,
     "RadarOnly_QPE_24H": M60,
     "RadarOnly_QPE_72H": M60,
-    "MountainMapper_QPE_01H": M60,
-    "MountainMapper_QPE_03H": M60,
-    "MountainMapper_QPE_06H": M60,
-    "MountainMapper_QPE_12H": M60,
-    "MountainMapper_QPE_24H": M60,
-    "MountainMapper_QPE_48H": M60,
-    "MountainMapper_QPE_72H": M60,
     "SeamlessHSR": M2,
 }
 FLASH_PRODS = {
