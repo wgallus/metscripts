@@ -114,7 +114,6 @@ def fetch(prod, now, extra, level):
     pattern = now.strftime(
         (
             "/data/realtime/outgoing/grib2/CONUS/"
-            + extra
             + "MRMS_"
             + extra2
             + prod
