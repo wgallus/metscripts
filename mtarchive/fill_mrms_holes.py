@@ -4,8 +4,6 @@ Sadly, the NCEP LDM MRMS feed sometimes misses important files! We need to
 look at our archive and attempt to fill those holes.
 
 """
-from __future__ import print_function
-
 import datetime
 import os
 import tempfile
@@ -65,19 +63,8 @@ def fetch(prod, now, extra, level):
     extra2 = "FLASH_" if extra != "" else ""
     for center in ["cprk", "bldr"]:
         uri = now.strftime(
-            (
-                "https://mrms-"
-                + center
-                + ".ncep.noaa.gov/data/2D/"
-                + extra
-                + prod
-                + "/MRMS_"
-                + extra2
-                + prod
-                + "_"
-                + level
-                + "_%Y%m%d-%H%M%S.grib2.gz"
-            )
+            f"https://mrms-{center}.ncep.noaa.gov/data/2D/{extra}{prod}"
+            f"/MRMS_{extra2}{prod}_{level}_%Y%m%d-%H%M%S.grib2.gz"
         )
 
         try:
@@ -91,18 +78,17 @@ def fetch(prod, now, extra, level):
         if res.status_code == 200:
             if is_gzipped(res.content):
                 print(
-                    "Missing %s %s fixed from %s center"
+                    "LDM miss %s %s, fix by HTTP %s server"
                     % (prod, now.strftime("%Y-%m-%dT%H:%MZ"), center)
                 )
                 break
-            else:
-                print(
-                    "----> Not gzipped res from %s for %s %s"
-                    % (center, prod, now.strftime("%Y-%m-%dT%H:%MZ"))
-                )
+            print(
+                "----> Not gzipped res from %s for %s %s"
+                % (center, prod, now.strftime("%Y-%m-%dT%H:%MZ"))
+            )
         if center == "bldr":
             print(
-                ("----> File %s %s missing for both centers")
+                ("----> LDM miss %s %s and missing on both HTTP websites")
                 % (prod, now.strftime("%Y-%m-%dT%H:%MZ"))
             )
             return
