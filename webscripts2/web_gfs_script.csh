@@ -232,11 +232,9 @@ mv gfs_19.gif gfs_20.gif gfs_20[a-d].gif $WEBPIX/
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
-GDATTIM	= F06-F48-06
 SCALE	= 0 !0 ! ! 3
 GLEVEL  = 0 ! 0 ! 0 ! 700
 GVCORD  = none !none  !none !pres
-GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! pmsl@0%none !omeg@700%pres
 GVECT	=
 CINT	= /.1/.1!0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0!4!4
 LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 !2/1/1/1
@@ -249,8 +247,106 @@ HILO    =                  !                 !25;2////30;30/y !
 HLSYM   = 2;1.5//21//hw
 STNPLT  = 0
 \$mapfil=hipowo.gsf
-list
+
+DEVICE	= $device 
+GDATTIM	= F06
+GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! emsl@0%none !omeg@700%pres
 run
+
+	GDATTIM	= F012
+	DEVICE	= ${device}.001
+	GFUNC	= (quo(sub(APCP12,APCP06^f06),25.4)) !(quo(sub(APCP12,APCP06^f06),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F018
+	DEVICE	= ${device}.002
+	GFUNC	= (quo(sub(APCP18,APCP12^f12),25.4)) !(quo(sub(APCP18,APCP12^f12),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F024
+	DEVICE	= ${device}.003
+	GFUNC	= (quo(sub(APCP24,APCP18^f18),25.4)) !(quo(sub(APCP24,APCP18^f18),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F030
+	DEVICE	= ${device}.004
+	GFUNC	= (quo(sub(APCP30,APCP24^f24),25.4)) !(quo(sub(APCP30,APCP24^f24),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F036
+	DEVICE	= ${device}.005
+	GFUNC	= (quo(sub(APCP36,APCP30^f30),25.4)) !(quo(sub(APCP36,APCP30^f30),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F042
+	DEVICE	= ${device}.006
+	GFUNC	= (quo(sub(APCP42,APCP36^f36),25.4)) !(quo(sub(APCP42,APCP36^f36),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F048
+	DEVICE	= ${device}.007
+	GFUNC	= (quo(sub(APCP48,APCP42^f42),25.4)) !(quo(sub(APCP48,APCP42^f42),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F054
+	DEVICE	= ${device}.008
+	GFUNC	= (quo(sub(APCP54,APCP48^f48),25.4)) !(quo(sub(APCP54,APCP48^f48),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F060
+	DEVICE	= ${device}.009
+	GFUNC	= (quo(sub(APCP60,APCP54^f54),25.4)) !(quo(sub(APCP60,APCP54^f54),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F066
+	DEVICE	= ${device}.010
+	GFUNC	= (quo(sub(APCP66,APCP60^f60),25.4)) !(quo(sub(APCP66,APCP60^f60),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F072
+	DEVICE	= ${device}.011
+	GFUNC	= (quo(sub(APCP72,APCP66^f66),25.4)) !(quo(sub(APCP72,APCP66^f66),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F078
+	DEVICE	= ${device}.012
+	GFUNC	= (quo(sub(APCP78,APCP72^f72),25.4)) !(quo(sub(APCP78,APCP72^f72),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F084
+	DEVICE	= ${device}.013
+	GFUNC	= (quo(sub(APCP84,APCP78^f78),25.4)) !(quo(sub(APCP84,APCP78^f78),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F090
+	DEVICE	= ${device}.014
+	GFUNC	= (quo(sub(APCP90,APCP84^f84),25.4)) !(quo(sub(APCP90,APCP84^f84),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F096
+	DEVICE	= ${device}.015
+	GFUNC	= (quo(sub(APCP96,APCP90^f90),25.4)) !(quo(sub(APCP96,APCP90^f90),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F102
+	DEVICE	= ${device}.016
+	GFUNC	= (quo(sub(APCP102,APCP96^f96),25.4)) !(quo(sub(APCP102,APCP96^f96),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F108
+	DEVICE	= ${device}.017
+	GFUNC	= (quo(sub(APCP108,APCP102^f102),25.4)) !(quo(sub(APCP108,APCP102^f102),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F114
+	DEVICE	= ${device}.018
+	GFUNC	= (quo(sub(APCP114,APCP108^f108),25.4)) !(quo(sub(APCP114,APCP108^f108),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F120
+	DEVICE	= ${device}.019
+	GFUNC	= (quo(sub(APCP120,APCP114^f114),25.4)) !(quo(sub(APCP120,APCP114^f114),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
 
 exit
 EOF
@@ -268,6 +364,18 @@ cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f30
 cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f36.gif
 cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f42.gif
 cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f48.gif
+cp gfs.gif.008 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f54.gif
+cp gfs.gif.009 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f60.gif
+cp gfs.gif.010 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f66.gif
+cp gfs.gif.011 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
+cp gfs.gif.012 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f78.gif
+cp gfs.gif.013 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
+cp gfs.gif.014 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f90.gif
+cp gfs.gif.015 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
+cp gfs.gif.016 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f102.gif
+cp gfs.gif.017 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
+cp gfs.gif.018 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f114.gif
+cp gfs.gif.019 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
 
 mv gfs.gif gfs_21.gif
 mv gfs.gif.001 gfs_22.gif
@@ -277,62 +385,20 @@ mv gfs.gif.004 gfs_25.gif
 mv gfs.gif.005 gfs_26.gif
 mv gfs.gif.006 gfs_27.gif
 mv gfs.gif.007 gfs_28.gif
+mv gfs.gif.008 gfs_29.gif
+mv gfs.gif.009 gfs_30.gif
+mv gfs.gif.010 gfs_30a.gif
+mv gfs.gif.011 gfs_30b.gif
+mv gfs.gif.012 gfs_30c.gif
+mv gfs.gif.013 gfs_30d.gif
+mv gfs.gif.014 gfs_30e.gif
+mv gfs.gif.015 gfs_30f.gif
+mv gfs.gif.016 gfs_30g.gif
+mv gfs.gif.017 gfs_30h.gif
+mv gfs.gif.018 gfs_30i.gif
+mv gfs.gif.019 gfs_30j.gif
+
 keep gfs_2[1-8].gif
 mv gfs_2[1-8].gif $WEBPIX/
-
-$GEMEXE/gdplot_gf << EOF >> $LOGFILE
-\$RESPOND = YES
-GDFILE	= $grid
-GDATTIM	= F60-F120-6
-SCALE	= 0 !0 ! ! 3
-GLEVEL  = 0 ! 0 ! 0 ! 700
-GVCORD  = none !none  !none !pres
-GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! pmsl@0%none !omeg@700%pres
-GVECT	=
-CINT	= /.1/.1!0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0!4!4
-LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 !2/1/1/1
-TITLE	= 5/-2/ ~ GFS  6-HR TOTAL PCPN, MSLP, 700 VV|^ 6-HRLY TOT PCPN, MSLP, 700 VV!0!0
-SKIP	= 0
-FINT    = 0.01;0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0
-FLINE   = 0;21-27;24;28-30;14;15;2;5
-CTYPE	= f                !f                !c  !c
-HILO    =                  !                 !25;2////30;30/y !
-HLSYM   = 2;1.5//21//hw
-STNPLT  = 0
-\$mapfil=hipowo.gsf
-list
-run
-
-exit
-EOF
-#
-# Run GPEND to clean up
-#
-# Copy ps.plt to different name for eta model
-#mv ps.plt ps.plt_eta
-
-cp gfs.gif ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f60.gif
-cp gfs.gif.001 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f66.gif
-cp gfs.gif.002 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f72.gif
-cp gfs.gif.003 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f78.gif
-cp gfs.gif.004 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f84.gif
-cp gfs.gif.005 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f90.gif
-cp gfs.gif.006 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f96.gif
-cp gfs.gif.007 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f102.gif
-cp gfs.gif.008 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f108.gif
-cp gfs.gif.009 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f114.gif
-cp gfs.gif.010 ${ddir2}/pix/gfs/${1}z/gfs_${DATE}${1}_12hr_precip_MSLP_700VV_f120.gif
-
-mv gfs.gif gfs_29.gif
-mv gfs.gif.002 gfs_30.gif
-mv gfs.gif.004 gfs_30a.gif
-mv gfs.gif.006 gfs_30b.gif
-mv gfs.gif.008 gfs_30c.gif
-mv gfs.gif.010 gfs_30d.gif
-keep gfs_29.gif gfs_30.gif gfs_30[a-d].gif 
-mv gfs_29.gif gfs_30.gif gfs_30[a-d].gif $WEBPIX/
-rm gfs.gif.*
-#
-#endif
-
-
+keep gfs_29.gif gfs_30.gif gfs_30[a-j].gif 
+mv gfs_29.gif gfs_30.gif gfs_30[a-j].gif $WEBPIX/
