@@ -26,7 +26,7 @@ $GEMEXE/gdplot_gf << EOF > $LOGFILE
 
 	GLEVEL	= 500:1000                  !0
 	GVCORD	= pres                      !none
-	GFUNC	= (sub(hght@500,hght@1000)) !pmsl@0%none
+	GFUNC	= (sub(hght@500,hght@1000)) !EMSL@0%none
 	SCALE	= -1                        ! 0
 	CINT	= 6                         ! 4
 	LINE	= 3/3/1                     ! 20//2
@@ -91,10 +91,8 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 
 	GDFILE	= $grid
 	DEVICE	= $device 
-	GDATTIM	= $gdattim
 	GLEVEL	= 0	!0	!0	!700
 	GVCORD	= NONE	!NONE	!none	!pres
-	GFUNC	= (quo(apcp06,25.4)) !(quo(apcp06,25.4)) ! pmsl@0%none !omeg@700%pres
 	GVECT	=
 	CINT	= /.1/.1!0.10;0.25;0.50;0.75;1.0;1.25;1.5;1.75;2.0;2.25;2.50;2.75;3.0!4!4
 	LINE	= 20//1/0           !30//1/0          ! 5/1/1/3 !2/1/1/1
@@ -107,8 +105,68 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	HILO    =                  !                 !25;2////30;30/y !
 	HLSYM   = 2;1.5//21//hw
 	STNPLT  = 0
-	
-	list
+	GDATTIM	= F000
+	GFUNC	= (quo(APCP00,25.4)) !(quo(APCP00,25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F006
+	DEVICE	= ${device}.001
+	GFUNC	= (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F012
+	DEVICE	= ${device}.002
+	GFUNC	= (quo(sub(APCP12,APCP06^f06),25.4)) !(quo(sub(APCP12,APCP06^f06),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F018
+	DEVICE	= ${device}.003
+	GFUNC	= (quo(sub(APCP18,APCP12^f12),25.4)) !(quo(sub(APCP18,APCP12^f12),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F024
+	DEVICE	= ${device}.004
+	GFUNC	= (quo(sub(APCP24,APCP18^f18),25.4)) !(quo(sub(APCP24,APCP18^f18),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F030
+	DEVICE	= ${device}.005
+	GFUNC	= (quo(sub(APCP30,APCP24^f24),25.4)) !(quo(sub(APCP30,APCP24^f24),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F036
+	DEVICE	= ${device}.006
+	GFUNC	= (quo(sub(APCP36,APCP30^f30),25.4)) !(quo(sub(APCP36,APCP30^f30),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F042
+	DEVICE	= ${device}.007
+	GFUNC	= (quo(sub(APCP42,APCP36^f36),25.4)) !(quo(sub(APCP42,APCP36^f36),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F048
+	DEVICE	= ${device}.008
+	GFUNC	= (quo(sub(APCP48,APCP42^f42),25.4)) !(quo(sub(APCP48,APCP42^f42),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F054
+	DEVICE	= ${device}.009
+	GFUNC	= (quo(sub(APCP54,APCP48^f48),25.4)) !(quo(sub(APCP54,APCP48^f48),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F060
+	DEVICE	= ${device}.010
+	GFUNC	= (quo(sub(APCP60,APCP54^f54),25.4)) !(quo(sub(APCP60,APCP54^f54),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F066
+	DEVICE	= ${device}.011
+	GFUNC	= (quo(sub(APCP66,APCP60^f60),25.4)) !(quo(sub(APCP66,APCP60^f60),25.4)) ! EMSL@0%none !omeg@700%pres
+	run
+
+	GDATTIM	= F072
+	DEVICE	= ${device}.012
+	GFUNC	= (quo(sub(APCP72,APCP66^f66),25.4)) !(quo(sub(APCP72,APCP66^f66),25.4)) ! EMSL@0%none !omeg@700%pres
 	run
 
 	exit
@@ -279,7 +337,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GVECT	= WND
 	WIND    = bk4
 	TITLE	= 5/-2/ ~ GFS  850 HGHTS, DEW POINTS (C) AND WIND|^ 850 Z, TD, WIND!0
-	SKIP	= /4;4 !
+	SKIP	= /8;8 !
 	FINT	= -20;-16;-12;-8;-4;0;4;8;10;12;14;16;18;20
 	FLINE	= 0;26-16--1;14-8--2 !
 	CTYPE	= c/f ! c
@@ -313,7 +371,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	LINE	= 7/5/1/2           !31/1/2/2  !29/1/1/1
 	TITLE	= 5/-2/ ~ GFS 250 MB HGHTS, WIND SPEED (M/S) AND DIV
 	SCALE	= 0 ! 0 ! 5
-	SKIP	= 0 ! 0 ! 0
+	SKIP	= 0 ! 0 ! 8;8
 	FINT    = 10;20;30;40;50;60;70;80;90!!
 	FLINE	= 0;26-16--2;14-8--2 
 	CTYPE	= f              !c
@@ -346,7 +404,7 @@ $GEMEXE/gdplot_gf << EOF >> $LOGFILE
 	GFUNC	= relh(tmpc,dwpc)    !tmpc           !hght
 	GVECT   = wnd  ! !
 	WIND    = bk2
-	skip    = /4;4 !
+	skip    = /8;8 !
 	CINT	= 10;30;50;70;90 !-20;-10;-5;0;4;6;8;10;12;14;16;18   !30
 	LINE	= 7/5/1/2               !4/2/2/1             !4/1/2/2
 	HLSYM   = 
