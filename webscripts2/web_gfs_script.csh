@@ -250,102 +250,102 @@ STNPLT  = 0
 
 DEVICE	= $device 
 GDATTIM	= F06
-GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! emsl@0%none !omeg@700%pres
+GFUNC   = (quo(APCP06,25.4)) !(quo(APCP06,25.4)) ! emsl@0%none !VVEL@700%pres
 run
 
 	GDATTIM	= F012
 	DEVICE	= ${device}.001
-	GFUNC	= (quo(sub(APCP12,APCP06^f06),25.4)) !(quo(sub(APCP12,APCP06^f06),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP12,APCP06^f06),25.4)) !(quo(sub(APCP12,APCP06^f06),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F018
 	DEVICE	= ${device}.002
-	GFUNC	= (quo(sub(APCP18,APCP12^f12),25.4)) !(quo(sub(APCP18,APCP12^f12),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP18,APCP12^f12),25.4)) !(quo(sub(APCP18,APCP12^f12),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F024
 	DEVICE	= ${device}.003
-	GFUNC	= (quo(sub(APCP24,APCP18^f18),25.4)) !(quo(sub(APCP24,APCP18^f18),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP24,APCP18^f18),25.4)) !(quo(sub(APCP24,APCP18^f18),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F030
 	DEVICE	= ${device}.004
-	GFUNC	= (quo(sub(APCP30,APCP24^f24),25.4)) !(quo(sub(APCP30,APCP24^f24),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP30,APCP24^f24),25.4)) !(quo(sub(APCP30,APCP24^f24),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F036
 	DEVICE	= ${device}.005
-	GFUNC	= (quo(sub(APCP36,APCP30^f30),25.4)) !(quo(sub(APCP36,APCP30^f30),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP36,APCP30^f30),25.4)) !(quo(sub(APCP36,APCP30^f30),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F042
 	DEVICE	= ${device}.006
-	GFUNC	= (quo(sub(APCP42,APCP36^f36),25.4)) !(quo(sub(APCP42,APCP36^f36),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP42,APCP36^f36),25.4)) !(quo(sub(APCP42,APCP36^f36),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F048
 	DEVICE	= ${device}.007
-	GFUNC	= (quo(sub(APCP48,APCP42^f42),25.4)) !(quo(sub(APCP48,APCP42^f42),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP48,APCP42^f42),25.4)) !(quo(sub(APCP48,APCP42^f42),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F054
 	DEVICE	= ${device}.008
-	GFUNC	= (quo(sub(APCP54,APCP48^f48),25.4)) !(quo(sub(APCP54,APCP48^f48),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP54,APCP48^f48),25.4)) !(quo(sub(APCP54,APCP48^f48),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F060
 	DEVICE	= ${device}.009
-	GFUNC	= (quo(sub(APCP60,APCP54^f54),25.4)) !(quo(sub(APCP60,APCP54^f54),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP60,APCP54^f54),25.4)) !(quo(sub(APCP60,APCP54^f54),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F066
 	DEVICE	= ${device}.010
-	GFUNC	= (quo(sub(APCP66,APCP60^f60),25.4)) !(quo(sub(APCP66,APCP60^f60),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP66,APCP60^f60),25.4)) !(quo(sub(APCP66,APCP60^f60),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F072
 	DEVICE	= ${device}.011
-	GFUNC	= (quo(sub(APCP72,APCP66^f66),25.4)) !(quo(sub(APCP72,APCP66^f66),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP72,APCP66^f66),25.4)) !(quo(sub(APCP72,APCP66^f66),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F078
 	DEVICE	= ${device}.012
-	GFUNC	= (quo(sub(APCP78,APCP72^f72),25.4)) !(quo(sub(APCP78,APCP72^f72),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP78,APCP72^f72),25.4)) !(quo(sub(APCP78,APCP72^f72),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F084
 	DEVICE	= ${device}.013
-	GFUNC	= (quo(sub(APCP84,APCP78^f78),25.4)) !(quo(sub(APCP84,APCP78^f78),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP84,APCP78^f78),25.4)) !(quo(sub(APCP84,APCP78^f78),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F090
 	DEVICE	= ${device}.014
-	GFUNC	= (quo(sub(APCP90,APCP84^f84),25.4)) !(quo(sub(APCP90,APCP84^f84),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP90,APCP84^f84),25.4)) !(quo(sub(APCP90,APCP84^f84),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F096
 	DEVICE	= ${device}.015
-	GFUNC	= (quo(sub(APCP96,APCP90^f90),25.4)) !(quo(sub(APCP96,APCP90^f90),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP96,APCP90^f90),25.4)) !(quo(sub(APCP96,APCP90^f90),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F102
 	DEVICE	= ${device}.016
-	GFUNC	= (quo(sub(APCP102,APCP96^f96),25.4)) !(quo(sub(APCP102,APCP96^f96),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP102,APCP96^f96),25.4)) !(quo(sub(APCP102,APCP96^f96),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F108
 	DEVICE	= ${device}.017
-	GFUNC	= (quo(sub(APCP108,APCP102^f102),25.4)) !(quo(sub(APCP108,APCP102^f102),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP108,APCP102^f102),25.4)) !(quo(sub(APCP108,APCP102^f102),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F114
 	DEVICE	= ${device}.018
-	GFUNC	= (quo(sub(APCP114,APCP108^f108),25.4)) !(quo(sub(APCP114,APCP108^f108),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP114,APCP108^f108),25.4)) !(quo(sub(APCP114,APCP108^f108),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 	GDATTIM	= F120
 	DEVICE	= ${device}.019
-	GFUNC	= (quo(sub(APCP120,APCP114^f114),25.4)) !(quo(sub(APCP120,APCP114^f114),25.4)) ! EMSL@0%none !omeg@700%pres
+	GFUNC	= (quo(sub(APCP120,APCP114^f114),25.4)) !(quo(sub(APCP120,APCP114^f114),25.4)) ! EMSL@0%none !VVEL@700%pres
 	run
 
 exit
