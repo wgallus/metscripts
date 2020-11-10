@@ -9,8 +9,6 @@ set grid=${MODEL}/gfs/${DATE}${1}_gfs215.gem
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
-GDATTIM	= f06-f48-06
-DEVICE	= $device 
 PANEL	= 0
 TEXT	= 1.2/21//hw
 CONTUR	= 1
@@ -23,7 +21,6 @@ LATLON	= 0
 
 GLEVEL  = 0                !850              ! 700  !2
 GVCORD  = none             !pres             !pres  !hght
-GFUNC   = (quo(APCP06,25.4)) !(tmpc) ! (tmpc)! (tmpc)
 GVECT   =
 CINT    = 0.10;0.25;0.50;0.75;1.0;1.25;1.5;2.0!-5.0;0.0;2.0!-2.0;0.0;2.0 !-5.;0.;2.
 LINE    = 20//2/0           !6/1/2          ! 7/1/2  ! 2/4/2
@@ -37,7 +34,45 @@ HILO    =                  !  !  !
 HLSYM   =
 STNPLT=0
 \$mapfil=hipowo.gsf
-list
+
+GDATTIM	= f06
+GFUNC   = (quo(APCP06,25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= $device 
+run
+
+GDATTIM	= f12
+GFUNC   = (quo(sub(APCP12, APCP06^F06),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.001
+run
+
+GDATTIM	= f18
+GFUNC   = (quo(sub(APCP18, APCP12^F12),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.002
+run
+
+GDATTIM	= f24
+GFUNC   = (quo(sub(APCP24, APCP18^F18),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.003
+run
+
+GDATTIM	= f30
+GFUNC   = (quo(sub(APCP30, APCP24^F24),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.004
+run
+
+GDATTIM	= f36
+GFUNC   = (quo(sub(APCP36, APCP30^F30),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.005
+run
+
+GDATTIM	= f42
+GFUNC   = (quo(sub(APCP42, APCP36^F36),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.006
+run
+
+GDATTIM	= f48
+GFUNC   = (quo(sub(APCP48, APCP42^F42),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.007
 run
 
 exit
@@ -67,11 +102,10 @@ if (-e gfs2.gif) then
   keep gfs2_0[1-8].gif
   mv gfs2_0[1-8].gif $WEBPIX/
 endif
+
 $GEMEXE/gdplot_gf << EOF > $LOGFILE
 \$RESPOND = YES
 GDFILE	= $grid
-GDATTIM	= f60-f120-12
-DEVICE	= $device 
 PANEL	= 0
 TEXT	= 1.2/21//hw
 CONTUR	= 1
@@ -84,7 +118,6 @@ LATLON	= 0
 
 GLEVEL  = 0                !850              ! 700  !2
 GVCORD  = none             !pres             !pres  !hght
-GFUNC   = (quo(APCP06,25.4)) !(tmpc) ! (tmpc)! (tmpc)
 GVECT   =
 CINT    = 0.10;0.25;0.50;0.75;1.0;1.25;1.5;2.0!-5.0;0.0;2.0!-2.0;0.0;2.0 !-5.;0.;2.
 LINE    = 20//2/0           !6/1/2          ! 7/1/2  ! 2/4/2
@@ -98,12 +131,39 @@ HILO    =                  !  !  !
 HLSYM   =
 STNPLT=0
 \$mapfil=hipowo.gsf
-list
+
+GDATTIM	= f60
+GFUNC   = (quo(sub(APCP60, APCP48^F48),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= $device 
+run
+
+GDATTIM	= f72
+GFUNC   = (quo(sub(APCP72, APCP60^F60),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.001
+run
+
+GDATTIM	= f84
+GFUNC   = (quo(sub(APCP84, APCP72^F72),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.002
+run
+
+GDATTIM	= f96
+GFUNC   = (quo(sub(APCP96, APCP84^F84),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.003
+run
+
+GDATTIM	= f108
+GFUNC   = (quo(sub(APCP108, APCP96^F96),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.004
+run
+
+GDATTIM	= f120
+GFUNC   = (quo(sub(APCP120, APCP108^F108),25.4)) !(tmpc) ! (tmpc)! (tmpc)
+DEVICE	= ${device}.005
 run
 
 exit
 EOF
-# Run GPEND to clean up
 #
 # Copy images to different name for eta model
 if (-e gfs2.gif) then
@@ -533,8 +593,8 @@ mv gfs2.gif.008 gfs2_49.gif
 mv gfs2.gif.009 gfs2_50.gif
 mv gfs2.gif.010 gfs2_51.gif
 mv gfs2.gif.011 gfs2_52.gif
-keep gfs2_4[1-9].gif gfs2_50.gif
-mv gfs2_4[1-9].gif gfs2_50.gif $WEBPIX/
+keep gfs2_4[1-9].gif gfs2_5?.gif
+mv gfs2_4[1-9].gif gfs2_5?.gif $WEBPIX/
 
 
 $GEMEXE/gdplot_gf << EOF >> $LOGFILE
